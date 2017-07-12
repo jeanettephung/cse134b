@@ -4,7 +4,7 @@
     <title>HTML for Tag Testing</title>
     <meta charset="UTF-8">
     <style>
-      h1 {color:aqua}
+      h1 {color:darkslategray}
       a:hover {
       color: red;
       background-color: transparent;
@@ -12,30 +12,39 @@
       }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./assets/css/index.css">
   </head>
   <body>
     <header>
       <h1>Tag Testing</h1>
     </header>
       
-    <p id="scripttag"></p>  
     <main>
+        
+        <h1>Testing for script</h1>
+        <p id="scripttag"></p>  
         <script>
           document.getElementById("scripttag").innerHTML = "This will show if your browser allows Javascript!";
         </script>
       
+        <h1>Testing for noscript</h1>
         <noscript>
           Your browser doesn't show Javascript...!
         </noscript>
       
+        <h1>Testing for object</h1>
         <object width="200" height="50" data="./assets/audio/1_enemies.wav"><param name="autoplay" value="true">
           This will show if your browser does not support object tag...
         </object>
       
-        <link rel="stylesheet" type="text/css" href="./assets/css/theme.css">
+        <h1>Testing for link</h1>
+        <div id="contentinfo">
+        <h2>This is linking to the css style sheet!</h2>
       
+        <h1>Testing for a</h1>  
         <a href="http://www.wavsource.com/">More sound bites!</a>
       
+        <h1>Testing for form, fieldset, input</h1>
         <form>
           <fieldset>
           Family name:<br>
@@ -45,7 +54,7 @@
           </fieldset>
         </form> 
       
-        
+        <h1>Testing for select, optgroup, and option</h1>
         <select>
           <optgroup label="First Group">
             <option value="Stark">Stark</option>
@@ -59,29 +68,33 @@
           </optgroup>
         </select>
         
-        
+        <h1>Testing for textarea</h1>
         <textarea rows="5" cols="40">
           Game of Thrones is an American fantasy drama television series created by David Benioff and D. B. Weiss. It is an adaptation of A Song of Ice and Fire, George R. R. Martin's series of fantasy novels, the first of which is A Game of Thrones. -Wikipedia
         </textarea>
-      
+
+        <h1>Testing for button</h1>
         <button type="button" onclick="alert('Am button!')">Click Me!</button>
       
+        <h1>Testing for del, ins</h1>
         <p>I am a <del>good</del> <ins>great</ins> person!</p>
     
-        <h2>The following is a random, unordered list</h2>
-      
+        
+        <h1>Testing for ul, li</h1>      
         <ul>
           <li>It's</li>
           <li>That</li>
           <li>Simple</li>
         </ul>
       
+        <h1>Testing for ol, li</h1>
         <ol>
           <li>It</li>
           <li>Really</li>
           <li>Is</li>
         </ol>      
 
+        <h1>Testing for dl, dd, dt</h1>
         <dl>
           <dt>Game</dt>
           <dd>Fun, Challenging, Competetive</dd>
@@ -89,20 +102,29 @@
           <dd>Kings, Royalty, Medieval</dd>
         </dl>
       
+        <h1>Testing for iframe</h1>
         <iframe src="./soundboard-part1a.html" style="border:2px solid grey;"></iframe>
 
+        <h1>Testing for img gif</h1>
         <img src="./assets/img/gifimg.gif" alt="Gif Image" height="100" width="100">
+        <h1>Testing for img jpg</h1>
         <img src="./assets/img/jpgimg.jpg" alt="JPG Image" height="100" width="100">
+        <h1>Testing for img png</h1>
         <img src="./assets/img/pngimg.png" alt="PNG Image" height="100" width="100">
+        <h1>Testing for img webp</h1>
         <img src="./assets/img/webPimg.webp" alt="WebP Image" height="100" width="100">
+        <h1>Testing for img svg</h1>
         <img src="./assets/img/svgimg.svg" alt="SVG Image" height="100" width="100">
       
+        
+        <h1>Testing for srcset</h1>
         <picture>
-          <source media="(min-width: 650px)" srcset="./assets/img/largejpg.jpg">
-          <source media="(min-width: 465px)" srcset="./assets/img/mediumjpg.jpg">
-          <img src="./assets/img/smalljpg.jpg" alt="People" style="width:auto;">
+          <source media="(min-width: 800px)" srcset="./assets/img/largejpg.jpg">
+          <source media="(min-width: 500px)" srcset="./assets/img/mediumjpg.jpg">
+          <img src="./assets/img/smalljpg.jpg" alt="People" style="width:30%;">
         </picture>
-      
+
+        <h1>Testing for nav</h1>
         <nav>
           <a href="google.com">Google</a>
           <a href="facebook.com">Facebook</a>
@@ -110,6 +132,7 @@
         </nav>        
 
     </main>
+    <h1>Testing for footer</h1>
     <footer>&copy;Gucci</footer>
   </body>
 </html>
