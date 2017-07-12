@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML for Tag Testing</title>
+    <meta charset="UTF-8">
+    <style>
+      h1 {color:aqua}
+      a:hover {
+      color: red;
+      background-color: transparent;
+      text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Tag Testing</h1>
+    </header>
+      
+    <p id="scripttag"></p>  
+    <main>
+        <script>
+          document.getElementById("scripttag").innerHTML = "This will show if your browser allows Javascript!";
+        </script>
+      
+        <noscript>
+          Your browser doesn't show Javascript...!
+        </noscript>
+      
+        <object width="200" height="50" data="./assets/audio/1_enemies.wav"><param name="autoplay" value="true">
+          This will show if your browser does not support object tag...
+        </object>
+      
+        <link rel="stylesheet" type="text/css" href="./assets/css/theme.css">
+      
+        <a href="http://www.wavsource.com/">More sound bites!</a>
+      
+        <form>
+          <fieldset>
+          Family name:<br>
+          <input type="text" name="familyname" value="Lannister">
+          <br><br>
+          <input type="submit" value="Submit">
+          </fieldset>
+        </form> 
+      
+        
+        <select>
+          <optgroup label="First Group">
+            <option value="Stark">Stark</option>
+            <option value="Tyrell">Tyrell</option>
+            <option value="Martell">Martell</option>
+          </optgroup>
+          <optgroup label="Second Group">
+            <option value="Lannnister">Lannister</option>
+            <option value="Baratheon">Baratheon</option>
+            <option value="Targaryen">Targaryen</option>
+          </optgroup>
+        </select>
+        
+        
+        <textarea rows="5" cols="40">
+          Game of Thrones is an American fantasy drama television series created by David Benioff and D. B. Weiss. It is an adaptation of A Song of Ice and Fire, George R. R. Martin's series of fantasy novels, the first of which is A Game of Thrones. -Wikipedia
+        </textarea>
+      
+        <button type="button" onclick="alert('Am button!')">Click Me!</button>
+      
+        <p>I am a <del>good</del> <ins>great</ins> guy!</p>
+    
+        <h2>The following is a random, unordered list</h2>
+      
+        <ul>
+          <li>It's</li>
+          <li>That</li>
+          <li>Simple</li>
+        </ul>
+      
+        <ol>
+          <li>Coffee</li>
+          <li>Tea</li>
+          <li>Milk</li>
+        </ol>
+      
+      
+        
+        
+      
+        
+      
+        
+
+      
+        
+
+        
+        
+        
+        
+        
+
+    </main>
+    <footer>&copy;Gucci</footer>
+  </body>
+</html>
