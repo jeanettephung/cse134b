@@ -1,38 +1,51 @@
-<!-- Passes validation check -->
+<!-- 
+The validator indicates that there are 23 errors. The errors are all related to the html attributes being obsolete and advises using CSS instead. The attributes are obsolete on HTML5 because it uses HTML strictly to structure a web page. Presentation is handled by CSS, which is why the validator recommended styling the elements with CSS. This is not a concern to us for THIS assignment, which is to create a presentation styled HTML. In other cases, this is a concern since HTML should be used for strucutre and CSS for presentation.
+
+List of errors (html element - associated obsolete attribute): 
+  body - alink, background, bgcolor, link, text, vlink
+  center (parent to h1 element)
+  div - align
+  img - hspace
+  table - width
+  td - align
+  center (child of footer element)
+-->
 
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HTML for Structure Style</title>
+    <title>HTML for Presentation Style</title>
     <meta charset="UTF-8">
   </head>
-  <body>
+  <body alink="#528098" background="./assets/img/stone-background.jpg" bgcolor="black" link="#122D38" text="white" vlink="#3E3E3E">
     <header>
-      <h1>Soundboard</h1>
-      <a href="#">Login</a>
+      <center><h1>Soundboard</h1></center>
+      <div align="right">
+        <a href="#"><img src="./assets/img/login.png" alt="login" hspace="30" width="150"></a>
+      </div>
     </header>
     <main>
-      <table>
+      <table width="100%">
         <tr>
-          <td>
+          <td align="center">
             <img src="./assets/img/1_cersei.jpg" alt="Cersei">
             <audio controls>
               <source src="./assets/audio/1_enemies.wav" type="audio/wav">
             </audio>
           </td>
-          <td>
+          <td align="center">
             <img src="./assets/img/1_cersei.jpg" alt="Cersei">
             <audio controls>
               <source src="./assets/audio/1_enemies.wav" type="audio/wav">
             </audio>
           </td>
-          <td>
+          <td align="center">
             <img src="./assets/img/1_cersei.jpg" alt="Cersei">
             <audio controls>
               <source src="./assets/audio/1_enemies.wav" type="audio/wav">
             </audio>
           </td>
-          <td>
+          <td align="center">
             <img src="./assets/img/1_cersei.jpg" alt="Cersei">
             <audio controls>
               <source src="./assets/audio/1_enemies.wav" type="audio/wav">
@@ -40,25 +53,25 @@
           </td>
         </tr>
         <tr>
-          <td>
+          <td align="center">
             <img src="./assets/img/1_cersei.jpg" alt="Cersei">
             <audio controls>
               <source src="./assets/audio/1_enemies.wav" type="audio/wav">
             </audio>
           </td>
-          <td>
+          <td align="center">
             <img src="./assets/img/1_cersei.jpg" alt="Cersei">
             <audio controls>
               <source src="./assets/audio/1_enemies.wav" type="audio/wav">
             </audio>
           </td>
-          <td>
+          <td align="center">
             <img src="./assets/img/1_cersei.jpg" alt="Cersei">
             <audio controls>
               <source src="./assets/audio/1_enemies.wav" type="audio/wav">
             </audio>
           </td>
-          <td>
+          <td align="center">
             <img src="./assets/img/1_cersei.jpg" alt="Cersei">
             <audio controls>
               <source src="./assets/audio/1_enemies.wav" type="audio/wav">
@@ -66,25 +79,25 @@
           </td>
         </tr>
         <tr>
-          <td>
+          <td align="center">
             <img src="./assets/img/1_cersei.jpg" alt="Cersei">
             <audio controls>
               <source src="./assets/audio/1_enemies.wav" type="audio/wav">
             </audio>
           </td>
-          <td>
+          <td align="center">
             <img src="./assets/img/1_cersei.jpg" alt="Cersei">
             <audio controls>
               <source src="./assets/audio/1_enemies.wav" type="audio/wav">
             </audio>
           </td>
-          <td>
+          <td align="center">
             <img src="./assets/img/1_cersei.jpg" alt="Cersei">
             <audio controls>
               <source src="./assets/audio/1_enemies.wav" type="audio/wav">
             </audio>
           </td>
-          <td>
+          <td align="center">
             <img src="./assets/img/1_cersei.jpg" alt="Cersei">
             <audio controls>
               <source src="./assets/audio/1_enemies.wav" type="audio/wav">
@@ -93,6 +106,6 @@
         </tr>
       </table>
     </main>
-    <footer>&copy;Gucci</footer>
+    <footer><center>&copy;Gucci</center></footer>
   </body>
 </html>
