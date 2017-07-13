@@ -1,14 +1,13 @@
+<!-- Validation test did not fully pass due to input type date. Date input is not supported by all browsers (IE11, Firefox, Safari, and Opera Mini). -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>HTML for Tag Testing</title>
     <meta charset="UTF-8">
     <style>
-      h1 {color:darkslategray}
-      a:hover {
-      color: red;
-      background-color: transparent;
-      text-decoration: underline;
+      #style-ex {
+        color: red;
+        font-weight: bold;
       }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,122 +15,142 @@
   </head>
   <body>
     <header>
+      <p>header element</p>
       <h1>Tag Testing</h1>
     </header>
       
     <main>
-        
-        <h1>Testing for script</h1>
-        <p id="scripttag"></p>  
-        <script>
-          document.getElementById("scripttag").innerHTML = "This will show if your browser allows Javascript!";
-        </script>
+      <p>main element</p>
+      <h2>Testing for meta</h2>
+      <p>Within head tag, meta tag is used to set the character encoding to UTF-8</p>
+
+      <h2>Testing for script, noscript</h2>
+      <p>Tests if Javascript work by injecting text into p element identified by "scripttag". If your browser does not support Javascript, then a warning will be shown.</p>
+      <p id="scripttag"></p>  
+      <script>
+        document.getElementById("scripttag").innerHTML = "Your browser supports Javascript";
+      </script>
+      <noscript>
+        Warning: Your browser doesn't show Javascript...!
+      </noscript>
+
+      <h2>Testing for object, param</h2>
+      <p>Embeds an audio object onto web page using object tag. Param tag autoplays audio when page loads.</p>
+      <object width="200" height="50" data="./assets/audio/1_enemies.wav">
+        <param name="autoplay" value="true">
+        This will show if your browser does not support object tag...
+      </object>
+
+      <h2>Testing for style, link</h2>
+      <div id="style-ex">
+        <p>This is styled using css within style tags.</p>
+      </div>
+      <div id="link-ex">
+        <p>This is styled using an external css linked to this page.</p>
+      </div>
       
-        <h1>Testing for noscript</h1>
-        <noscript>
-          Your browser doesn't show Javascript...!
-        </noscript>
-      
-        <h1>Testing for object</h1>
-        <object width="200" height="50" data="./assets/audio/1_enemies.wav"><param name="autoplay" value="true">
-          This will show if your browser does not support object tag...
-        </object>
-      
-        <h1>Testing for link</h1>
-        <div id="contentinfo">
-        <h2>This is linking to the css style sheet!</h2>
-      
-        <h1>Testing for a</h1>  
-        <a href="http://www.wavsource.com/">More sound bites!</a>
-      
-        <h1>Testing for form, fieldset, input</h1>
-        <form>
-          <fieldset>
-          Family name:<br>
-          <input type="text" name="familyname" value="Lannister">
-          <br><br>
+      <h2>Testing for form, fieldset, input (text, password, checkbox, radio, date, number)</h2>
+      <form>
+        <fieldset>
+          Family name: <input type="text" name="familyname" value="Lannister"><br>
+          Password: <input type="password" name="pw"><br>
+          Check if you are human: <input type="checkbox" name="verifyHuman"><br>
+          Time of day: <input type="radio" name="time" value="morning" checked>morning <input type="radio" name="time" value="afternoon">afternoon <input type="radio" name="time" value="evening">evening <br>
+          <!-- Input type date that causes warning in validation -->
+          Birthday: <input type="date" name="bday"><br>
+          Age: <input type="number" name="age"><br>
           <input type="submit" value="Submit">
-          </fieldset>
-        </form> 
-      
-        <h1>Testing for select, optgroup, and option</h1>
-        <select>
-          <optgroup label="First Group">
-            <option value="Stark">Stark</option>
-            <option value="Tyrell">Tyrell</option>
-            <option value="Martell">Martell</option>
-          </optgroup>
-          <optgroup label="Second Group">
-            <option value="Lannnister">Lannister</option>
-            <option value="Baratheon">Baratheon</option>
-            <option value="Targaryen">Targaryen</option>
-          </optgroup>
-        </select>
-        
-        <h1>Testing for textarea</h1>
-        <textarea rows="5" cols="40">Game of Thrones is an American fantasy drama television series created by David Benioff and D. B. Weiss. It is an adaptation of A Song of Ice and Fire, George R. R. Martin's series of fantasy novels, the first of which is A Game of Thrones. -Wikipedia
-        </textarea>
+        </fieldset>
+      </form> 
 
-        <h1>Testing for button</h1>
-        <button type="button" onclick="alert('Am button!')">Click Me!</button>
-      
-        <h1>Testing for del, ins</h1>
-        <p>I am a <del>good</del> <ins>great</ins> person!</p>
-    
-        
-        <h1>Testing for ul, li</h1>      
-        <ul>
-          <li>It's</li>
-          <li>That</li>
-          <li>Simple</li>
-        </ul>
-      
-        <h1>Testing for ol, li</h1>
-        <ol>
-          <li>It</li>
-          <li>Really</li>
-          <li>Is</li>
-        </ol>      
+      <h2>Testing for select, optgroup, and option</h2>
+      <select>
+        <optgroup label="First Group">
+          <option value="Stark">Stark</option>
+          <option value="Tyrell">Tyrell</option>
+          <option value="Martell">Martell</option>
+        </optgroup>
+        <optgroup label="Second Group">
+          <option value="Lannnister">Lannister</option>
+          <option value="Baratheon">Baratheon</option>
+          <option value="Targaryen">Targaryen</option>
+        </optgroup>
+      </select>
 
-        <h1>Testing for dl, dd, dt</h1>
-        <dl>
-          <dt>Game</dt>
-          <dd>Fun, Challenging, Competetive</dd>
-          <dt>Thrones</dt>
-          <dd>Kings, Royalty, Medieval</dd>
-        </dl>
+      <h2>Testing for textarea</h2>
+      <textarea rows="5" cols="40">Game of Thrones is an American fantasy drama television series created by David Benioff and D. B. Weiss. It is an adaptation of A Song of Ice and Fire, George R. R. Martin's series of fantasy novels, the first of which is A Game of Thrones. -Wikipedia
+      </textarea>
       
-        <h1>Testing for iframe</h1>
-        <iframe src="./soundboard-part1a.html" style="border:2px solid grey;"></iframe>
+      <h2>Testing for button</h2>
+      <button type="button" onclick="alert('Am button!')">Click Me!</button>
 
-        <h1>Testing for img gif</h1>
-        <img src="./assets/img/gifimg.gif" alt="Gif Image" height="100" width="100">
-        <h1>Testing for img jpg</h1>
-        <img src="./assets/img/jpgimg.jpg" alt="JPG Image" height="100" width="100">
-        <h1>Testing for img png</h1>
-        <img src="./assets/img/pngimg.png" alt="PNG Image" height="100" width="100">
-        <h1>Testing for img webp</h1>
-        <img src="./assets/img/webPimg.webp" alt="WebP Image" height="100" width="100">
-        <h1>Testing for img svg</h1>
-        <img src="./assets/img/svgimg.svg" alt="SVG Image" height="100" width="100">
-      
-        
-        <h1>Testing for srcset</h1>
-        <picture>
-          <source media="(min-width: 800px)" srcset="./assets/img/largejpg.jpg">
-          <source media="(min-width: 500px)" srcset="./assets/img/mediumjpg.jpg">
-          <img src="./assets/img/smalljpg.jpg" alt="People" style="width:30%;">
-        </picture>
+      <h2>Testing for a</h2>  
+      <a href="http://www.wavsource.com/">More sound bites!</a>
 
-        <h1>Testing for nav</h1>
+      <h2>Testing for del, ins</h2>
+      <p>I am a <del>good</del> <ins>great</ins> person!</p>
+
+      <h2>Testing for ul, li, dl, dt, dd</h2>      
+      <ul>
+        <li>This</li>
+        <li>is</li>
+        <li>an</li>
+        <li>unordered</li>
+        <li>list.</li>
+      </ul>
+
+      <ol>
+        <li>An</li>
+        <li>ordered</li>
+        <li>list.</li>
+      </ol>      
+
+      <dl>
+        <dt>Definition of dt</dt>
+        <dd>Definition term</dd>
+        <dt>Definition of dd</dt>
+        <dd>Describes a term</dd>
+      </dl>
+
+      <h2>Testing for iframe</h2>
+      <p>iframe to homework 1 part 1a</p>
+      <iframe src="./soundboard-part1a.html" style="border:2px solid grey;"></iframe>
+
+      <h2>Testing for img (gif, jpg, png, webp, svg)</h2>
+      <p>gif</p>
+      <img src="./assets/img/gifimg.gif" alt="Gif Image" height="100" width="100">
+      <p>jpg</p>
+      <img src="./assets/img/jpgimg.jpg" alt="JPG Image" height="100" width="100">
+      <p>png</p>
+      <img src="./assets/img/pngimg.png" alt="PNG Image" height="100" width="100">
+      <p>webp</p>
+      <img src="./assets/img/webPimg.webp" alt="WebP Image" height="100" width="100">
+      <p>svg</p>
+      <img src="./assets/img/svgimg.svg" alt="SVG Image" height="100" width="100">
+
+      <h2>Testing for srcset</h2>
+      <picture>
+        <source media="(min-width: 800px)" srcset="./assets/img/largejpg.jpg">
+        <source media="(min-width: 500px)" srcset="./assets/img/mediumjpg.jpg">
+        <img src="./assets/img/smalljpg.jpg" alt="People" style="width:30%;">
+      </picture>
+
+      <section>
+        <h2>Testing for nav, section, header, footer, main</h2>
+        <p>nav</p>
         <nav>
+          <a href="#section">Section</a>
           <a href="google.com">Google</a>
           <a href="facebook.com">Facebook</a>
           <a href="tumblr.com">Tumblr</a>
-        </nav>        
-
+        </nav>
+        <p>The whole webpage is split into header, main, and footer elements.</p>
+      </section>
+      
     </main>
-    <h1>Testing for footer</h1>
-    <footer>&copy;Gucci</footer>
+    <footer>
+      <p>footer element</p>
+      <p>Gucci</p>
+    </footer>
   </body>
 </html>

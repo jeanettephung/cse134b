@@ -1,8 +1,21 @@
-#contentinfo h2 {
-    line-height: 20px;
-	margin: 2px;
-	padding-bottom: 10px;
-	text-align: justify;
-	width: 200px;
-	color: red;
+#link-ex {
+  color: blue;
+  text-decoration: underline;
+  font-style: italic;
+}
+
+header {
+  background-color: aqua;
+}
+
+main {
+  background-color: beige;
+}
+
+footer {
+  background-color: darkgray;
+}
+
+section {
+  background-color: azure;
 }
