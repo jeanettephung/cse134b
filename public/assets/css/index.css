@@ -17,5 +17,9 @@ footer {
 }
 
 section {
-  background-color: azure;
+  background-color: crimson;
+}
+
+nav {
+  background-color: cyan;
 }
