@@ -57,11 +57,11 @@ section {
   transition: all 0.6s ease-out;
 }
 .navbar li > a {
-  color: #3c3c3c;
+  color: #fff;
   font-size: 15px;
 }
 #myNavbar > ul > li.active > a {
-  color: #7c5653;
+  color: #aaba79;;
   font-weight: bolder;
   text-decoration: underline;
 }
@@ -70,9 +70,6 @@ section {
 }
 .navbar.scrolled li > a {
   color: #5f5f5f;
-}
-.navbar.scrolled #myNavbar > ul > li.active > a {
-  color: #9c6e6a;
 }
 #myNavbar > ul > li > a:hover, #myNavbar > ul > li > a:focus {
   background-color: transparent;
@@ -155,7 +152,7 @@ footer {
 }
 
 /* Mobile View */
-@media only screen and (max-width: 600px)  {
+@media only screen and (max-width: 600px) {
   .navbar .container {
     background-color: white;
   }
@@ -176,5 +173,10 @@ footer {
   }
   #homework ul {
     margin: 10px 45px;
+  }
+}
+@media only screen and (min-width: 550px) and (max-width: 992px) {
+  #team img {
+    width: 50%;
   }
 }
