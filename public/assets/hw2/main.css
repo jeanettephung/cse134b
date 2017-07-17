@@ -8,16 +8,16 @@
 
 body {
     background-image: url("./background.png");
-    padding: 0px 5%;
+    padding: 7%;
 }
 
 main {
     background-color: white;
-    border: 40px solid transparent;
+    border: 20px solid transparent;
     -webkit-border-image: url(./border.gif) 25 stretch;
     -o-border-image: url(./border.gif) 25 stretch;
     border-image: url(./border.gif) 25 stretch;
-    padding: 30px;
+    padding: 20px;
 }
 
 header {
@@ -33,9 +33,9 @@ section {
 
 section > div {
     font-family: 'Comic Sans MS';
-    font-size: 20px;
-    height: 50px;
-    padding: 10px;
+    font-size: 25px;
+    height: 60px;
+    padding: 10px 15px;
     text-transform: lowercase;
     width: 50%;  
 }
@@ -67,6 +67,7 @@ aside {
     margin: 1rem 0;
     padding: 1rem;
     text-align: center;
+    margin-bottom: 100px;
 }
 
 aside svg {
@@ -103,6 +104,8 @@ a.logo {
 footer {
     background-color: #EA6AC1;
     font-family: cursive;
+    margin: -20px;
+    padding: 20px;
     text-align: center;
 }
 
@@ -137,13 +140,29 @@ footer .wrapper span:after {
     width: 0;
 }
 
+#spritesheet {
+    display: none;
+}
+
 @media only screen and (max-device-width: 480px) {
   section > div:nth-child(odd), section > div:nth-child(even) {
     left: 0;
+    text-align: center;
     width: 100%;
   }
+  section > div {
+    font-size: 20px;
+  }
+  .fun {
+    -webkit-box-reflect: inherit;
+    float: right;
+    font-size: 50px;
+    margin-top: 20px;
+  }
+  aside {
+    font-size: 20px;
+  }
+  footer img {
+    width: 100px;
+  }
 }
-
-/* Opps truncated the file for you to fill in */
-
-/* Solution given should be below 250 lines, solution we had was below 200 easily */
