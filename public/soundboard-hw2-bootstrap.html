@@ -1,94 +1,306 @@
 <!-- Passes validation -->
+<!-- When cache is cleaned, the page takes 21.49seconds to load -->
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>HTML for Structure Style</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
   </head>
   <body>
     <header>
-      <h1>Soundboard</h1>
-      <div class="login">
-        <a href="#"><img src="./assets/img/login.png" alt="login"></a>
+      <div class="login pull-right">
+        <a class="btn-lg btn-primary" href="#" role="button">
+          <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Login
+        </a>
       </div>
+      <h1 class="page-header">Soundboard</h1>
     </header>
     <main>
-      <div class="soundboard">
+      <div class="soundboard container">
         <div class="row">
-          <div class="sound">
-            <img src="./assets/img/1_cersei.jpg" alt="Cersei">
-            <audio controls>
+          <div class="well sound col-12 col-sm-6 col-md-3">
+            <img src="./assets/img/1_cersei.jpg" alt="Cersei" class="img-responsive img-rounded center-block">
+            <div class="progress" style="margin-bottom:0px;">
+              <div class="progress-bar progress-bar-striped active" role="progressbar"
+              aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                100%
+              </div>
+            </div>
+            <div class="btn-group-justified btn-group-lg">
+              <a class="btn btn-default" href="#" role="button">
+                <span class="glyphicon glyphicon-play text-success" aria-hidden="true"></span>
+              </a>
+              <a class="btn btn-default col-xs-12" href="#" role="button">
+                <span class="glyphicon glyphicon-pause text-warning" aria-hidden="true"></span>
+              </a>
+              <a class="btn btn-default" href="#" role="button">
+                <span class="glyphicon glyphicon-stop text-danger" aria-hidden="true"></span>
+              </a>
+            </div>
+            <audio>
               <source src="./assets/audio/1_enemies.wav" type="audio/wav">
             </audio>
           </div>
-          <div class="sound">
-            <img src="./assets/img/2_tyrion.jpg" alt="Tyrion">
-            <audio controls>
+          <div class="well sound col-12 col-sm-6 col-md-3">
+            <img src="./assets/img/2_tyrion.jpg" alt="Tyrion" class="img-responsive img-rounded center-block">
+            <div class="progress" style="margin-bottom:0px;">
+              <div class="progress-bar progress-bar-striped active" role="progressbar"
+              aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                100%
+              </div>
+            </div>
+            <div class="btn-group-justified btn-group-lg">
+              <a class="btn btn-default" href="#" role="button">
+                <span class="glyphicon glyphicon-play text-success" aria-hidden="true"></span>
+              </a>
+              <a class="btn btn-default col-xs-12" href="#" role="button">
+                <span class="glyphicon glyphicon-pause text-warning" aria-hidden="true"></span>
+              </a>
+              <a class="btn btn-default" href="#" role="button">
+                <span class="glyphicon glyphicon-stop text-danger" aria-hidden="true"></span>
+              </a>
+            </div>
+            <audio >
               <source src="./assets/audio/2_offend.wav" type="audio/wav">
             </audio>
           </div>
-          <div class="sound">
-            <img src="./assets/img/3_nedstark.jpg" alt="Ned">
-            <audio controls>
+          <div class="clearfix visible-sm"></div>
+          <div class="well sound col-12 col-sm-6 col-md-3">
+            <img src="./assets/img/3_nedstark.jpg" alt="Ned" class="img-responsive img-rounded center-block">
+            <div class="progress" style="margin-bottom:0px;">
+              <div class="progress-bar progress-bar-striped active" role="progressbar"
+              aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                100%
+              </div>
+            </div>
+            <div class="btn-group-justified btn-group-lg">
+              <a class="btn btn-default" href="#" role="button">
+                <span class="glyphicon glyphicon-play text-success" aria-hidden="true"></span>
+              </a>
+              <a class="btn btn-default col-xs-12" href="#" role="button">
+                <span class="glyphicon glyphicon-pause text-warning" aria-hidden="true"></span>
+              </a>
+              <a class="btn btn-default" href="#" role="button">
+                <span class="glyphicon glyphicon-stop text-danger" aria-hidden="true"></span>
+              </a>
+            </div>
+            <audio>
               <source src="./assets/audio/3_actofwar.wav" type="audio/wav">
             </audio>
           </div>
-          <div class="sound">
-            <img src="./assets/img/4_tywin.jpg" alt="Tywin">
-            <audio controls>
+          <div class="well sound col-12 col-sm-6 col-md-3">
+            <img src="./assets/img/4_tywin.jpg" alt="Tywin" class="img-responsive img-rounded center-block">
+            <div class="progress" style="margin-bottom:0px;">
+              <div class="progress-bar progress-bar-striped active" role="progressbar"
+              aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                100%
+              </div>
+            </div>
+            <div class="btn-group-justified btn-group-lg">
+              <a class="btn btn-default" href="#" role="button">
+                <span class="glyphicon glyphicon-play text-success" aria-hidden="true"></span>
+              </a>
+              <a class="btn btn-default col-xs-12" href="#" role="button">
+                <span class="glyphicon glyphicon-pause text-warning" aria-hidden="true"></span>
+              </a>
+              <a class="btn btn-default" href="#" role="button">
+                <span class="glyphicon glyphicon-stop text-danger" aria-hidden="true"></span>
+              </a>
+            </div>
+            <audio>
               <source src="./assets/audio/4_clever.wav" type="audio/wav">
             </audio>
           </div>
         </div>
         <div class="row">
-          <div class="sound">
-            <img src="./assets/img/5_littlefinger.jpg" alt="Littlefinger">
-            <audio controls>
+          <div class="well sound col-12 col-sm-6 col-md-3">
+            <img src="./assets/img/5_littlefinger.jpg" alt="Littlefinger" class="img-responsive img-rounded center-block">
+            <div class="progress" style="margin-bottom:0px;">
+              <div class="progress-bar progress-bar-striped active" role="progressbar"
+              aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                100%
+              </div>
+            </div>
+            <div class="btn-group-justified btn-group-lg">
+              <a class="btn btn-default" href="#" role="button">
+                <span class="glyphicon glyphicon-play text-success" aria-hidden="true"></span>
+              </a>
+              <a class="btn btn-default col-xs-12" href="#" role="button">
+                <span class="glyphicon glyphicon-pause text-warning" aria-hidden="true"></span>
+              </a>
+              <a class="btn btn-default" href="#" role="button">
+                <span class="glyphicon glyphicon-stop text-danger" aria-hidden="true"></span>
+              </a>
+            </div>
+            <audio>
               <source src="./assets/audio/5_startover.wav" type="audio/wav">
             </audio>
           </div>
-          <div class="sound">
-            <img src="./assets/img/6_theon.jpg" alt="Theon">
-            <audio controls>
+          <div class="well sound col-12 col-sm-6 col-md-3">
+            <img src="./assets/img/6_theon.jpg" alt="Theon" class="img-responsive img-rounded center-block">
+            <div class="progress" style="margin-bottom:0px;">
+              <div class="progress-bar progress-bar-striped active" role="progressbar"
+              aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                100%
+              </div>
+            </div>
+            <div class="btn-group-justified btn-group-lg">
+              <a class="btn btn-default" href="#" role="button">
+                <span class="glyphicon glyphicon-play text-success" aria-hidden="true"></span>
+              </a>
+              <a class="btn btn-default col-xs-12" href="#" role="button">
+                <span class="glyphicon glyphicon-pause text-warning" aria-hidden="true"></span>
+              </a>
+              <a class="btn btn-default" href="#" role="button">
+                <span class="glyphicon glyphicon-stop text-danger" aria-hidden="true"></span>
+              </a>
+            </div>
+            <audio>
               <source src="./assets/audio/6_mercy.wav" type="audio/wav">
             </audio>
           </div>
-          <div class="sound">
-            <img src="./assets/img/7_robert.jpg" alt="Robert">
-            <audio controls>
+          <div class="clearfix visible-sm"></div>
+          <div class="well sound col-12 col-sm-6 col-md-3">
+            <img src="./assets/img/7_robert.jpg" alt="Robert" class="img-responsive img-rounded center-block">
+            <div class="progress" style="margin-bottom:0px;">
+              <div class="progress-bar progress-bar-striped active" role="progressbar"
+              aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                100%
+              </div>
+            </div>
+            <div class="btn-group-justified btn-group-lg">
+              <a class="btn btn-default" href="#" role="button">
+                <span class="glyphicon glyphicon-play text-success" aria-hidden="true"></span>
+              </a>
+              <a class="btn btn-default col-xs-12" href="#" role="button">
+                <span class="glyphicon glyphicon-pause text-warning" aria-hidden="true"></span>
+              </a>
+              <a class="btn btn-default" href="#" role="button">
+                <span class="glyphicon glyphicon-stop text-danger" aria-hidden="true"></span>
+              </a>
+            </div>
+            <audio>
               <source src="./assets/audio/7_did_right.wav" type="audio/wav">
             </audio>
           </div>
-          <div class="sound">
-            <img src="./assets/img/8_varys.jpg" alt="Varys">
-            <audio controls>
+          <div class="well sound col-12 col-sm-6 col-md-3">
+            <img src="./assets/img/8_varys.jpg" alt="Varys" class="img-responsive img-rounded center-block">
+            <div class="progress" style="margin-bottom:0px;">
+              <div class="progress-bar progress-bar-striped active" role="progressbar"
+              aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                100%
+              </div>
+            </div>
+            <div class="btn-group-justified btn-group-lg">
+              <a class="btn btn-default" href="#" role="button">
+                <span class="glyphicon glyphicon-play text-success" aria-hidden="true"></span>
+              </a>
+              <a class="btn btn-default col-xs-12" href="#" role="button">
+                <span class="glyphicon glyphicon-pause text-warning" aria-hidden="true"></span>
+              </a>
+              <a class="btn btn-default" href="#" role="button">
+                <span class="glyphicon glyphicon-stop text-danger" aria-hidden="true"></span>
+              </a>
+            </div>
+            <audio>
               <source src="./assets/audio/8_birds_flown.wav" type="audio/wav">
             </audio>
           </div>
         </div>
         <div class="row">
-          <div class="sound">
-            <img src="./assets/img/9_jaime.jpg" alt="Jaime">
-            <audio controls>
+          <div class="well sound col-12 col-sm-6 col-md-3">
+            <img src="./assets/img/9_jaime.jpg" alt="Jaime" class="img-responsive img-rounded center-block">
+            <div class="progress" style="margin-bottom:0px;">
+              <div class="progress-bar progress-bar-striped active" role="progressbar"
+              aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                100%
+              </div>
+            </div>
+            <div class="btn-group-justified btn-group-lg">
+              <a class="btn btn-default" href="#" role="button">
+                <span class="glyphicon glyphicon-play text-success" aria-hidden="true"></span>
+              </a>
+              <a class="btn btn-default col-xs-12" href="#" role="button">
+                <span class="glyphicon glyphicon-pause text-warning" aria-hidden="true"></span>
+              </a>
+              <a class="btn btn-default" href="#" role="button">
+                <span class="glyphicon glyphicon-stop text-danger" aria-hidden="true"></span>
+              </a>
+            </div>
+            <audio>
               <source src="./assets/audio/9_boring.wav" type="audio/wav">
             </audio>
           </div>
-          <div class="sound">
-            <img src="./assets/img/10_arya.jpg" alt="Arya">
-            <audio controls>
+          <div class="well sound col-12 col-sm-6 col-md-3">
+            <img src="./assets/img/10_arya.jpg" alt="Arya" class="img-responsive img-rounded center-block">
+            <div class="progress" style="margin-bottom:0px;">
+              <div class="progress-bar progress-bar-striped active" role="progressbar"
+              aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                100%
+              </div>
+            </div>
+            <div class="btn-group-justified btn-group-lg">
+              <a class="btn btn-default" href="#" role="button">
+                <span class="glyphicon glyphicon-play text-success" aria-hidden="true"></span>
+              </a>
+              <a class="btn btn-default col-xs-12" href="#" role="button">
+                <span class="glyphicon glyphicon-pause text-warning" aria-hidden="true"></span>
+              </a>
+              <a class="btn btn-default" href="#" role="button">
+                <span class="glyphicon glyphicon-stop text-danger" aria-hidden="true"></span>
+              </a>
+            </div>
+            <audio>
               <source src="./assets/audio/10_want_to.wav" type="audio/wav">
             </audio>
           </div>
-          <div class="sound">
-            <img src="./assets/img/11_natalie.jpg" alt="Natalie">
-            <audio controls>
+          <div class="clearfix visible-sm"></div>
+          <div class="well sound col-12 col-sm-6 col-md-3">
+            <img src="./assets/img/11_natalie.jpg" alt="Natalie" class="img-responsive img-rounded center-block">
+            <div class="progress" style="margin-bottom:0px;">
+              <div class="progress-bar progress-bar-striped active" role="progressbar"
+              aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                100%
+              </div>
+            </div>
+            <div class="btn-group-justified btn-group-lg">
+              <a class="btn btn-default" href="#" role="button">
+                <span class="glyphicon glyphicon-play text-success" aria-hidden="true"></span>
+              </a>
+              <a class="btn btn-default col-xs-12" href="#" role="button">
+                <span class="glyphicon glyphicon-pause text-warning" aria-hidden="true"></span>
+              </a>
+              <a class="btn btn-default" href="#" role="button">
+                <span class="glyphicon glyphicon-stop text-danger" aria-hidden="true"></span>
+              </a>
+            </div>
+            <audio>
               <source src="./assets/audio/12_ready_2_help.wav" type="audio/wav">
             </audio>
           </div>
-          <div class="sound">
-            <img src="./assets/img/12_jon.jpg" alt="Jon">
-            <audio controls>
+          <div class="well sound col-12 col-sm-6 col-md-3">
+            <img src="./assets/img/12_jon.jpg" alt="Jon" class="img-responsive img-rounded center-block">
+            <div class="progress" style="margin-bottom:0px;">
+              <div class="progress-bar progress-bar-striped active" role="progressbar"
+              aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                100%
+              </div>
+            </div>
+            <div class="btn-group-justified btn-group-lg">
+              <a class="btn btn-default" href="#" role="button">
+                <span class="glyphicon glyphicon-play text-success" aria-hidden="true"></span>
+              </a>
+              <a class="btn btn-default col-xs-12" href="#" role="button">
+                <span class="glyphicon glyphicon-pause text-warning" aria-hidden="true"></span>
+              </a>
+              <a class="btn btn-default" href="#" role="button">
+                <span class="glyphicon glyphicon-stop text-danger" aria-hidden="true"></span>
+              </a>
+            </div>
+            <audio>
               <source src="./assets/audio/12_ready_2_help.wav" type="audio/wav">
             </audio>
           </div>
