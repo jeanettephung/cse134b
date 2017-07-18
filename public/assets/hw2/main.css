@@ -8,6 +8,8 @@
 
 body {
     background-image: url("./background.png");
+    background-attachment: fixed;
+    color: white;
     padding: 7%;
 }
 
@@ -20,12 +22,8 @@ main {
     padding: 20px;
 }
 
-header {
-}
-
 section {
     background-color: rgb(243,234,95);
-    color: white;
     display: flex;
     flex-direction: column-reverse;
     width: 100%;
@@ -51,17 +49,13 @@ section > div:nth-child(even) {
 }
 
 section > div:nth-child(3):after {
-     content: " ♥♥♥";
+    content: " ♥♥♥";
 }
 	
 aside {
     background: rgb(255,63,63);
-    color: white;
     border: 1rem solid black;
-    border-top-left-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    border-top-right-radius: 3rem;
-    border-bottom-left-radius: 3rem;
+    border-radius: 1rem 3rem;
     font-family: sans-serif;
     font-size: 2rem;
     margin: 1rem 0;
@@ -74,6 +68,35 @@ aside svg {
     fill: white;
     height: 1.5rem;
     width: 1.5rem;
+}
+
+aside svg:hover {  
+    animation-name: spin;
+    animation-duration: 1.5s;
+    animation-iteration-count: 3;
+    -webkit-animation: all 2s, spin 4s 2s 3;
+
+    fill: black;
+    transform: scale(5);
+    -moz-transform: scale(5);
+    -webkit-transform: scale(5);
+    transform-origin: 50% 50%;
+    transition: fill 3s ease;
+    transition: transform 3s ease;
+
+}
+
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg) scale(5); }
+    to { -moz-transform: rotate(360deg) scale(5); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg) scale(5); }
+    to { -webkit-transform: rotate(360deg) scale(5); }
+}
+@keyframes spin {
+    from { transform: rotate(0deg) scale(5); }
+    to { transform: rotate(360deg) scale(5); }
 }
 
 a.logo {
@@ -94,15 +117,24 @@ a.logo {
     -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0, transparent), to(white)); 
     color: white;
     float: right;
+    font-family: monospace;
     font-size: 70px;
-    letter-spacing: 5px;
     margin-bottom: 60px;
     text-shadow: -2px 0 rgb(255,63,63), 0 1px rgb(255,63,63), 2px 0 rgb(255,63,63), 0 -1px rgb(255,63,63);
     text-transform: uppercase;
 }
 
+#kern1, #kern3 {
+    letter-spacing: -11px;
+}
+
+#kern2 {
+    letter-spacing: -16px;
+}
+
 footer {
     background-color: #EA6AC1;
+    color: black;
     font-family: cursive;
     margin: -20px;
     padding: 20px;
@@ -155,8 +187,8 @@ footer .wrapper span:after {
   }
   .fun {
     -webkit-box-reflect: inherit;
-    float: right;
-    font-size: 50px;
+    float: left;
+    font-size: 55px;
     margin-top: 20px;
   }
   aside {
