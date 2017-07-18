@@ -113,14 +113,13 @@ a.logo {
 }
 
 .fun {
-    -webkit-box-reflect: below -20px
-    -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0, transparent), to(white)); 
+    -webkit-box-reflect: below -20px -webkit-linear-gradient(bottom, rgba(255, 255, 255, 0.3) 1%, transparent 100%, transparent 100%);
     color: white;
     float: right;
     font-family: monospace;
     font-size: 70px;
     margin-bottom: 60px;
-    text-shadow: -2px 0 rgb(255,63,63), 0 1px rgb(255,63,63), 2px 0 rgb(255,63,63), 0 -1px rgb(255,63,63);
+    text-shadow: -3px 0 rgb(255,63,63), 0 3px rgb(255,63,63), 2px 0 rgb(255,63,63), 0 -1px rgb(255,63,63);
     text-transform: uppercase;
 }
 
@@ -176,7 +175,7 @@ footer .wrapper span:after {
     display: none;
 }
 
-@media only screen and (max-device-width: 480px) {
+@media (max-width: 600px) {
   section > div:nth-child(odd), section > div:nth-child(even) {
     left: 0;
     text-align: center;
