@@ -1,4 +1,4 @@
-/* Hint: use relative measurements you'll find them useful! */
+/* There are 4 errors and 11 warnings. The four errors are related to the nonexistant svg fill property and keyframes vender-specific prefixes is not implemented. We can ignore these errors because vender-specific prefixes and svg-fill are not part of W3C specifications. There are also 10 warnings, relating to imported style sheets, vender extension, and property fill. The imported style sheets warning just tells us that we imported the Google Font and it does not validate the imported CSS. The vendor extnsions and property fill are just not part of the W3C specs and we do not have to worry about it. */
 
 @import url('https://fonts.googleapis.com/css?family=Monoton');  /* Set this for Monton...figure out their syntax */
 
@@ -15,7 +15,7 @@ body {
 
 main {
     background-color: white;
-    border: 20px solid transparent;
+    border: 20px solid;
     -webkit-border-image: url(./border.gif) 25 stretch;
     -o-border-image: url(./border.gif) 25 stretch;
     border-image: url(./border.gif) 25 stretch;
@@ -46,6 +46,7 @@ section > div:nth-child(odd) {
 
 section > div:nth-child(even) {
     background-color: rgb(43,209,252);
+    text-align: right;
 }
 
 section > div:nth-child(3):after {
@@ -74,7 +75,7 @@ aside svg:hover {
     animation-name: spin;
     animation-duration: 1.5s;
     animation-iteration-count: 3;
-    -webkit-animation: all 2s, spin 4s 2s 3;
+    animation: all 2s, spin 4s 2s 3;
 
     fill: black;
     transform: scale(5);
