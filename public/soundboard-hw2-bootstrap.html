@@ -1,28 +1,30 @@
-<!-- When cache is cleaned, the page takes 12.5 seconds to load. -->
-<!-- The HTML validation passed! -->
-<!-- The CSS validation test on CSS3+SVG resulted in 22 errors and 164 warnings. Below are the type of errors and warnings we came across. Some of warnings consists of vendor-related properties not included in W3C validator. The rest are browser-specific hacks that Bootstrap acknowledges that they use. Therefore these warnings and errors can be ignored. Below are browser-specific hacks, the rest are vendor-related properties (starts with "-"): -->
-
-<!-- Errors (browser-specific hacks):
-  - Value error (ex. 1px \9): we do not have to worry about because Bootstrap purposely adds as an IE specific hack
-  - Feature -webkit-min-device-pixel-ratio doesn't exist for media screen: (???)
-  - Property doesn't exist (touch-action, user-select, progid, zoom)
-  - Attempt to find a semi-colon before the property name. add it
-  - Parse Error
-  - Feature transform-3d doesn't exist for media
--->
-
-<!-- Warnings (browser-specific hacks):
-  - Same color for background-color and border-color
--->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <title>HTML with Bootstrap</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./assets/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap-theme.min.css">
   </head>
+  <!-- When cache is cleaned, the page takes 22.5 seconds to load. -->
+  <!-- The HTML validation passed! (Comments placed here because meta tag needs to be read in first few bytes) -->
+  <!-- The CSS validation test on CSS3+SVG resulted in 22 errors and 164 warnings. Below are the type of errors and warnings we came across. Some of warnings consists of vendor-related properties not included in W3C validator. The rest are browser-specific hacks that Bootstrap acknowledges that they use. Therefore these warnings and errors can be ignored. Below are browser-specific hacks, the rest are vendor-related properties (starts with "-"): -->
+
+  <!-- Errors (browser-specific hacks):
+    - Value error (ex. 1px \9): we do not have to worry about because Bootstrap purposely adds as an IE specific hack
+    - Feature -webkit-min-device-pixel-ratio doesn't exist for media screen: (???)
+    - Property doesn't exist (touch-action, user-select, progid, zoom)
+    - Attempt to find a semi-colon before the property name. add it
+    - Parse Error
+    - Feature transform-3d doesn't exist for media
+  -->
+
+  <!-- Warnings (browser-specific hacks):
+    - Same color for background-color and border-color
+  -->
   <body>
     <header>
       <div class="login pull-right">
