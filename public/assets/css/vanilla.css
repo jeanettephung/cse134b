@@ -1,11 +1,9 @@
-/*When cache is cleaned, the page takes 8.96 seconds to load. */
+/* When cache is cleaned, the page takes 8.96 seconds to load. This CSS file size is 7.4 kb. The Bootstrap total CSS file size is 168.8 kb. */
 
-/* Validation check has 2 errors and 24 warnings. All the errors are vendor-specific prefixes, vendor extended pseaudo-element vendor extensions.  W3C do not support vendor-related properties. Therefore, we do not have to worry about these errors or warnings. */
+/* Validation check has 2 errors and 25 warnings. All the errors are vendor-specific prefixes, vendor extended pseaudo-element vendor extensions.  W3C do not support vendor-related properties. Therefore, we do not have to worry about these errors or warnings. */
 
 html {
   font-family: sans-serif;
-  -webkit-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
 }
 body {
   margin: 0;
@@ -17,12 +15,7 @@ main {
 }
 button {
   margin: 0;
-  -webkit-appearance: button;
   cursor: pointer;
-}
-button::-moz-focus-inner {
-  padding: 0;
-  border: 0;
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
@@ -37,8 +30,6 @@ button::-moz-focus-inner {
   font-style: normal;
   font-weight: normal;
   line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 .glyphicon-play:before {
   content: "\e072";
@@ -62,7 +53,6 @@ button::-moz-focus-inner {
 }
 html {
   font-size: 10px;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 a {
   color: #337ab7;
@@ -155,8 +145,6 @@ h1 {
   background-image: -o-linear-gradient(top,#fff 0,#e0e0e0 100%);
   background-image: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#e0e0e0));
   background-image: linear-gradient(to bottom,#fff 0,#e0e0e0 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe0e0e0', GradientType=0);
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
   background-repeat: repeat-x;
   border-color: #ccc;
 }
@@ -175,8 +163,6 @@ h1 {
   background-image: -o-linear-gradient(top,#337ab7 0,#265a88 100%);
   background-image: -webkit-gradient(linear,left top,left bottom,from(#337ab7),to(#265a88));
   background-image: linear-gradient(to bottom,#337ab7 0,#265a88 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff337ab7', endColorstr='#ff265a88', GradientType=0);
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
   background-repeat: repeat-x;
   border-color: #245580;
 }
@@ -266,7 +252,6 @@ h1 {
   background-image: -o-linear-gradient(top,#e8e8e8 0,#f5f5f5 100%);
   background-image: -webkit-gradient(linear,left top,left bottom,from(#e8e8e8),to(#f5f5f5));
   background-image: linear-gradient(to bottom,#e8e8e8 0,#f5f5f5 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe8e8e8', endColorstr='#fff5f5f5', GradientType=0);
   background-repeat: repeat-x;
   border-color: #dcdcdc;
   -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,.05), 0 1px 0 rgba(255,255,255,.1);

@@ -1,15 +1,12 @@
-var controls = document.querySelectorAll('.soundboard a');
-for (var i = 0, len = controls.length; i < len; i++) {
-  controls[i].addEventListener('click', function () {
-    var sound = this.parentElement.parentElement.getElementsByTagName('audio')[0];
-    var className = this.querySelector('span').className;
-    if (className.startsWith("glyphicon glyphicon-play")) {
-      sound.play();
-    } else if (className.startsWith("glyphicon glyphicon-pause")) {
-      sound.pause();
+for (var i = 0, len = document.querySelectorAll('.soundboard .sound .btn').length; i < len; i++) {
+  document.querySelectorAll('.soundboard .sound .btn')[i].addEventListener('click', function () {
+    if ((this.querySelector('span').className).startsWith("glyphicon glyphicon-play")) {
+      (this.parentElement.parentElement.getElementsByTagName('audio')[0]).play();
+    } else if ((this.querySelector('span').className).startsWith("glyphicon glyphicon-pause")) {
+      (this.parentElement.parentElement.getElementsByTagName('audio')[0]).pause();
     } else {
-      sound.pause();
-      sound.currentTime = 0;      
+      (this.parentElement.parentElement.getElementsByTagName('audio')[0]).pause();
+      (this.parentElement.parentElement.getElementsByTagName('audio')[0]).currentTime = 0;      
     }
   }, false)
 }
