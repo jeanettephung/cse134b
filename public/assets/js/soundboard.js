@@ -1,17 +1,16 @@
-$('.soundboard a').click(function(){
-    event.preventDefault()
-    if ($(this).is(':nth-child(1)')) {
-      console.log($(this).parent()+'audio');
-      var aud=$(this).parent()+'audio';
-      console.log(aud.parseJSON());
-      console.log($("#test"));
-      document.querySelector($(this).parent()+'audio').play();
-//      ($("#test")[0]).play();
-//      document.getElementById('test').play();
-      ($(aud)[0]).play();
-    } else if ($(this).is(':nth-child(2)')) {
-      console.log("2");
+var controls = document.querySelectorAll('.soundboard a');
+for (var i = 0, len = controls.length; i < len; i++) {
+  controls[i].addEventListener('click', function () {
+    var sound = this.parentElement.parentElement.getElementsByTagName('audio')[0];
+    var className = this.querySelector('span').className;
+    console.log(className);
+    if (className == "glyphicon glyphicon-play") {
+      sound.play();
+    } else if (className == "glyphicon glyphicon-pause") {
+      sound.pause();
     } else {
-      console.log("3");
+      sound.pause();
+      sound.currentTime = 0;      
     }
-});
+  }, false)
+}
