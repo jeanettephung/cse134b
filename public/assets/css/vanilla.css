@@ -1,6 +1,14 @@
-/* When cache is cleaned, the page takes ~6.85 seconds to load vanilla.css, which is 7.4 kb. The Bootstrap total CSS file size is 168.8 kb and the page takes ~7.90 seconds to load. Because the image files are significantly larger than the CSS files, we do not see much difference in load times. Looking only at the load times for the CSS files, it takes ~123 ms for vanilla.css and ~1413 ms with Bootstrap. */
+/* When cache is cleaned, the page takes 19.07s to finish and 3.66s to load. The size of vanilla.css is 6KB and takes 119 ms. The HTML file is 10KB and takes 120ms. 
 
-/* Validation check has 0 errors and 14 warnings. All the warnings are vendor-specific prefixes or vendor extended pseaudo-element vendor extensions.  W3C do not support vendor-related properties. Therefore, we do not have to worry about these errors or warnings. */
+Comparison: Vanilla < Bootstrap
+- CSS: 6KB < 172 KB
+- CSS Time: 119ms < 892 ms
+- HTML: 10KB < 13KB
+- HTML Time: 120ms < 2.41s
+- load: 3.66s <= 3.66s
+- finish: 19.07s < 22.02s
+
+Validation check has 0 errors and 14 warnings. All the warnings are vendor-specific prefixes or vendor extended pseaudo-element vendor extensions.  W3C do not support vendor-related properties. Therefore, we do not have to worry about these errors or warnings. */
 
 html {
   font-family: sans-serif;
