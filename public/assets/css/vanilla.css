@@ -1,17 +1,27 @@
 /* When cache is cleaned, the page takes ~6.85 seconds to load vanilla.css, which is 7.4 kb. The Bootstrap total CSS file size is 168.8 kb and the page takes ~7.90 seconds to load. Because the image files are significantly larger than the CSS files, we do not see much difference in load times. Looking only at the load times for the CSS files, it takes ~123 ms for vanilla.css and ~1413 ms with Bootstrap. */
 
-/* Validation check has 2 errors and 25 warnings. All the errors are vendor-specific prefixes, vendor extended pseaudo-element vendor extensions.  W3C do not support vendor-related properties. Therefore, we do not have to worry about these errors or warnings. */
+/* Validation check has 0 errors and 14 warnings. All the warnings are vendor-specific prefixes or vendor extended pseaudo-element vendor extensions.  W3C do not support vendor-related properties. Therefore, we do not have to worry about these errors or warnings. */
 
 html {
   font-family: sans-serif;
 }
 body {
-  margin: 0;
+  margin: 100px 0 0;
 }
 footer,
 header,
 main {
   display: block;
+}
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: 10;
+}
+footer {
+  text-align:center;
 }
 button {
   margin: 0;
@@ -33,15 +43,15 @@ button {
 }
 .glyphicon-play:before {
   content: "\e072";
-  color: #3c763d;
 }
 .glyphicon-pause:before {
   content: "\e073";
-  color: #8a6d3b;
+}
+.glyphicon-music:before {
+    content: "\e002";
 }
 .glyphicon-stop:before {
   content: "\e074";
-  color: #a94442;
 }
 .glyphicon-log-in:before {
   content: "\e161";
@@ -73,14 +83,24 @@ a:hover {
   vertical-align: middle;
 }
 h1 {
-  color: inherit;
+  font-size: 25px;
+  letter-spacing: 0;
+  padding: 27px 30px;
   line-height: 1.1;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 36px;
   font-weight: 500;
-  padding-bottom: 9px;
-  margin: 40px 0 20px;
-  border-bottom: 1px solid #eee;
+  font-family: sans-serif;
+  text-transform: capitalize;
+  margin: 0 0 20px;
+  height: 80px;
+  color: white;
+  background-color: #26323E;
+  background: #26323e;
+  background: -moz-linear-gradient(top,  #26323e 16%, #303e4c 50%, #26323e 100%, #7db9e8 100%);
+  background: -webkit-linear-gradient(top,  #26323e 16%,#303e4c 50%,#26323e 100%,#7db9e8 100%);
+  background: linear-gradient(to bottom,  #26323e 16%,#303e4c 50%,#26323e 100%,#7db9e8 100%);
+  -webkit-box-shadow: 0px 2px 50px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 2px 50px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 2px 50px 0px rgba(0,0,0,0.75);
 }
 .soundboard {
   padding-right: 15px;
@@ -91,6 +111,11 @@ h1 {
 @media (min-width: 768px) {
   .soundboard {
     width: 750px;
+  }
+  h1 {
+    font-size: 36px;
+    letter-spacing: 4px;
+    padding: 20px 30px;
   }
 }
 @media (min-width: 992px) {
@@ -138,44 +163,27 @@ h1 {
   cursor: pointer;
   border: 1px solid transparent;
   border-radius: 4px;
-  color: #333;
-  background-color: #fff;
-  text-shadow: 0 1px 0 #fff;
-  background-image: -webkit-linear-gradient(top,#fff 0,#e0e0e0 100%);
-  background-image: -o-linear-gradient(top,#fff 0,#e0e0e0 100%);
-  background-image: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#e0e0e0));
-  background-image: linear-gradient(to bottom,#fff 0,#e0e0e0 100%);
-  background-repeat: repeat-x;
-  border-color: #ccc;
 }
-.btn:hover {
-  color: #333;
-  text-decoration: none;
-  color: #333;
-  border-color: #adadad;
-  background-color: #e0e0e0;
-  background-position: 0 -15px;
-}
-.login > a {
+.blue, .btn {
   color: #fff;
-  background-color: #337ab7;
-  background-image: -webkit-linear-gradient(top,#337ab7 0,#265a88 100%);
-  background-image: -o-linear-gradient(top,#337ab7 0,#265a88 100%);
-  background-image: -webkit-gradient(linear,left top,left bottom,from(#337ab7),to(#265a88));
-  background-image: linear-gradient(to bottom,#337ab7 0,#265a88 100%);
+  background-color: #369CCD;
+  background-image: -webkit-linear-gradient(top,#369CCD 0,#265a88 100%);
+  background-image: -o-linear-gradient(top,#369CCD 0,#265a88 100%);
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#369CCD),to(#265a88));
+  background-image: linear-gradient(to bottom,#369CCD 0,#265a88 100%);
   background-repeat: repeat-x;
-  border-color: #245580;
+  border-color: #396f9e;
 }
-.login > a:hover {
+.blue:hover, .btn:hover {
   color: #fff;
-  border-color: #204d74;
+  border-color: #396f9e;
   background-color: #265a88;
   background-position: 0 -15px;
 }
 .login > a,
 .btn-group > .btn {
   padding: 10px 16px;
-  font-size: 18px;
+  font-size: 15px;
   line-height: 1.3333333;
   border-radius: 6px;
 }
@@ -183,62 +191,6 @@ h1 {
   display: table-cell;
   float: none;
   width: 1%;
-}
-@-webkit-keyframes progress-bar-stripes {
-  from {
-    background-position: 40px 0;
-  }
-  to {
-    background-position: 0 0;
-  }
-}
-@-o-keyframes progress-bar-stripes {
-  from {
-    background-position: 40px 0;
-  }
-  to {
-    background-position: 0 0;
-  }
-}
-@keyframes progress-bar-stripes {
-  from {
-    background-position: 40px 0;
-  }
-  to {
-    background-position: 0 0;
-  }
-}
-.progress {
-  height: 20px;
-  margin-bottom:0px;  
-  overflow: hidden;
-  background-color: #f5f5f5;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
-          box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
-}
-.progress-bar {
-  float: left;
-  width:100%;
-  height: 100%;
-  font-size: 12px;
-  line-height: 20px;
-  color: #fff;
-  text-align: center;
-  background-color: #337ab7;
-  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
-          box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
-  -webkit-transition: width .6s ease;
-       -o-transition: width .6s ease;
-          transition: width .6s ease;
-  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
-  background-image:      -o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
-  background-image:         linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
-  -webkit-background-size: 40px 40px;
-          background-size: 40px 40px;
-  -webkit-animation: progress-bar-stripes 2s linear infinite;
-       -o-animation: progress-bar-stripes 2s linear infinite;
-          animation: progress-bar-stripes 2s linear infinite;
 }
 .sound {
   min-height: 20px;
@@ -266,6 +218,7 @@ h1 {
 }
 .login {
   float: right !important;
+  margin: 28px;
 }
 .invisible {
   visibility: hidden;
