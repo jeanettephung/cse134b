@@ -1,7 +1,7 @@
 window.onload = function () {
   var xmlhttp = new XMLHttpRequest();
-  var url = "./assets/json/got.json";
-  
+//  var url = "./assets/json/got.json";
+  var url = "https://gucci-b0d35.firebaseapp.com/assets/json/got.json";
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       var data = JSON.parse(this.responseText);
