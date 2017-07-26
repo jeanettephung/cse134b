@@ -1,0 +1,67 @@
+{
+  "soundboard": {
+    name: "Game of Thrones",
+    sounds: [
+      {
+        image: "./assets/img/1_cersei.jpg",
+        alt: "Cersei",
+        sound: "./assets/audio/1_enemies.wav"
+      },
+      {
+        image: "./assets/img/1_cersei.jpg",
+        alt: "Cersei",
+        sound: "./assets/audio/1_enemies.wav"
+      },
+      {
+        image: "./assets/img/1_cersei.jpg",
+        alt: "Cersei",
+        sound: "./assets/audio/1_enemies.wav"
+      },
+      {
+        image: "./assets/img/1_cersei.jpg",
+        alt: "Cersei",
+        sound: "./assets/audio/1_enemies.wav"
+      },
+      {
+        image: "./assets/img/1_cersei.jpg",
+        alt: "Cersei",
+        sound: "./assets/audio/1_enemies.wav"
+      },
+      {
+        image: "./assets/img/1_cersei.jpg",
+        alt: "Cersei",
+        sound: "./assets/audio/1_enemies.wav"
+      },
+      {
+        image: "./assets/img/1_cersei.jpg",
+        alt: "Cersei",
+        sound: "./assets/audio/1_enemies.wav"
+      },
+      {
+        image: "./assets/img/1_cersei.jpg",
+        alt: "Cersei",
+        sound: "./assets/audio/1_enemies.wav"
+      },
+      {
+        image: "./assets/img/1_cersei.jpg",
+        alt: "Cersei",
+        sound: "./assets/audio/1_enemies.wav"
+      },
+      {
+        image: "./assets/img/1_cersei.jpg",
+        alt: "Cersei",
+        sound: "./assets/audio/1_enemies.wav"
+      },
+      {
+        image: "./assets/img/1_cersei.jpg",
+        alt: "Cersei",
+        sound: "./assets/audio/1_enemies.wav"
+      },
+      {
+        image: "./assets/img/1_cersei.jpg",
+        alt: "Cersei",
+        sound: "./assets/audio/1_enemies.wav"
+      }
+    ]
+  }
+}
