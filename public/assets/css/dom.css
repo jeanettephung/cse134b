@@ -91,9 +91,10 @@ a:hover {
   vertical-align: middle;
 }
 .placeholder {
-  background-color: lightgray;
+  background-color: transparent;
   border-radius: 6px;
-  height: 135px;
+  width: 100%;
+  min-height: 130px;
 }
 h1 {
   font-size: 25px;

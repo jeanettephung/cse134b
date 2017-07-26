@@ -1,66 +1,66 @@
 {
   "soundboard": {
-    name: "Game of Thrones",
-    sounds: [
+    "name": "Game of Thrones",
+    "sounds": [
       {
-        image: "./assets/img/1_cersei.jpg",
-        alt: "Cersei",
-        sound: "./assets/audio/1_enemies.wav"
+        "image": "./assets/img/1_cersei.jpg",
+        "alt": "Cersei",
+        "sound": "./assets/audio/1_enemies.wav"
       },
       {
-        image: "./assets/img/2_tyrion.jpg",
-        alt: "Tyrion",
-        sound: "./assets/audio/2_offend.wav"
+        "image": "./assets/img/2_tyrion.jpg",
+        "alt": "Tyrion",
+        "sound": "./assets/audio/2_offend.wav"
       },
       {
-        image: "./assets/img/3_nedstark.jpg",
-        alt: "Ned",
-        sound: "./assets/audio/3_actofwar.wav"
+        "image": "./assets/img/3_nedstark.jpg",
+        "alt": "Ned",
+        "sound": "./assets/audio/3_actofwar.wav"
       },
       {
-        image: "./assets/img/4_tywin.jpg",
-        alt: "Tywin",
-        sound: "./assets/audio/4_clever.wav"
+        "image": "./assets/img/4_tywin.jpg",
+        "alt": "Tywin",
+        "sound": "./assets/audio/4_clever.wav"
       },
       {
-        image: "./assets/img/5_littlefinger.jpg",
-        alt: "Littlefinger",
-        sound: "./assets/audio/5_startover.wav"
+        "image": "./assets/img/5_littlefinger.jpg",
+        "alt": "Littlefinger",
+        "sound": "./assets/audio/5_startover.wav"
       },
       {
-        image: "./assets/img/6_theon.jpg",
-        alt: "Theon",
-        sound: "./assets/audio/6_mercy.wav"
+        "image": "./assets/img/6_theon.jpg",
+        "alt": "Theon",
+        "sound": "./assets/audio/6_mercy.wav"
       },
       {
-        image: "./assets/img/7_robert.jpg",
-        alt: "Robert",
-        sound: "./assets/audio/7_did_right.wav"
+        "image": "./assets/img/7_robert.jpg",
+        "alt": "Robert",
+        "sound": "./assets/audio/7_did_right.wav"
       },
       {
-        image: "./assets/img/8_varys.jpg",
-        alt: "Varys",
-        sound: "./assets/audio/8_birds_flown.wav"
+        "image": "./assets/img/8_varys.jpg",
+        "alt": "Varys",
+        "sound": "./assets/audio/8_birds_flown.wav"
       },
       {
-        image: "./assets/img/9_jaime.jpg",
-        alt: "Jaime",
-        sound: "./assets/audio/9_boring.wav"
+        "image": "./assets/img/9_jaime.jpg",
+        "alt": "Jaime",
+        "sound": "./assets/audio/9_boring.wav"
       },
       {
-        image: "./assets/img/10_arya.jpg",
-        alt: "Arya",
-        sound: "./assets/audio/10_want_to.wav"
+        "image": "./assets/img/10_arya.jpg",
+        "alt": "Arya",
+        "sound": "./assets/audio/10_want_to.wav"
       },
       {
-        image: "./assets/img/11_natalie.jpg",
-        alt: "Natalie",
-        sound: "./assets/audio/11_go_home.wav"
+        "image": "./assets/img/11_natalie.jpg",
+        "alt": "Natalie",
+        "sound": "./assets/audio/11_go_home.wav"
       },
       {
-        image: "./assets/img/12_jon.jpg",
-        alt: "Jon",
-        sound: "./assets/audio/12_ready_2_help.wav"
+        "image": "./assets/img/12_jon.jpg",
+        "alt": "Jon",
+        "sound": "./assets/audio/12_ready_2_help.wav"
       }
     ]
   }
