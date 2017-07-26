@@ -1,5 +1,5 @@
 window.onload = function () {
-  
+  // loading default soundboard
   var xmlhttp = new XMLHttpRequest();
   var url = "./assets/json/got.json";
 //  var url = "https://gucci-b0d35.firebaseapp.com/assets/json/got.json";
@@ -44,5 +44,15 @@ window.onload = function () {
   };
   xmlhttp.open("GET", url, true);
   xmlhttp.send();
-  
+ 
+  // theme change
+  var dropdownTheme = document.querySelector('select');
+  var bodyElement = document.getElementsByTagName("body")[0];
+  dropdownTheme.addEventListener('change', function () {
+    if (dropdownTheme.value == "dark"){
+      bodyElement.className = "dark";
+    } else {
+      bodyElement.classList.remove("dark");
+    }  
+  });
 }

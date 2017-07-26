@@ -287,3 +287,6 @@ body.dark {
   background-color: #141415;
   background-position: 0 -15px;
 }
+.dark label {
+  color: white;
+}
