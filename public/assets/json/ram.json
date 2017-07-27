@@ -1,66 +1,66 @@
 {
   "soundboard": {
-    "name": "Game of Thrones",
+    "name": "Rick and Morty",
     "sounds": [
       {
-        "image": "./assets/img/RickAndMorty/rick1_what_you_got.jpg",
-        "alt": "Cersei",
-        "sound": "./assets/audio/1_enemies.wav"
+        "image": "./assets/img/rickandmorty/1_what_you_got.jpg",
+        "alt": "whatyougot",
+        "sound": "./assets/audio/rickandmorty/1_what_you_got.wav"
       },
       {
-        "image": "./assets/img/RickAndMorty/rick2_luv_dub.jpg",
-        "alt": "Tyrion",
-        "sound": "./assets/audio/2_offend.wav"
+        "image": "./assets/img/rickandmorty/2_luv_dub.jpg",
+        "alt": "luvdub",
+        "sound": "./assets/audio/rickandmorty/2_woo_vu.wav"
       },
       {
-        "image": "./assets/img/RickAndMorty/rick3_mr_meeseeks.jpg",
-        "alt": "Ned",
-        "sound": "./assets/audio/3_actofwar.wav"
+        "image": "./assets/img/rickandmorty/3_mr_meeseeks.jpg",
+        "alt": "mrmeeseeks",
+        "sound": "./assets/audio/rickandmorty/3_mr_meeseeks.wav"
       },
       {
-        "image": "./assets/img/RickAndMorty/rick4_oh-man.jpg",
-        "alt": "Tywin",
-        "sound": "./assets/audio/4_clever.wav"
+        "image": "./assets/img/rickandmorty/4_oh_man.jpg",
+        "alt": "ohman",
+        "sound": "./assets/audio/rickandmorty/4_oh_man.wav"
       },
       {
-        "image": "./assets/img/RickAndMorty/rick5_bitch.jpg",
-        "alt": "Littlefinger",
-        "sound": "./assets/audio/5_startover.wav"
+        "image": "./assets/img/rickandmorty/5_bitch.jpg",
+        "alt": "b**ch",
+        "sound": "./assets/audio/rickandmorty/5_awww_Bitch.wav"
       },
       {
-        "image": "./assets/img/RickAndMorty/rick6_riggity.jpg",
-        "alt": "Theon",
-        "sound": "./assets/audio/6_mercy.wav"
+        "image": "./assets/img/rickandmorty/6_riggity.jpg",
+        "alt": "riggity",
+        "sound": "./assets/audio/rickandmorty/6_riggity.wav"
       },
       {
-        "image": "./assets/img/RickAndMorty/rick7_what_you_think.jpg",
-        "alt": "Robert",
-        "sound": "./assets/audio/7_did_right.wav"
+        "image": "./assets/img/rickandmorty/7_what_you_think.jpg",
+        "alt": "whatyouthink",
+        "sound": "./assets/audio/rickandmorty/7_dont_give.wav"
       },
       {
-        "image": "./assets/img/RickAndMorty/rick8_bird_culture.jpg",
-        "alt": "Varys",
-        "sound": "./assets/audio/8_birds_flown.wav"
+        "image": "./assets/img/rickandmorty/8_bird_culture.jpg",
+        "alt": "birdculture",
+        "sound": "./assets/audio/rickandmorty/8_in_bird_culture.wav"
       },
       {
-        "image": "./assets/img/9_jaime.jpg",
-        "alt": "Jaime",
-        "sound": "./assets/audio/9_boring.wav"
+        "image": "./assets/img/rickandmorty/9_ricky_ticky.jpg",
+        "alt": "rickyticky",
+        "sound": "./assets/audio/rickandmorty/9_ricky_ticky.wav"
       },
       {
-        "image": "./assets/img/10_arya.jpg",
-        "alt": "Arya",
-        "sound": "./assets/audio/10_want_to.wav"
+        "image": "./assets/img/rickandmorty/10_fu_god.jpg",
+        "alt": "fugod",
+        "sound": "./assets/audio/rickandmorty/10_yes_fu.wav"
       },
       {
-        "image": "./assets/img/11_natalie.jpg",
-        "alt": "Natalie",
-        "sound": "./assets/audio/11_go_home.wav"
+        "image": "./assets/img/rickandmorty/11_thank_you.jpg",
+        "alt": "thankyou",
+        "sound": "./assets/audio/rickandmorty/11_go_home.wav"
       },
       {
-        "image": "./assets/img/12_jon.jpg",
-        "alt": "Jon",
-        "sound": "./assets/audio/12_ready_2_help.wav"
+        "image": "./assets/img/rickandmorty/12_summer.jpg",
+        "alt": "summer",
+        "sound": "./assets/audio/rickandmorty/12_keep_summer.wav"
       }
     ]
   }
