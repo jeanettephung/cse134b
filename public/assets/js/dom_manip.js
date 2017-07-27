@@ -95,6 +95,7 @@ GUCCI.genSB = function(data, display) {
   for (let i = 0; i < GUCCI.data.soundboard.sounds.length; i++) {
     GUCCI.temp.content.querySelector('img').src = GUCCI.data.soundboard.sounds[i].image;
     GUCCI.temp.content.querySelector('img').alt = GUCCI.data.soundboard.sounds[i].alt;
+    GUCCI.temp.content.querySelector('h3').innerHTML = GUCCI.data.soundboard.sounds[i].alt;
     GUCCI.temp.content.querySelector('source').src = GUCCI.data.soundboard.sounds[i].sound;
     GUCCI.clone = document.importNode(GUCCI.temp.content, true);
     GUCCI.rows[GUCCI.curRow].appendChild(GUCCI.clone);
