@@ -156,6 +156,9 @@ h1 {
   -moz-box-shadow: 0px 2px 50px 0px rgba(0,0,0,0.75);
   box-shadow: 0px 2px 50px 0px rgba(0,0,0,0.75);
 }
+h3 {
+  display: none;
+}
 .soundboard {
   padding-right: 15px;
   padding-left: 15px;
@@ -234,17 +237,11 @@ h1 {
   background-color: #265a88;
   background-position: 0 -15px;
 }
-.login > a,
-.btn-group > .btn {
+.login > a {
   padding: 10px 16px;
   font-size: 15px;
   line-height: 1.3333333;
   border-radius: 6px;
-}
-.btn-group > .btn{
-  display: table-cell;
-  float: none;
-  width: 1%;
 }
 .sound {
   min-height: 20px;
@@ -366,12 +363,25 @@ body.dark {
 .dark .glyphicon-refresh:before {
   color: white;
 }
-body.compact {
-  background-color: red;
+.dark h3 {
+  color: white;
 }
 .ram {
   display: none;
 }
 .got {
+  display: block;
+}
+.compact .sound, .compact .soundToggle {
+  height: 35px;
+  min-height: 40px;
+}
+.compact .soundToggle:hover {
+  background-color: rgba(54, 156, 205, 0.18);
+}
+.compact .sound img, .compact .sound .glyphicon {
+  display: none;
+}
+.compact h3 {
   display: block;
 }

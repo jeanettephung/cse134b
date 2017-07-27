@@ -38,7 +38,7 @@ GUCCI.themeChange = function() {
   GUCCI.dropdownTheme = document.getElementById('theme');
   GUCCI.dropdownTheme.addEventListener('change', function () {
     if (GUCCI.dropdownTheme.value == "dark"){
-      GUCCI.bodyElement.className = "dark";
+      GUCCI.bodyElement.classList.add("dark");
     } else {
       GUCCI.bodyElement.classList.remove("dark");
     }  
