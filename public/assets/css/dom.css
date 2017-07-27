@@ -242,11 +242,14 @@ noscript h1 {
 }
 select {
   font-size: 16px;
-  width: 75px;
   height: 30px;
 }
 label {
   font-size: 20px;
+}
+h2 {
+  text-align: center;
+  font-size: 4em;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .visible-sm {
@@ -287,6 +290,9 @@ body.dark {
   background-color: #141415;
   background-position: 0 -15px;
 }
-.dark label {
+.dark label, .dark h2 {
   color: white;
+}
+.dark selector {
+  background-color:white;
 }

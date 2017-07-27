@@ -1,63 +1,92 @@
+var GUCCI = { };
+
 window.onload = function () {
-   var got = "./assets/json/got.json";
+  GUCCI.got = "./assets/json/got.json";
+  GUCCI.ram = "./assets/json/ram.json";
   //  var got = "https://gucci-b0d35.firebaseapp.com/assets/json/got.json";
-  RequestJSON(got);
+  GUCCI.rows = document.getElementsByClassName('row');
+
+  GUCCI.themeChange();
+  GUCCI.requestJSON(GUCCI.got);
+  GUCCI.sbChange();
 }
 
-function themeChange() {
-  var dropdownTheme = document.querySelector('select');
-  var bodyElement = document.getElementsByTagName("body")[0];
-  dropdownTheme.addEventListener('change', function () {
-    if (dropdownTheme.value == "dark"){
-      bodyElement.className = "dark";
+GUCCI.themeChange = function() {
+  GUCCI.dropdownTheme = document.getElementById('theme');
+  GUCCI.bodyElement = document.getElementsByTagName("body")[0];
+  GUCCI.dropdownTheme.addEventListener('change', function () {
+    if (GUCCI.dropdownTheme.value == "dark"){
+      GUCCI.bodyElement.className = "dark";
     } else {
-      bodyElement.classList.remove("dark");
+      GUCCI.bodyElement.classList.remove("dark");
     }  
   });
 }
 
-function RequestJSON(sb, cur) {
-  var xmlhttp = new XMLHttpRequest();
-  var url = sb;
-  xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      var data = JSON.parse(this.responseText);
-      var rows = document.getElementsByClassName('row');
-      var numPerRow = 0;
-      var curRow = 0;
+GUCCI.sbChange = function() {
+  GUCCI.dropdownSB = document.getElementById('sb');
+  GUCCI.dropdownSB.addEventListener('change', function () {
+    GUCCI.clearSB();
+    if (GUCCI.dropdownSB.value == "got"){
+      GUCCI.requestJSON(GUCCI.got);
+    } else {
+      GUCCI.requestJSON(GUCCI.ram);
+    }  
+  });
+}
 
-      for (let i = 0; i < data.soundboard.sounds.length; i++) {
-        var temp = document.getElementById('sound');
-        temp.content.querySelector('img').src = data.soundboard.sounds[i].image;
-        temp.content.querySelector('img').alt = data.soundboard.sounds[i].alt;
-        temp.content.querySelector('source').src = data.soundboard.sounds[i].sound;
-        var clone = document.importNode(temp.content, true);
-        rows[curRow].appendChild(clone);
-        numPerRow++;
-        if (numPerRow == 4) {
-          numPerRow = 0;
-          curRow++;
-        }
-        var soundList = document.getElementsByClassName('sound');
-        var current = soundList[soundList.length-1];
-        var btns = current.getElementsByClassName('btn');
-        for (let j = 0; j < btns.length; j++) {
-          btns[j].addEventListener('click', function () {
-            var spanClass = this.querySelector('span').className;
-            var parentTag = this.parentElement.parentElement.getElementsByTagName('audio')[0];
-            if (spanClass.startsWith("glyphicon glyphicon-play")) {
-              parentTag.play();
-            } else if (spanClass.startsWith("glyphicon glyphicon-pause")) {
-              parentTag.pause();
-            } else {
-              parentTag.pause();
-              parentTag.currentTime = 0;      
-            };
-          });
-        }
-      }
+GUCCI.clearSB = function() {
+  for (let k = 0; k < GUCCI.rows.length; k++) {
+    GUCCI.rows[k].innerHTML = "";
+  }
+}
+
+GUCCI.requestJSON = function(sb) {
+  GUCCI.xmlhttp = new XMLHttpRequest();
+  GUCCI.url = sb;
+  GUCCI.xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      GUCCI.data = JSON.parse(this.responseText);
+      GUCCI.genSB(GUCCI.data);
     }
   };
-  xmlhttp.open("GET", url, true);
-  xmlhttp.send();
+  GUCCI.xmlhttp.open("GET", GUCCI.url, true);
+  GUCCI.xmlhttp.send();
+}
+
+GUCCI.genSB = function(data) {
+  GUCCI.numPerRow = 0;
+  GUCCI.curRow = 0;
+  document.getElementById('title').innerHTML = GUCCI.data.soundboard.name;
+
+  for (let i = 0; i < GUCCI.data.soundboard.sounds.length; i++) {
+    GUCCI.temp = document.getElementById('sound');
+    GUCCI.temp.content.querySelector('img').src = GUCCI.data.soundboard.sounds[i].image;
+    GUCCI.temp.content.querySelector('img').alt = GUCCI.data.soundboard.sounds[i].alt;
+    GUCCI.temp.content.querySelector('source').src = GUCCI.data.soundboard.sounds[i].sound;
+    GUCCI.clone = document.importNode(GUCCI.temp.content, true);
+    GUCCI.rows[GUCCI.curRow].appendChild(GUCCI.clone);
+    GUCCI.numPerRow++;
+    if (GUCCI.numPerRow == 4) {
+      GUCCI.numPerRow = 0;
+      GUCCI.curRow++;
+    }
+    GUCCI.soundList = document.getElementsByClassName('sound');
+    GUCCI.current = GUCCI.soundList[GUCCI.soundList.length-1];
+    GUCCI.btns = GUCCI.current.getElementsByClassName('btn');
+    for (let j = 0; j < GUCCI.btns.length; j++) {
+      GUCCI.btns[j].addEventListener('click', function () {
+        GUCCI.spanClass = this.querySelector('span').className;
+        GUCCI.parentTag = this.parentElement.parentElement.getElementsByTagName('audio')[0];
+        if (GUCCI.spanClass.startsWith("glyphicon glyphicon-play")) {
+          GUCCI.parentTag.play();
+        } else if (GUCCI.spanClass.startsWith("glyphicon glyphicon-pause")) {
+          GUCCI.parentTag.pause();
+        } else {
+          GUCCI.parentTag.pause();
+          GUCCI.parentTag.currentTime = 0;      
+        };
+      });
+    }
+  }
 }

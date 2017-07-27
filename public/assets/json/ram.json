@@ -4,62 +4,62 @@
     "sounds": [
       {
         "image": "./assets/img/rickandmorty/1_what_you_got.jpg",
-        "alt": "whatyougot",
+        "alt": "What You Got",
         "sound": "./assets/audio/rickandmorty/1_what_you_got.wav"
       },
       {
         "image": "./assets/img/rickandmorty/2_luv_dub.jpg",
-        "alt": "luvdub",
+        "alt": "Luv Dub",
         "sound": "./assets/audio/rickandmorty/2_woo_vu.wav"
       },
       {
         "image": "./assets/img/rickandmorty/3_mr_meeseeks.jpg",
-        "alt": "mrmeeseeks",
+        "alt": "Mr Meeseeks",
         "sound": "./assets/audio/rickandmorty/3_mr_meeseeks.wav"
       },
       {
         "image": "./assets/img/rickandmorty/4_oh_man.jpg",
-        "alt": "ohman",
+        "alt": "Oh Man",
         "sound": "./assets/audio/rickandmorty/4_oh_man.wav"
       },
       {
         "image": "./assets/img/rickandmorty/5_bitch.jpg",
-        "alt": "b**ch",
+        "alt": "B**ch",
         "sound": "./assets/audio/rickandmorty/5_awww_Bitch.wav"
       },
       {
         "image": "./assets/img/rickandmorty/6_riggity.jpg",
-        "alt": "riggity",
+        "alt": "Riggity",
         "sound": "./assets/audio/rickandmorty/6_riggity.wav"
       },
       {
         "image": "./assets/img/rickandmorty/7_what_you_think.jpg",
-        "alt": "whatyouthink",
-        "sound": "./assets/audio/rickandmorty/7_dont_give.wav"
+        "alt": "I Don't Give",
+        "sound": "./assets/audio/rickandmorty/7_i_dont_give.wav"
       },
       {
         "image": "./assets/img/rickandmorty/8_bird_culture.jpg",
-        "alt": "birdculture",
+        "alt": "Bird Culture",
         "sound": "./assets/audio/rickandmorty/8_in_bird_culture.wav"
       },
       {
         "image": "./assets/img/rickandmorty/9_ricky_ticky.jpg",
-        "alt": "rickyticky",
+        "alt": "Ricky Ticky",
         "sound": "./assets/audio/rickandmorty/9_ricky_ticky.wav"
       },
       {
         "image": "./assets/img/rickandmorty/10_fu_god.jpg",
-        "alt": "fugod",
+        "alt": "FU God",
         "sound": "./assets/audio/rickandmorty/10_yes_fu.wav"
       },
       {
-        "image": "./assets/img/rickandmorty/11_thank_you.jpg",
-        "alt": "thankyou",
-        "sound": "./assets/audio/rickandmorty/11_go_home.wav"
+        "image": "./assets/img/rickandmorty/11_thank.jpg",
+        "alt": "Thank You",
+        "sound": "./assets/audio/rickandmorty/11_thank_you.wav"
       },
       {
         "image": "./assets/img/rickandmorty/12_summer.jpg",
-        "alt": "summer",
+        "alt": "Summer",
         "sound": "./assets/audio/rickandmorty/12_keep_summer.wav"
       }
     ]
