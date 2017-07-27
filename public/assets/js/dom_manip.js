@@ -60,7 +60,7 @@ GUCCI.toggleDisplay = function(display, hidden) {
   GUCCI.hiddens = document.getElementsByClassName(hidden);
   for (let i = 0; i < GUCCI.displays.length; i++) {
     document.getElementsByClassName(display)[i].style.display = "block";
-    document.getElementsByClassName(hidden)[i].style.display = "none";
+    document.getElementsByClassName(hidden)[i].style.display = "block";
   }
 }
 
@@ -82,15 +82,14 @@ GUCCI.genSB = function(data, display) {
   GUCCI.curRow = 0;
   document.getElementById('title').innerHTML = GUCCI.data.soundboard.name;
   GUCCI.temp = document.getElementById('sound');
-
+  GUCCI.sb;
   if (display) {
-      GUCCI.temp.content.querySelector('div').classList.remove("ram");
-      GUCCI.temp.content.querySelector('div').classList.add("got");
-    } else {
-      GUCCI.temp.content.querySelector('div').classList.remove("got");
-      GUCCI.temp.content.querySelector('div').classList.add("ram");
-    }
-  
+    GUCCI.temp.content.querySelector('div').classList.remove("ram");
+    GUCCI.temp.content.querySelector('div').classList.add("got");
+  } else {
+    GUCCI.temp.content.querySelector('div').classList.remove("got");
+    GUCCI.temp.content.querySelector('div').classList.add("ram");
+  }
   for (let i = 0; i < GUCCI.data.soundboard.sounds.length; i++) {
     GUCCI.temp.content.querySelector('img').src = GUCCI.data.soundboard.sounds[i].image;
     GUCCI.temp.content.querySelector('img').alt = GUCCI.data.soundboard.sounds[i].alt;
@@ -102,22 +101,54 @@ GUCCI.genSB = function(data, display) {
       GUCCI.numPerRow = 0;
       GUCCI.curRow++;
     }
-    GUCCI.soundList = document.getElementsByClassName('sound');
-    GUCCI.current = GUCCI.soundList[GUCCI.soundList.length-1];
-    GUCCI.btns = GUCCI.current.getElementsByClassName('btn');
-    for (let j = 0; j < GUCCI.btns.length; j++) {
-      GUCCI.btns[j].addEventListener('click', function () {
-        GUCCI.spanClass = this.querySelector('span').className;
-        GUCCI.parentTag = this.parentElement.parentElement.getElementsByTagName('audio')[0];
-        if (GUCCI.spanClass.startsWith("glyphicon glyphicon-play")) {
-          GUCCI.parentTag.play();
-        } else if (GUCCI.spanClass.startsWith("glyphicon glyphicon-pause")) {
-          GUCCI.parentTag.pause();
-        } else {
-          GUCCI.parentTag.pause();
-          GUCCI.parentTag.currentTime = 0;      
-        };
-      });
+//    GUCCI.soundList = document.getElementsByClassName('sound');
+//    GUCCI.current = GUCCI.soundList[GUCCI.soundList.length-1];
+//    GUCCI.btns = GUCCI.current.getElementsByClassName('btn');
+//    for (let j = 0; j < GUCCI.btns.length; j++) {
+//      GUCCI.btns[j].addEventListener('click', function () {
+//        GUCCI.spanClass = this.querySelector('span').className;
+//        GUCCI.parentTag = this.parentElement.parentElement.getElementsByTagName('audio')[0];
+//        if (GUCCI.spanClass.startsWith("glyphicon glyphicon-play")) {
+//          GUCCI.parentTag.play();
+//        } else if (GUCCI.spanClass.startsWith("glyphicon glyphicon-pause")) {
+//          GUCCI.parentTag.pause();
+//        } else {
+//          GUCCI.parentTag.pause();
+//          GUCCI.parentTag.currentTime = 0;      
+//        };
+//      });
+//    }
+
+  }
+  GUCCI.genBtn();
+}
+/*
+ if (video.paused) {
+    video.play();
+  button.textContent = "||";
+} else {
+  video.pause();
+  button.textContent = ">";
+}
+
+*/
+
+GUCCI.genBtn = function(data) {
+  GUCCI.soundList = document.getElementsByClassName('soundToggle');
+  for (var i = 0; i < GUCCI.soundList.length; i++) {
+    GUCCI.current = GUCCI.soundList[i];
+    GUCCI.current.onclick = function() {
+      GUCCI.audio = this.parentNode.getElementsByTagName('audio')[0];
+      if (GUCCI.audio.paused) {
+        GUCCI.audio.play();
+        this.getElementsByTagName('span')[0].classList.add("glyphicon-pause");
+      } else {
+        GUCCI.audio.pause();
+        this.getElementsByTagName('span')[0].classList.remove("glyphicon-pause");
+      }
+      GUCCI.audio.onended = function() {
+        this.parentNode.getElementsByTagName('span')[0].classList.remove("glyphicon-pause");
+      };
     }
   }
 }
