@@ -60,18 +60,18 @@ button {
   content: "\e096";
   font-size: 19px;
 }
-.glyphicon-refresh:before {
-  content: "\e031";
+.glyphicon-repeat:before {
+  content: "\e030";
   color: gray;
   font-size: 50px;
 }
-.refresh {
+.repeat {
   bottom: 50%;
   left: 42%;
   position: absolute;
   z-index: 20;
 }
-.glyphicon-refresh-animate {
+.glyphicon-repeat-animate {
   animation: spin 1.5s infinite linear;
   -webkit-animation: spin2 1.5s infinite linear;
 }
