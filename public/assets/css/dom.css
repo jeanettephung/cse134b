@@ -274,10 +274,10 @@ body.dark {
 }
 .dark .sound {
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);  
-  background-image: -webkit-linear-gradient(top,#26323E 0,#333232 100%);
-  background-image: -o-linear-gradient(top,#26323E 0,#333232 100%);
+  background-image: -webkit-linear-gradient(top,#26323E 0,#3b4754 100%);
+  background-image: -o-linear-gradient(top,#26323E 0,#3b4754 100%);
   background-image: -webkit-gradient(linear,left top,left bottom,from(#26323E),to(#333232));
-  background-image: linear-gradient(to bottom,#26323E 0,#333232 100%);
+  background-image: linear-gradient(to bottom,#26323E 0,#3b4754 100%);
   background-repeat: repeat-x;
   border-color: #323233;
 }

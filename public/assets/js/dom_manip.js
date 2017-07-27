@@ -1,8 +1,24 @@
 window.onload = function () {
-  // loading default soundboard
+   var got = "./assets/json/got.json";
+  //  var got = "https://gucci-b0d35.firebaseapp.com/assets/json/got.json";
+  RequestJSON(got);
+}
+
+function themeChange() {
+  var dropdownTheme = document.querySelector('select');
+  var bodyElement = document.getElementsByTagName("body")[0];
+  dropdownTheme.addEventListener('change', function () {
+    if (dropdownTheme.value == "dark"){
+      bodyElement.className = "dark";
+    } else {
+      bodyElement.classList.remove("dark");
+    }  
+  });
+}
+
+function RequestJSON(sb, cur) {
   var xmlhttp = new XMLHttpRequest();
-  var url = "./assets/json/got.json";
-//  var url = "https://gucci-b0d35.firebaseapp.com/assets/json/got.json";
+  var url = sb;
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       var data = JSON.parse(this.responseText);
@@ -44,15 +60,4 @@ window.onload = function () {
   };
   xmlhttp.open("GET", url, true);
   xmlhttp.send();
- 
-  // theme change
-  var dropdownTheme = document.querySelector('select');
-  var bodyElement = document.getElementsByTagName("body")[0];
-  dropdownTheme.addEventListener('change', function () {
-    if (dropdownTheme.value == "dark"){
-      bodyElement.className = "dark";
-    } else {
-      bodyElement.classList.remove("dark");
-    }  
-  });
 }
