@@ -62,33 +62,36 @@ GUCCI.sbChange = function () {
   });
 };
 
-GUCCI.toggleDisplay = function(display, hidden) {
+GUCCI.toggleDisplay = function (display, hidden) {
+  "use strict";
   GUCCI.displays = document.getElementsByClassName(display);
   GUCCI.hiddens = document.getElementsByClassName(hidden);
-  for (let i = 0; i < GUCCI.displays.length; i++) {
-    document.getElementsByClassName(display)[i].style.display = "block";
-    document.getElementsByClassName(hidden)[i].style.display = "none";
+  for (GUCCI.i = 0; GUCCI.i < GUCCI.displays.length; GUCCI.i += 1) {
+    document.getElementsByClassName(display)[GUCCI.i].style.display = "block";
+    document.getElementsByClassName(hidden)[GUCCI.i].style.display = "none";
   }
-}
+};
 
-GUCCI.requestJSON = function(sb, display) {
+GUCCI.requestJSON = function (sb, display) {
+  "use strict";
   GUCCI.xmlhttp = new XMLHttpRequest();
   GUCCI.url = sb;
-  GUCCI.xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
+  GUCCI.xmlhttp.onreadystatechange = function () {
+    if (this.readyState === 4 && this.status === 200) {
       GUCCI.data = JSON.parse(this.responseText);
       GUCCI.genSB(GUCCI.data, display);
     }
   };
   GUCCI.xmlhttp.open("GET", GUCCI.url, true);
   GUCCI.xmlhttp.send();
-}
+};
 
-GUCCI.genSB = function(data, display) {
+GUCCI.genSB = function (data, display) {
+  "use strict";
   GUCCI.numPerRow = 0;
   GUCCI.curRow = 0;
   GUCCI.temp = document.getElementById('sound');
-  GUCCI.sb;
+  GUCCI.sb = "";
   if (display) {
     GUCCI.temp.content.querySelector('div').classList.remove("ram");
     GUCCI.temp.content.querySelector('div').classList.add("got");
@@ -96,27 +99,28 @@ GUCCI.genSB = function(data, display) {
     GUCCI.temp.content.querySelector('div').classList.remove("got");
     GUCCI.temp.content.querySelector('div').classList.add("ram");
   }
-  for (let i = 0; i < GUCCI.data.soundboard.sounds.length; i++) {
-    GUCCI.temp.content.querySelector('img').src = GUCCI.data.soundboard.sounds[i].image;
-    GUCCI.temp.content.querySelector('img').alt = GUCCI.data.soundboard.sounds[i].alt;
-    GUCCI.temp.content.querySelector('h3').innerHTML = GUCCI.data.soundboard.sounds[i].alt;
-    GUCCI.temp.content.querySelector('source').src = GUCCI.data.soundboard.sounds[i].sound;
+  for (GUCCI.i = 0; GUCCI.i < GUCCI.data.soundboard.sounds.length; GUCCI.i += 1) {
+    GUCCI.temp.content.querySelector('img').src = GUCCI.data.soundboard.sounds[GUCCI.i].image;
+    GUCCI.temp.content.querySelector('img').alt = GUCCI.data.soundboard.sounds[GUCCI.i].alt;
+    GUCCI.temp.content.querySelector('h3').innerHTML = GUCCI.data.soundboard.sounds[GUCCI.i].alt;
+    GUCCI.temp.content.querySelector('source').src = GUCCI.data.soundboard.sounds[GUCCI.i].sound;
     GUCCI.clone = document.importNode(GUCCI.temp.content, true);
     GUCCI.rows[GUCCI.curRow].appendChild(GUCCI.clone);
-    GUCCI.numPerRow++;
-    if (GUCCI.numPerRow == 4) {
+    GUCCI.numPerRow += 1;
+    if (GUCCI.numPerRow === 4) {
       GUCCI.numPerRow = 0;
-      GUCCI.curRow++;
+      GUCCI.curRow += 1;
     }
   }
   GUCCI.genBtn();
-}
+};
 
-GUCCI.genBtn = function(data) {
+GUCCI.genBtn = function (data) {
+  "use strict";
   GUCCI.soundList = document.getElementsByClassName('soundToggle');
-  for (var i = 0; i < GUCCI.soundList.length; i++) {
-    GUCCI.current = GUCCI.soundList[i];
-    GUCCI.current.onclick = function() {
+  for (GUCCI.i = 0; GUCCI.i < GUCCI.soundList.length; GUCCI.i += 1) {
+    GUCCI.current = GUCCI.soundList[GUCCI.i];
+    GUCCI.current.onclick = function () {
       GUCCI.audio = this.parentNode.getElementsByTagName('audio')[0];
       if (GUCCI.audio.paused) {
         GUCCI.audio.play();
@@ -125,9 +129,9 @@ GUCCI.genBtn = function(data) {
         GUCCI.audio.pause();
         this.getElementsByTagName('span')[0].classList.remove("glyphicon-pause");
       }
-      GUCCI.audio.onended = function() {
+      GUCCI.audio.onended = function () {
         this.parentNode.getElementsByTagName('span')[0].classList.remove("glyphicon-pause");
       };
-    }
+    };
   }
-}
+};
