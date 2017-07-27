@@ -1,6 +1,7 @@
 var GUCCI = { };
 
 window.onload = function () {
+  "use strict";
   GUCCI.got = "./assets/json/got.json";
   GUCCI.ram = "./assets/json/ram.json";
   GUCCI.toggleVal = "off";
@@ -14,13 +15,14 @@ window.onload = function () {
   GUCCI.requestJSON(GUCCI.ram, false);
 
   GUCCI.sbChange();
-}
+};
 
-GUCCI.toggle = function() {
+GUCCI.toggle = function () {
+  "use strict";
   GUCCI.toggle = document.getElementById('toggle');
   GUCCI.icon = document.querySelector(".dropdown span.glyphicon");
   GUCCI.toggle.addEventListener('click', function () {
-    if (GUCCI.toggleVal == "off"){
+    if (GUCCI.toggleVal === "off") {
       GUCCI.toggleVal = "on";
       GUCCI.bodyElement.classList.add("compact");
       GUCCI.icon.classList.remove("glyphicon-compact");
@@ -30,33 +32,35 @@ GUCCI.toggle = function() {
       GUCCI.bodyElement.classList.remove("compact");
       GUCCI.icon.classList.remove("glyphicon-expand");
       GUCCI.icon.classList.add("glyphicon-compact");
-    }  
+    }
   });
-}
+};
 
-GUCCI.themeChange = function() {
+GUCCI.themeChange = function () {
+  "use strict";
   GUCCI.dropdownTheme = document.getElementById('theme');
   GUCCI.dropdownTheme.addEventListener('change', function () {
-    if (GUCCI.dropdownTheme.value == "dark"){
+    if (GUCCI.dropdownTheme.value === "dark") {
       GUCCI.bodyElement.classList.add("dark");
     } else {
       GUCCI.bodyElement.classList.remove("dark");
-    }  
+    }
   });
-}
+};
 
-GUCCI.sbChange = function() {
+GUCCI.sbChange = function () {
+  "use strict";
   GUCCI.dropdownSB = document.getElementById('sb');
   GUCCI.dropdownSB.addEventListener('change', function () {
-    if (GUCCI.dropdownSB.value == "got"){
+    if (GUCCI.dropdownSB.value === "got") {
       GUCCI.toggleDisplay("got", "ram");
       document.getElementById('title').innerHTML = "Game of Thrones";
     } else {
       GUCCI.toggleDisplay("ram", "got");
       document.getElementById('title').innerHTML = "Rick and Morty";
-    }  
+    }
   });
-}
+};
 
 GUCCI.toggleDisplay = function(display, hidden) {
   GUCCI.displays = document.getElementsByClassName(display);
