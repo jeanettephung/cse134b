@@ -17,11 +17,15 @@
     </header>
     <main>
       <div class="dropdown">
-        <select name="theme">
-          <option value="default">Lite</option>
+        <label for="theme">Theme: </label>
+        <select name="theme" id="theme">
+          <option value="lite">Lite</option>
           <option value="dark">Dark</option>
         </select>
       </div>
+      <noscript>
+        <h1>JavaScript not enabled, cannot display content.</h1>
+      </noscript>
       <div class="soundboard">
         <div class="row"></div>
         <div class="row"></div>
@@ -52,7 +56,5 @@
     </template>
     <script type="text/javascript" src="./assets/json/got.json"></script>
     <script src="./assets/js/dom_manip.js"></script>
-    
-<!--    <script src="./assets/js/soundboard.js"></script>-->
   </body>
 </html>
