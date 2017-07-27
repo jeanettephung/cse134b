@@ -52,6 +52,14 @@ button {
 .glyphicon-log-in:before {
   content: "\e161";
 }
+.glyphicon-compact:before {
+  content: "\e097";
+  font-size: 19px;
+}
+.glyphicon-expand:before {
+  content: "\e096";
+  font-size: 19px;
+}
 .glyphicon-refresh:before {
   content: "\e031";
   color: gray;
@@ -62,6 +70,18 @@ button {
   left: 42%;
   position: absolute;
   z-index: 20;
+}
+.glyphicon-refresh-animate {
+  animation: spin 1.5s infinite linear;
+  -webkit-animation: spin2 1.5s infinite linear;
+}
+@-webkit-keyframes spin2 {
+  from { -webkit-transform: rotate(0deg);}
+  to { -webkit-transform: rotate(360deg);}
+}
+@keyframes spin {
+  from { transform: scale(1) rotate(0deg);}
+  to { transform: scale(1) rotate(360deg);}
 }
 * {
   -webkit-box-sizing: border-box;
@@ -250,15 +270,17 @@ noscript h1 {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#770204', endColorstr='#89000d',GradientType=0 );
 }
 .dropdown {
-  margin: 0 30px 20px;
+  margin: 0 25px 20px;
   text-align: right;
+}
+.dropdown * {
+  margin: 0 5px;
+  height: 35px;
+  vertical-align: bottom;
 }
 select {
   font-size: 16px;
   height: 30px;
-}
-label {
-  font-size: 20px;
 }
 h2 {
   text-align: center;
@@ -288,6 +310,19 @@ body.dark {
   background-repeat: repeat-x;
   border-color: #323233;
 }
+.dark .dropdown .btn {
+    color: #fff;
+    background-color: #d6d6d6;
+    background-image: -webkit-linear-gradient(top,#a3a4a5 0,#585b5f 100%);
+    background-image: -o-linear-gradient(top,#a3a4a5 0,#585b5f 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#a3a4a5),to(#585b5f));
+    background-image: linear-gradient(to bottom,#a3a4a5 0,#585b5f 100%);
+    background-repeat: repeat-x;
+    border-color: #323233;
+}
+.dark .dropdown .btn:hover {
+    background-color: #545658;
+}
 .dark .sound {
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);  
   background-image: -webkit-linear-gradient(top,#26323E 0,#3b4754 100%);
@@ -312,15 +347,6 @@ body.dark {
 .dark .glyphicon-refresh:before {
   color: white;
 }
-.glyphicon-refresh-animate {
-  -animation: spin 1.5s infinite linear;
-  -webkit-animation: spin2 1.5s infinite linear;
-}
-@-webkit-keyframes spin2 {
-  from { -webkit-transform: rotate(0deg);}
-  to { -webkit-transform: rotate(360deg);}
-}
-@keyframes spin {
-  from { transform: scale(1) rotate(0deg);}
-  to { transform: scale(1) rotate(360deg);}
+body.compact {
+  background-color: red;
 }

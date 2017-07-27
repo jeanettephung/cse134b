@@ -4,16 +4,47 @@ window.onload = function () {
   GUCCI.got = "./assets/json/got.json";
   GUCCI.ram = "./assets/json/ram.json";
   //  var got = "https://gucci-b0d35.firebaseapp.com/assets/json/got.json";
+  GUCCI.toggleVal = "off";
   GUCCI.rows = document.getElementsByClassName('row');
+  GUCCI.bodyElement = document.getElementsByTagName("body")[0];
 
+  GUCCI.toggle();
   GUCCI.themeChange();
   GUCCI.requestJSON(GUCCI.got);
   GUCCI.sbChange();
 }
 
+GUCCI.toggle = function() {
+  GUCCI.toggle = document.getElementById('toggle');
+  GUCCI.icon = document.querySelector(".dropdown span.glyphicon");
+  GUCCI.toggle.addEventListener('click', function () {
+    if (GUCCI.toggleVal == "off"){
+      GUCCI.toggleVal = "on";
+      GUCCI.bodyElement.classList.add("compact");
+      GUCCI.icon.classList.remove("glyphicon-compact");
+      GUCCI.icon.classList.add("glyphicon-expand");
+    } else {
+      GUCCI.toggleVal = "off";
+      GUCCI.bodyElement.classList.remove("compact");
+      GUCCI.icon.classList.remove("glyphicon-expand");
+      GUCCI.icon.classList.add("glyphicon-compact");
+    }  
+  });
+}
+
 GUCCI.themeChange = function() {
   GUCCI.dropdownTheme = document.getElementById('theme');
-  GUCCI.bodyElement = document.getElementsByTagName("body")[0];
+  GUCCI.dropdownTheme.addEventListener('change', function () {
+    if (GUCCI.dropdownTheme.value == "dark"){
+      GUCCI.bodyElement.classList.add("dark");
+    } else {
+      GUCCI.bodyElement.classList.remove("dark");
+    }  
+  });
+}
+
+GUCCI.themeChange = function() {
+  GUCCI.dropdownTheme = document.getElementById('theme');
   GUCCI.dropdownTheme.addEventListener('change', function () {
     if (GUCCI.dropdownTheme.value == "dark"){
       GUCCI.bodyElement.className = "dark";

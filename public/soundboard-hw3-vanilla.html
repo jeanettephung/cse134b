@@ -16,20 +16,21 @@
       <h1>Soundboard <span class="glyphicon glyphicon-music" aria-hidden="true"></span></h1>
     </header>
     <main>
+
       <div class="dropdown">
-        <label for="theme">Theme: </label>
+        <div id="toggle" class="btn">
+        <span class="glyphicon glyphicon-compact" aria-hidden="true"></span>
+        </div>
         <select name="theme" id="theme">
           <option value="lite">Lite</option>
           <option value="dark">Dark</option>
         </select>
-      </div>
-      <div class="dropdown">
-        <label for="sb">Sound Board: </label>
         <select name="sb" id="sb">
           <option value="got">Game of Thrones</option>
           <option value="rom">Rick and Morty</option>
         </select>
       </div>
+      
       <noscript>
         <h1>JavaScript not enabled, cannot display content.</h1>
       </noscript>
