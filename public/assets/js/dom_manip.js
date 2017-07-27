@@ -6,11 +6,12 @@ window.onload = function () {
   GUCCI.toggleVal = "off";
   GUCCI.rows = document.getElementsByClassName('row');
   GUCCI.bodyElement = document.getElementsByTagName("body")[0];
-
+  document.getElementById('title').innerHTML = "Game of Thrones";
   GUCCI.toggle();
   GUCCI.themeChange();
-  GUCCI.requestJSON(GUCCI.ram, false);
+  
   GUCCI.requestJSON(GUCCI.got, true);
+  GUCCI.requestJSON(GUCCI.ram, false);
 
   GUCCI.sbChange();
 }
@@ -49,8 +50,10 @@ GUCCI.sbChange = function() {
   GUCCI.dropdownSB.addEventListener('change', function () {
     if (GUCCI.dropdownSB.value == "got"){
       GUCCI.toggleDisplay("got", "ram");
+      document.getElementById('title').innerHTML = "Game of Thrones";
     } else {
       GUCCI.toggleDisplay("ram", "got");
+      document.getElementById('title').innerHTML = "Rick and Morty";
     }  
   });
 }
@@ -60,7 +63,7 @@ GUCCI.toggleDisplay = function(display, hidden) {
   GUCCI.hiddens = document.getElementsByClassName(hidden);
   for (let i = 0; i < GUCCI.displays.length; i++) {
     document.getElementsByClassName(display)[i].style.display = "block";
-    document.getElementsByClassName(hidden)[i].style.display = "block";
+    document.getElementsByClassName(hidden)[i].style.display = "none";
   }
 }
 
@@ -80,7 +83,6 @@ GUCCI.requestJSON = function(sb, display) {
 GUCCI.genSB = function(data, display) {
   GUCCI.numPerRow = 0;
   GUCCI.curRow = 0;
-  document.getElementById('title').innerHTML = GUCCI.data.soundboard.name;
   GUCCI.temp = document.getElementById('sound');
   GUCCI.sb;
   if (display) {
@@ -101,37 +103,9 @@ GUCCI.genSB = function(data, display) {
       GUCCI.numPerRow = 0;
       GUCCI.curRow++;
     }
-//    GUCCI.soundList = document.getElementsByClassName('sound');
-//    GUCCI.current = GUCCI.soundList[GUCCI.soundList.length-1];
-//    GUCCI.btns = GUCCI.current.getElementsByClassName('btn');
-//    for (let j = 0; j < GUCCI.btns.length; j++) {
-//      GUCCI.btns[j].addEventListener('click', function () {
-//        GUCCI.spanClass = this.querySelector('span').className;
-//        GUCCI.parentTag = this.parentElement.parentElement.getElementsByTagName('audio')[0];
-//        if (GUCCI.spanClass.startsWith("glyphicon glyphicon-play")) {
-//          GUCCI.parentTag.play();
-//        } else if (GUCCI.spanClass.startsWith("glyphicon glyphicon-pause")) {
-//          GUCCI.parentTag.pause();
-//        } else {
-//          GUCCI.parentTag.pause();
-//          GUCCI.parentTag.currentTime = 0;      
-//        };
-//      });
-//    }
-
   }
   GUCCI.genBtn();
 }
-/*
- if (video.paused) {
-    video.play();
-  button.textContent = "||";
-} else {
-  video.pause();
-  button.textContent = ">";
-}
-
-*/
 
 GUCCI.genBtn = function(data) {
   GUCCI.soundList = document.getElementsByClassName('soundToggle');

@@ -370,7 +370,7 @@ body.compact {
   background-color: red;
 }
 .ram {
-  display: block;
+  display: none;
 }
 .got {
   display: block;
