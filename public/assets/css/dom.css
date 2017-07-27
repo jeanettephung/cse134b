@@ -350,3 +350,9 @@ body.dark {
 body.compact {
   background-color: red;
 }
+.ram {
+  display: none;
+}
+.got {
+  display: block;
+}

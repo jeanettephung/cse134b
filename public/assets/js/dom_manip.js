@@ -3,14 +3,15 @@ var GUCCI = { };
 window.onload = function () {
   GUCCI.got = "./assets/json/got.json";
   GUCCI.ram = "./assets/json/ram.json";
-  //  var got = "https://gucci-b0d35.firebaseapp.com/assets/json/got.json";
   GUCCI.toggleVal = "off";
   GUCCI.rows = document.getElementsByClassName('row');
   GUCCI.bodyElement = document.getElementsByTagName("body")[0];
 
   GUCCI.toggle();
   GUCCI.themeChange();
-  GUCCI.requestJSON(GUCCI.got);
+  GUCCI.requestJSON(GUCCI.ram, false);
+  GUCCI.requestJSON(GUCCI.got, true);
+
   GUCCI.sbChange();
 }
 
@@ -36,17 +37,6 @@ GUCCI.themeChange = function() {
   GUCCI.dropdownTheme = document.getElementById('theme');
   GUCCI.dropdownTheme.addEventListener('change', function () {
     if (GUCCI.dropdownTheme.value == "dark"){
-      GUCCI.bodyElement.classList.add("dark");
-    } else {
-      GUCCI.bodyElement.classList.remove("dark");
-    }  
-  });
-}
-
-GUCCI.themeChange = function() {
-  GUCCI.dropdownTheme = document.getElementById('theme');
-  GUCCI.dropdownTheme.addEventListener('change', function () {
-    if (GUCCI.dropdownTheme.value == "dark"){
       GUCCI.bodyElement.className = "dark";
     } else {
       GUCCI.bodyElement.classList.remove("dark");
@@ -57,41 +47,51 @@ GUCCI.themeChange = function() {
 GUCCI.sbChange = function() {
   GUCCI.dropdownSB = document.getElementById('sb');
   GUCCI.dropdownSB.addEventListener('change', function () {
-    GUCCI.clearSB();
     if (GUCCI.dropdownSB.value == "got"){
-      GUCCI.requestJSON(GUCCI.got);
+      GUCCI.toggleDisplay("got", "ram");
     } else {
-      GUCCI.requestJSON(GUCCI.ram);
+      GUCCI.toggleDisplay("ram", "got");
     }  
   });
 }
 
-GUCCI.clearSB = function() {
-  for (let k = 0; k < GUCCI.rows.length; k++) {
-    GUCCI.rows[k].innerHTML = "";
+GUCCI.toggleDisplay = function(display, hidden) {
+  GUCCI.displays = document.getElementsByClassName(display);
+  GUCCI.hiddens = document.getElementsByClassName(hidden);
+  for (let i = 0; i < GUCCI.displays.length; i++) {
+    document.getElementsByClassName(display)[i].style.display = "block";
+    document.getElementsByClassName(hidden)[i].style.display = "none";
   }
 }
 
-GUCCI.requestJSON = function(sb) {
+GUCCI.requestJSON = function(sb, display) {
   GUCCI.xmlhttp = new XMLHttpRequest();
   GUCCI.url = sb;
   GUCCI.xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       GUCCI.data = JSON.parse(this.responseText);
-      GUCCI.genSB(GUCCI.data);
+      GUCCI.genSB(GUCCI.data, display);
     }
   };
   GUCCI.xmlhttp.open("GET", GUCCI.url, true);
   GUCCI.xmlhttp.send();
 }
 
-GUCCI.genSB = function(data) {
+GUCCI.genSB = function(data, display) {
   GUCCI.numPerRow = 0;
   GUCCI.curRow = 0;
   document.getElementById('title').innerHTML = GUCCI.data.soundboard.name;
+  GUCCI.temp = document.getElementById('sound');
 
+  if (display) {
+      GUCCI.temp.content.querySelector('div').classList.remove("ram");
+      GUCCI.temp.content.querySelector('div').classList.add("got");
+    } else {
+      GUCCI.temp.content.querySelector('div').classList.remove("got");
+      GUCCI.temp.content.querySelector('div').classList.add("ram");
+    }
+  
   for (let i = 0; i < GUCCI.data.soundboard.sounds.length; i++) {
-    GUCCI.temp = document.getElementById('sound');
     GUCCI.temp.content.querySelector('img').src = GUCCI.data.soundboard.sounds[i].image;
     GUCCI.temp.content.querySelector('img').alt = GUCCI.data.soundboard.sounds[i].alt;
     GUCCI.temp.content.querySelector('source').src = GUCCI.data.soundboard.sounds[i].sound;
