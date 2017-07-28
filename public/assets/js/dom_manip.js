@@ -119,7 +119,7 @@ GUCCI.addClick = function () {
       this.getElementsByTagName('span')[0].classList.add("glyphicon-pause");
       if (!GUCCI.audioRdy) {
         GUCCI.audioRdy = true;
-        GUCCI.forceRdy();
+//        GUCCI.forceRdy();
       }
     } else {
       GUCCI.audio.pause();
@@ -131,12 +131,12 @@ GUCCI.addClick = function () {
   };
 };
 
-GUCCI.forceRdy = function () {
-  "use strict";
-  GUCCI.soundList = document.querySelectorAll('.soundToggle');
-  for (GUCCI.i = 0; GUCCI.i < GUCCI.soundList.length; GUCCI.i += 1) {
-    GUCCI.current = GUCCI.soundList[GUCCI.i];
-    GUCCI.audio = GUCCI.current.parentNode.getElementsByTagName('audio')[0];
-    GUCCI.audio.parentNode.getElementsByClassName('soundToggle')[0].style.display = "block";
-  }
-};
+//GUCCI.forceRdy = function () {
+//  "use strict";
+//  GUCCI.soundList = document.querySelectorAll('.soundToggle');
+//  for (GUCCI.i = 0; GUCCI.i < GUCCI.soundList.length; GUCCI.i += 1) {
+//    GUCCI.current = GUCCI.soundList[GUCCI.i];
+//    GUCCI.audio = GUCCI.current.parentNode.getElementsByTagName('audio')[0];
+//    GUCCI.audio.parentNode.getElementsByClassName('soundToggle')[0].style.display = "block";
+//  }
+//};
