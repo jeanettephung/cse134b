@@ -357,11 +357,11 @@ body.dark {
 .dark h3 {
   color: white;
 }
-.ram {
-  display: none;
-}
-.got {
+.ram, .got {
   display: block;
+}
+.hide {
+  display: none;
 }
 .compact .sound, .compact .soundToggle {
   height: 35px;

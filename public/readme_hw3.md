@@ -1,0 +1,1 @@
+Note: <template> is not supported in IE11.
