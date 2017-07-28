@@ -76,8 +76,8 @@ button {
   font-size: 50px;
 }
 .repeat {
-  bottom: 50%;
-  left: 42%;
+  bottom: 40%;
+  left: 45%;
   position: absolute;
   z-index: 20;
 }
@@ -134,7 +134,7 @@ a:hover {
   background-color: transparent;
   border-radius: 6px;
   width: 100%;
-  min-height: 130px;
+  min-height: 200px;
 }
 h1 {
   font-size: 25px;

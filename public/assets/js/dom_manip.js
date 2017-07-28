@@ -83,7 +83,7 @@ GUCCI.requestJSON = function (sb, display) {
     }
   };
   GUCCI.xmlhttp.open("GET", GUCCI.url, true);
-  GUCCI.xmlhttp.send();
+  GUCCI.xmlhttp.send(null);
 };
 
 GUCCI.genSB = function (data, display) {
@@ -112,7 +112,9 @@ GUCCI.genSB = function (data, display) {
       GUCCI.curRow += 1;
     }
   }
-  GUCCI.genBtn();
+  if (!display) {
+    GUCCI.genBtn();
+  }
 };
 
 GUCCI.genBtn = function (data) {
