@@ -120,18 +120,23 @@ GUCCI.genBtn = function (data) {
   GUCCI.soundList = document.getElementsByClassName('soundToggle');
   for (GUCCI.i = 0; GUCCI.i < GUCCI.soundList.length; GUCCI.i += 1) {
     GUCCI.current = GUCCI.soundList[GUCCI.i];
-    GUCCI.current.onclick = function () {
-      GUCCI.audio = this.parentNode.getElementsByTagName('audio')[0];
-      if (GUCCI.audio.paused) {
-        GUCCI.audio.play();
-        this.getElementsByTagName('span')[0].classList.add("glyphicon-pause");
-      } else {
-        GUCCI.audio.pause();
-        this.getElementsByTagName('span')[0].classList.remove("glyphicon-pause");
-      }
-      GUCCI.audio.onended = function () {
-        this.parentNode.getElementsByTagName('span')[0].classList.remove("glyphicon-pause");
-      };
-    };
+    GUCCI.btnEvent(GUCCI.current);
   }
+};
+
+GUCCI.btnEvent = function (cur) {
+  "use strict";
+  GUCCI.current.onclick = function () {
+    GUCCI.audio = this.parentNode.getElementsByTagName('audio')[0];
+    if (GUCCI.audio.paused) {
+      GUCCI.audio.play();
+      this.getElementsByTagName('span')[0].classList.add("glyphicon-pause");
+    } else {
+      GUCCI.audio.pause();
+      this.getElementsByTagName('span')[0].classList.remove("glyphicon-pause");
+    }
+    GUCCI.audio.onended = function () {
+      this.parentNode.getElementsByTagName('span')[0].classList.remove("glyphicon-pause");
+    };
+  };
 };
