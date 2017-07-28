@@ -117,7 +117,7 @@ GUCCI.genSB = function (data, display) {
   }
 };
 
-GUCCI.genBtn = function (data) {
+GUCCI.genBtn = function () {
   "use strict";
   GUCCI.soundList = document.getElementsByClassName('soundToggle');
   for (GUCCI.i = 0; GUCCI.i < GUCCI.soundList.length; GUCCI.i += 1) {
@@ -128,8 +128,14 @@ GUCCI.genBtn = function (data) {
 
 GUCCI.btnEvent = function (cur) {
   "use strict";
+  GUCCI.audio = cur.parentNode.getElementsByTagName('audio')[0];
+  GUCCI.audio.addEventListener('loadeddata', function () {
+    GUCCI.audio.parentNode.getElementsByClassName('soundToggle')[0].style.display = "block";
+  }, false);
+  GUCCI.audio.addEventListener('error', function () {
+    alert('Error loading audio...');
+  }, false);
   GUCCI.current.onclick = function () {
-    GUCCI.audio = this.parentNode.getElementsByTagName('audio')[0];
     if (GUCCI.audio.paused) {
       GUCCI.audio.play();
       this.getElementsByTagName('span')[0].classList.add("glyphicon-pause");

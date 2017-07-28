@@ -89,6 +89,7 @@ button {
   z-index: 45;
   top: 0;
   left: 0;
+  display: none;
 }
 .glyphicon-repeat-animate {
   animation: spin 1.5s infinite linear;
