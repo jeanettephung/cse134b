@@ -221,7 +221,7 @@ h3 {
   border: 1px solid transparent;
   border-radius: 4px;
 }
-.blue, .btn {
+.blue, .btn, .compact .sound  {
   color: #fff;
   background-color: #369CCD;
   background-image: -webkit-linear-gradient(top,#369CCD 0,#265a88 100%);
@@ -326,20 +326,10 @@ body.dark {
   background-repeat: repeat-x;
   border-color: #323233;
 }
-.dark .dropdown .btn {
-    color: #fff;
-    background-color: #d6d6d6;
-    background-image: -webkit-linear-gradient(top,#a3a4a5 0,#585b5f 100%);
-    background-image: -o-linear-gradient(top,#a3a4a5 0,#585b5f 100%);
-    background-image: -webkit-gradient(linear,left top,left bottom,from(#a3a4a5),to(#585b5f));
-    background-image: linear-gradient(to bottom,#a3a4a5 0,#585b5f 100%);
-    background-repeat: repeat-x;
-    border-color: #323233;
-}
 .dark .dropdown .btn:hover {
     background-color: #545658;
 }
-.dark .sound {
+.dark .sound, .dark .dropdown .btn  {
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);  
   background-image: -webkit-linear-gradient(top,#26323E 0,#3b4754 100%);
   background-image: -o-linear-gradient(top,#26323E 0,#3b4754 100%);
@@ -379,9 +369,15 @@ body.dark {
 .compact .soundToggle:hover {
   background-color: rgba(54, 156, 205, 0.18);
 }
+.dark #toggle:hover {
+  background-color: rgb(59, 71, 84);
+}
 .compact .sound img, .compact .sound .glyphicon {
   display: none;
 }
 .compact h3 {
   display: block;
+}
+.soundToggle:hover {
+  cursor: pointer;
 }
