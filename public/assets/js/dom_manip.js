@@ -10,7 +10,8 @@ window.onload = function () {
   document.getElementById('title').innerHTML = "Game of Thrones";
   GUCCI.toggle();
   GUCCI.themeChange();
-  
+  GUCCI.audioRdy = false;
+
   GUCCI.requestJSON(GUCCI.got, true);
   GUCCI.requestJSON(GUCCI.ram, false);
 
@@ -111,40 +112,55 @@ GUCCI.genSB = function (data, display) {
       GUCCI.numPerRow = 0;
       GUCCI.curRow += 1;
     }
-  }
-  if (!display) {
-    GUCCI.genBtn();
+    
+    if (display) {
+      GUCCI.soundList = document.querySelectorAll('.got .soundToggle');
+    } else {
+      GUCCI.soundList = document.querySelectorAll('.ram .soundToggle');
+    }
+    GUCCI.current = GUCCI.soundList[GUCCI.i];
+    GUCCI.audio = GUCCI.current.parentNode.getElementsByTagName('audio')[0];
+    
+    GUCCI.audio.addEventListener('canplaythrough', function () {
+      this.parentNode.getElementsByClassName('soundToggle')[0].style.display = "block";
+    }, false);
+    
+    GUCCI.current.onclick = function () {
+      GUCCI.audio = this.parentNode.getElementsByTagName('audio')[0];
+      if (GUCCI.audio.paused) {
+        GUCCI.audio.play();
+        this.getElementsByTagName('span')[0].classList.add("glyphicon-pause");
+        if (!GUCCI.audioRdy) {
+          GUCCI.audioRdy = true;
+          GUCCI.forceRdy();
+        }
+      } else {
+        GUCCI.audio.pause();
+        this.getElementsByTagName('span')[0].classList.remove("glyphicon-pause");
+      }
+      GUCCI.audio.onended = function () {
+        this.parentNode.getElementsByTagName('span')[0].classList.remove("glyphicon-pause");
+      };
+    };
   }
 };
 
-GUCCI.genBtn = function () {
-  "use strict";
-  GUCCI.soundList = document.getElementsByClassName('soundToggle');
+GUCCI.forceRdy = function () {
+  
+  console.log("callfinish");
+  
+  GUCCI.soundList = document.querySelectorAll('.soundToggle');
   for (GUCCI.i = 0; GUCCI.i < GUCCI.soundList.length; GUCCI.i += 1) {
     GUCCI.current = GUCCI.soundList[GUCCI.i];
-    GUCCI.btnEvent(GUCCI.current);
-  }
-};
-
-GUCCI.btnEvent = function (cur) {
-  "use strict";
-  GUCCI.audio = cur.parentNode.getElementsByTagName('audio')[0];
-  GUCCI.audio.addEventListener('loadeddata', function () {
+    GUCCI.audio = GUCCI.current.parentNode.getElementsByTagName('audio')[0];
     GUCCI.audio.parentNode.getElementsByClassName('soundToggle')[0].style.display = "block";
-  }, false);
-  GUCCI.audio.addEventListener('error', function () {
-    alert('Error loading audio...');
-  }, false);
-  GUCCI.current.onclick = function () {
-    if (GUCCI.audio.paused) {
-      GUCCI.audio.play();
-      this.getElementsByTagName('span')[0].classList.add("glyphicon-pause");
-    } else {
-      GUCCI.audio.pause();
-      this.getElementsByTagName('span')[0].classList.remove("glyphicon-pause");
-    }
-    GUCCI.audio.onended = function () {
-      this.parentNode.getElementsByTagName('span')[0].classList.remove("glyphicon-pause");
-    };
-  };
-};
+  }
+}
+
+function wait(ms){
+   var start = new Date().getTime();
+   var end = start;
+   while(end < start + ms) {
+     end = new Date().getTime();
+  }
+}
