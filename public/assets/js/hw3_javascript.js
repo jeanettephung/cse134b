@@ -141,6 +141,17 @@ GUCCI.wait = function () {
   GUCCI.inform.getElementsByTagName('span')[0].addEventListener('click', function () {
     GUCCI.inform.classList.add('hide');
   });
+  GUCCI.reload = document.getElementById('reload');
+  GUCCI.reload.addEventListener('click', function () {
+    GUCCI.reload.classList.add('hide');
+    if (GUCCI.audioRdy !== 24) {
+      GUCCI.audios = document.getElementsByTagName('audio');
+      for (GUCCI.i = 0; GUCCI.i < GUCCI.audios.length; GUCCI.i += 1) {
+        GUCCI.audios[GUCCI.i].parentNode.getElementsByTagName('span')[0].classList.remove('glyphicon-pause');
+        GUCCI.audios[GUCCI.i].parentNode.getElementsByClassName('soundToggle')[0].style.display = 'block';
+      }
+    }
+  });
   setTimeout(
     function () {
       if (GUCCI.audioRdy === 24) {
@@ -155,6 +166,7 @@ GUCCI.wait = function () {
             } else {
               GUCCI.inform.classList.remove('hide');
               GUCCI.inform.getElementsByTagName('h4')[0].textContent = 'Slow internet. You may witness some low performance while accessing site.';
+              GUCCI.reload.classList.remove('hide');
             }
           }, 15000);
       }

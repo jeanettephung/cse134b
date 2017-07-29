@@ -72,7 +72,6 @@ GUCCI.genSB = function (data, display) {
       GUCCI.soundList = $('.ram .soundToggle').get();
     }
     GUCCI.audio = $(GUCCI.soundList).last().parent().find('audio');
-    console.log("first load");
     GUCCI.loadAud(GUCCI.audio);
     GUCCI.addClick(GUCCI.audio);
   }
@@ -80,7 +79,6 @@ GUCCI.genSB = function (data, display) {
 
 GUCCI.loadAud = function (a) {
   'use strict';
-   console.log("loading:"+a);
    a.on('canplaythrough', function () {
     if (a.attr('ready') === 'false') {
       GUCCI.audioRdy += 1;
@@ -117,13 +115,11 @@ GUCCI.wait = function () {
     $('#inform').addClass('hide');
   });
   $('#reload').on('click', function () {
-    if (GUCCI.audioRdy === 24) {
-      $('#reload').removeClass('hide');
-    } else {
+    $('#reload').addClass('hide');
+    if (GUCCI.audioRdy !== 24) {
       $('audio').each(function () {
         $(this).parent().find('.soundToggle')[0].style.display = 'block';
       });
-
     }
   });
   setTimeout(

@@ -285,6 +285,7 @@ noscript h1 {
   background: -webkit-linear-gradient(top,  #770204 28%,#8e021a 53%,#89000d 70%);
   background: linear-gradient(to bottom,  #770204 28%,#8e021a 53%,#89000d 70%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#770204', endColorstr='#89000d',GradientType=0 );
+  height: auto;
 }
 .dropdown {
   margin: 0 25px 20px;
