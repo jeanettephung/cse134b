@@ -138,7 +138,7 @@ a:hover {
   min-height: 200px;
 }
 h1 {
-  font-size: 25px;
+  font-size: 20px;
   letter-spacing: 0;
   padding: 27px 30px;
   line-height: 1.1;
@@ -317,7 +317,7 @@ h2 {
 body.dark {
   background-color: #131313;
 }
-.dark .blue, .dark .btn{
+.dark .blue, .dark .btn {
   color: #fff;
   background-color: #3f4348;
   background-image: -webkit-linear-gradient(top,#3f4348 0,#101010 100%);
@@ -330,7 +330,7 @@ body.dark {
 .dark .dropdown .btn:hover {
     background-color: #545658;
 }
-.dark .sound, .dark .dropdown .btn  {
+.dark .sound, .dark .dropdown .btn, .dark #reload  {
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);  
   background-image: -webkit-linear-gradient(top,#26323E 0,#3b4754 100%);
   background-image: -o-linear-gradient(top,#26323E 0,#3b4754 100%);
@@ -339,7 +339,7 @@ body.dark {
   background-repeat: repeat-x;
   border-color: #323233;
 }
-.dark .blue:hover, .dark .btn:hover {
+.dark .blue:hover, .dark .btn:hover, .dark #reload:hover {
   color: #fff;
   border-color: #323233;
   background-color: #141415;
@@ -370,7 +370,7 @@ body.dark {
 .compact .soundToggle:hover {
   background-color: rgba(54, 156, 205, 0.18);
 }
-.dark #toggle:hover {
+.dark #toggle:hover, .dark #reload:hover {
   background-color: rgb(59, 71, 84);
 }
 .compact .sound img, .compact .sound .glyphicon {
@@ -402,4 +402,9 @@ body.dark {
 }
 #inform span:hover {
   background-color: #ffc8c8;
+}
+#reload {
+  position: relative;
+  margin: -20px 50% 20px 50%;
+  right: 55px;  
 }

@@ -11,7 +11,7 @@ $(document).ready(function () {
   GUCCI.sbChange();
   GUCCI.requestJSON(GUCCI.got, true);
   GUCCI.requestJSON(GUCCI.ram, false);
-//  GUCCI.wait();
+  GUCCI.wait();
 });
 
 GUCCI.viewChange = function () {
@@ -72,6 +72,7 @@ GUCCI.genSB = function (data, display) {
       GUCCI.soundList = $('.ram .soundToggle').get();
     }
     GUCCI.audio = $(GUCCI.soundList).last().parent().find('audio');
+    console.log("first load");
     GUCCI.loadAud(GUCCI.audio);
     GUCCI.addClick(GUCCI.audio);
   }
@@ -79,7 +80,8 @@ GUCCI.genSB = function (data, display) {
 
 GUCCI.loadAud = function (a) {
   'use strict';
-  a.on('canplaythrough', function () {
+   console.log("loading:"+a);
+   a.on('canplaythrough', function () {
     if (a.attr('ready') === 'false') {
       GUCCI.audioRdy += 1;
       this.volume = 0;
@@ -93,7 +95,7 @@ GUCCI.loadAud = function (a) {
         $(a).parent().find('.soundToggle')[0].style.display = 'block';
       }
     };
-  });
+  });  
 };
 
 GUCCI.addClick = function (a) {
@@ -104,7 +106,43 @@ GUCCI.addClick = function (a) {
       $(a).parent().find('span').first().addClass('glyphicon-pause');
     } else {
       a[0].pause();
-     $(a).parent().find('span').first().removeClass('glyphicon-pause');
+      $(a).parent().find('span').first().removeClass('glyphicon-pause');
     }
   };
+};
+
+GUCCI.wait = function () {
+  'use strict';
+  $('#inform span').on('click', function () {
+    $('#inform').addClass('hide');
+  });
+  $('#reload').on('click', function () {
+    if (GUCCI.audioRdy === 24) {
+      $('#reload').removeClass('hide');
+    } else {
+      $('audio').each(function () {
+        $(this).parent().find('.soundToggle')[0].style.display = 'block';
+      });
+
+    }
+  });
+  setTimeout(
+    function () {
+      if (GUCCI.audioRdy === 24) {
+        $('#inform').addClass('hide');
+      } else {
+        $('#inform').removeClass('hide');
+        $('#inform h4').text('Slow internet, please hold as we load audio.');
+        setTimeout(
+          function () {
+            if (GUCCI.audioRdy === 24) {
+              $('#inform').addClass('hide');
+            } else {
+              $('#inform span').removeClass('hide');
+              $('#inform h4').text('Slow internet. You may witness some low performance while accessing site.');
+              $('#reload').removeClass('hide');
+            }
+          }, 15000);
+      }
+    }, 3000);
 };
