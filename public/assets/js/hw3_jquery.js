@@ -71,43 +71,40 @@ GUCCI.genSB = function (data, display) {
     } else {
       GUCCI.soundList = $('.ram .soundToggle').get();
     }
-    GUCCI.current = GUCCI.soundList[GUCCI.i];
-    GUCCI.audio = $('audio').last();
-    GUCCI.loadAud();
-    GUCCI.addClick();
+    GUCCI.audio = $(GUCCI.soundList).last().parent().find('audio');
+    GUCCI.loadAud(GUCCI.audio);
+    GUCCI.addClick(GUCCI.audio);
   }
 };
 
-GUCCI.loadAud = function () {
+GUCCI.loadAud = function (a) {
   'use strict';
-  $('audio').on('canplay canplaythrough', function () {
-    if ($(this).attr('ready') === 'false') {
+  a.on('canplaythrough', function () {
+    if (a.attr('ready') === 'false') {
       GUCCI.audioRdy += 1;
       this.volume = 0;
     } else {
       this.volume = 1;
     }
     this.play();
-    this.onended = function () {
-      $('this').closest('span').removeClass('glyphicon-pause');
-      if ($(this).attr('ready') === 'false') {
-        $(this).attr('ready', 'true');
-        $('.soundToggle')[0].style.display = 'block';
+    this.onended = function () {      $(a).parent().find('span').first().removeClass('glyphicon-pause');
+      if (a.attr('ready') === 'false') {
+        a.attr('ready', 'true');
+        $(a).parent().find('.soundToggle')[0].style.display = 'block';
       }
     };
   });
 };
 
-GUCCI.addClick = function () {
+GUCCI.addClick = function (a) {
   'use strict';
-  $(this).onclick = function () {
-    GUCCI.audio = $(this).closest('audio');
-    if (this.paused) {
-      this.play();
-      $(this).closest('span').addClass('glyphicon-pause');
+  $(a).parent().find('.soundToggle')[0].onclick = function () {
+    if (a[0].paused) {
+      a[0].play();
+      $(a).parent().find('span').first().addClass('glyphicon-pause');
     } else {
-      this.pause();
-      $(this).closest('span').removeClass('glyphicon-pause');
+      a[0].pause();
+     $(a).parent().find('span').first().removeClass('glyphicon-pause');
     }
   };
 };
