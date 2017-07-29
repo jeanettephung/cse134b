@@ -7,10 +7,12 @@
     <script type="text/javascript" src="https://cdn.trackjs.com/releases/current/tracker.js"></script>
 -->
     <!-- END TRACKJS -->
-    <title>Soundboard with Vanilla JS</title>
+    <title>Soundboard with jQuery</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./assets/css/dom.css">
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/js/jsrender.min.js"></script>
   </head>
   <body>
     <header>
@@ -54,24 +56,24 @@
       </div>
     </main>
     <footer>&copy;Gucci</footer>
-    <template id="sound">
-      <div class="sound adjust">
+    <script id="sound" type="text/html">
+      <div class="sound adjust ${classes}">
         <div class="soundToggle">
           <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-          <h3></h3>
+          <h3>${alt}</h3>
         </div>
         <div class="placeholder">
-          <img src="" alt="">
+          <img src="${image}" alt="${alt}">
           <div class="repeat">
             <span class="glyphicon glyphicon-repeat glyphicon-repeat-animate"></span>
           </div>
         </div>
         <audio ready="false">
-          <source src="" type="audio/wav">
+          <source src="${sound}" type="audio/wav">
           Your browser doesn't support the HTML audio.
         </audio>
       </div>
-    </template>
-    <script src="./assets/js/hw3_javascript.js"></script>
+    </script>
+    <script src="./assets/js/hw3_jquery.js"></script>
   </body>
 </html>

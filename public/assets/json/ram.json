@@ -5,62 +5,74 @@
       {
         "image": "./assets/img/rickandmorty/1_what_you_got.jpg",
         "alt": "What You Got",
-        "sound": "./assets/audio/rickandmorty/1_what_you_got.wav"
+        "sound": "./assets/audio/rickandmorty/1_what_you_got.wav",
+        "classes": "ram hide"
       },
       {
         "image": "./assets/img/rickandmorty/2_luv_dub.jpg",
         "alt": "Luv Dub",
-        "sound": "./assets/audio/rickandmorty/2_woo_vu.wav"
+        "sound": "./assets/audio/rickandmorty/2_woo_vu.wav",
+        "classes": "ram hide"
       },
       {
         "image": "./assets/img/rickandmorty/3_mr_meeseeks.jpg",
         "alt": "Mr Meeseeks",
-        "sound": "./assets/audio/rickandmorty/3_mr_meeseeks.wav"
+        "sound": "./assets/audio/rickandmorty/3_mr_meeseeks.wav",
+        "classes": "ram hide"
       },
       {
         "image": "./assets/img/rickandmorty/4_oh_man.jpg",
         "alt": "Oh Man",
-        "sound": "./assets/audio/rickandmorty/4_oh_man.wav"
+        "sound": "./assets/audio/rickandmorty/4_oh_man.wav",
+        "classes": "ram hide"
       },
       {
         "image": "./assets/img/rickandmorty/5_bitch.jpg",
         "alt": "B**ch",
-        "sound": "./assets/audio/rickandmorty/5_awww_Bitch.wav"
+        "sound": "./assets/audio/rickandmorty/5_awww_Bitch.wav",
+        "classes": "ram hide"
       },
       {
         "image": "./assets/img/rickandmorty/6_riggity.jpg",
         "alt": "Riggity",
-        "sound": "./assets/audio/rickandmorty/6_riggity.wav"
+        "sound": "./assets/audio/rickandmorty/6_riggity.wav",
+        "classes": "ram hide"
       },
       {
         "image": "./assets/img/rickandmorty/7_what_you_think.jpg",
         "alt": "I Don't Give",
-        "sound": "./assets/audio/rickandmorty/7_i_dont_give.wav"
+        "sound": "./assets/audio/rickandmorty/7_i_dont_give.wav",
+        "classes": "ram hide"
       },
       {
         "image": "./assets/img/rickandmorty/8_bird_culture.jpg",
         "alt": "Bird Culture",
-        "sound": "./assets/audio/rickandmorty/8_in_bird_culture.wav"
+        "sound": "./assets/audio/rickandmorty/8_in_bird_culture.wav",
+        "classes": "ram hide"
       },
       {
         "image": "./assets/img/rickandmorty/9_ricky_ticky.jpg",
         "alt": "Ricky Ticky",
-        "sound": "./assets/audio/rickandmorty/9_ricky_ticky.wav"
+        "sound": "./assets/audio/rickandmorty/9_ricky_ticky.wav",
+        "classes": "ram hide"
       },
       {
         "image": "./assets/img/rickandmorty/10_fu_god.jpg",
         "alt": "FU God",
-        "sound": "./assets/audio/rickandmorty/10_yes_fu.wav"
+        "sound": "./assets/audio/rickandmorty/10_yes_fu.wav",
+        "classes": "ram hide"
       },
       {
         "image": "./assets/img/rickandmorty/11_thank.jpg",
         "alt": "Thank You",
-        "sound": "./assets/audio/rickandmorty/11_thank_you.wav"
+        "sound": "./assets/audio/rickandmorty/11_thank_you.wav",
+        "classes": "ram hide"
       },
       {
         "image": "./assets/img/rickandmorty/12_summer.jpg",
         "alt": "Summer",
-        "sound": "./assets/audio/rickandmorty/12_keep_summer.wav"
+        "sound": "./assets/audio/rickandmorty/12_keep_summer.wav",
+        "classes": "ram hide"
       }
     ]
   }
