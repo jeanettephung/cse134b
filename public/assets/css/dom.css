@@ -382,3 +382,24 @@ body.dark {
 .soundToggle:hover {
   cursor: pointer;
 }
+#inform {
+  text-align: center;
+  color: red;
+  z-index: 100;
+  font-size: 24px;
+  position: fixed;
+  border: 3px solid red;
+  top: 40%;
+  width: 80%;
+  left: 10%;
+  background-color: white;
+  padding: 30px;
+}
+#inform span {
+  border: 2px solid red;
+  padding: 5px 20px;
+  cursor: pointer;
+}
+#inform span:hover {
+  background-color: #ffc8c8;
+}

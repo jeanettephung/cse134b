@@ -2,7 +2,7 @@ var GUCCI = {};
 
 window.onload = function () {
   "use strict";
-  GUCCI.audioRdy = false;
+  GUCCI.audioRdy = 0;
   GUCCI.toggleVal = "off";
   GUCCI.got = "./assets/json/got.json";
   GUCCI.ram = "./assets/json/ram.json";
@@ -12,6 +12,7 @@ window.onload = function () {
   GUCCI.sbChange();
   GUCCI.requestJSON(GUCCI.got, true);
   GUCCI.requestJSON(GUCCI.ram, false);
+  GUCCI.wait();
 };
 
 GUCCI.viewChange = function () {
@@ -98,16 +99,29 @@ GUCCI.genSB = function (data, display) {
     }
     GUCCI.current = GUCCI.soundList[GUCCI.i];
     GUCCI.audio = GUCCI.current.parentNode.getElementsByTagName('audio')[0];
-    GUCCI.displayBtn(GUCCI.audio);
+    GUCCI.loadAud();
     GUCCI.addClick();
   }
 };
 
-GUCCI.displayBtn = function (aud) {
+GUCCI.loadAud = function () {
   "use strict";
-  aud.addEventListener('canplaythrough', function () {
-    this.parentNode.getElementsByClassName('soundToggle')[0].style.display = "block";
-  }, false);
+  GUCCI.audio.addEventListener('canplay', function () {
+    if (this.getAttribute("ready") === "false") {
+      GUCCI.audioRdy += 1;
+      this.volume = 0;
+    } else {
+      this.volume = 1;
+    }
+    this.play();
+    this.onended = function () {
+      this.parentNode.getElementsByTagName('span')[0].classList.remove("glyphicon-pause");
+      if (this.getAttribute("ready") === "false") {
+        this.setAttribute("ready", "true");
+        this.parentNode.getElementsByClassName('soundToggle')[0].style.display = "block";
+      }
+    };
+  });
 };
 
 GUCCI.addClick = function () {
@@ -117,26 +131,35 @@ GUCCI.addClick = function () {
     if (GUCCI.audio.paused) {
       GUCCI.audio.play();
       this.getElementsByTagName('span')[0].classList.add("glyphicon-pause");
-      if (!GUCCI.audioRdy) {
-        GUCCI.audioRdy = true;
-//        GUCCI.forceRdy();
-      }
     } else {
       GUCCI.audio.pause();
       this.getElementsByTagName('span')[0].classList.remove("glyphicon-pause");
     }
-    GUCCI.audio.onended = function () {
-      this.parentNode.getElementsByTagName('span')[0].classList.remove("glyphicon-pause");
-    };
   };
 };
 
-//GUCCI.forceRdy = function () {
-//  "use strict";
-//  GUCCI.soundList = document.querySelectorAll('.soundToggle');
-//  for (GUCCI.i = 0; GUCCI.i < GUCCI.soundList.length; GUCCI.i += 1) {
-//    GUCCI.current = GUCCI.soundList[GUCCI.i];
-//    GUCCI.audio = GUCCI.current.parentNode.getElementsByTagName('audio')[0];
-//    GUCCI.audio.parentNode.getElementsByClassName('soundToggle')[0].style.display = "block";
-//  }
-//};
+GUCCI.wait = function () {
+  "use strict";
+  GUCCI.inform = document.getElementById("inform");
+  GUCCI.inform.getElementsByTagName("span")[0].addEventListener('click', function () {
+    GUCCI.inform.classList.add("hide");
+  });
+  setTimeout(
+    function () {
+      if (GUCCI.audioRdy === 24) {
+        GUCCI.inform.classList.add("hide");
+      } else {
+        GUCCI.inform.classList.remove("hide");
+        GUCCI.inform.getElementsByTagName("h4")[0] = "Slow internet, please hold as we load audio.";
+        setTimeout(
+          function () {
+            if (GUCCI.audioRdy === 24) {
+              GUCCI.inform.classList.add("hide");
+            } else {
+              GUCCI.inform.classList.remove("hide");
+              GUCCI.inform.getElementsByTagName("h4")[0].textContent = "Slow internet. You may witness some low performance while accessing site.";
+            }
+          }, 15000);
+      }
+    }, 3000);
+};
