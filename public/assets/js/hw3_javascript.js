@@ -115,20 +115,7 @@ GUCCI.genSB = function (data, display) {
 GUCCI.loadAud = function () {
   'use strict';
   GUCCI.audio.addEventListener('canplay', function () {
-//    if (this.getAttribute('ready') === 'false') {
-//      GUCCI.audioRdy += 1;
-//      this.volume = 0;
-//    } else {
-//      this.volume = 1;
-//    }
-//    this.play();
-//    this.onended = function () {
-//      this.parentNode.getElementsByTagName('span')[0].classList.remove('glyphicon-pause');
-//      if (this.getAttribute('ready') === 'false') {
-//        this.setAttribute('ready', 'true');
-        this.parentNode.getElementsByClassName('soundToggle')[0].style.display = 'block';
-//      }
-//    };
+    this.parentNode.getElementsByClassName('soundToggle')[0].style.display = 'block';
   });
 };
 

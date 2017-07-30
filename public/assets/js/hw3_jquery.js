@@ -91,19 +91,7 @@ var GUCCI = {};
 
   GUCCI.loadAud = function (a) {
     a.on('canplaythrough', function () {
-      if (a.attr('ready') === 'false') {
-        GUCCI.audioRdy += 1;
-        this.volume = 0;
-      } else {
-        this.volume = 1;
-      }
-      this.play();
-      this.onended = function () {      $(a).parent().find('span').first().removeClass('glyphicon-pause');
-          if (a.attr('ready') === 'false') {
-          a.attr('ready', 'true');
-          $(a).parent().find('.soundToggle')[0].style.display = 'block';
-        }
-        };
+      $(a).parent().find('.soundToggle')[0].style.display = 'block';
     });
   };
 
