@@ -121,6 +121,7 @@ GUCCI.genSB = function (data, display) {
 GUCCI.loadAud = function () {
   'use strict';
   GUCCI.audio.addEventListener('progress', function () {
+    console.log(GUCCI.audioRdy);
     GUCCI.audioRdy += 1;
     this.parentNode.getElementsByClassName('soundToggle')[0].style.display = 'block';
     this.parentNode.getElementsByClassName('load')[0].style.display = 'none';
@@ -165,7 +166,7 @@ GUCCI.slowInternet = function () {
   "use strict";
   if (GUCCI.audioRdy === 24) {
     GUCCI.inform.classList.add('hide');
-  } else if (window.navigator.onLine) {
+  } else if (window.navigator.onLine && GUCCI.audioRdy !== 24) {
     GUCCI.inform.classList.remove('hide');
     GUCCI.inform.getElementsByTagName('h4')[0] = 'Slow internet, please hold as we load audio.';
     setTimeout(GUCCI.lowPerformance, 15000);
@@ -176,7 +177,7 @@ GUCCI.lowPerformance = function () {
   "use strict";
   if (GUCCI.audioRdy === 24) {
     GUCCI.inform.classList.add('hide');
-  } else if (window.navigator.onLine) {
+  } else if (window.navigator.onLine && GUCCI.audioRdy !== 24) {
     GUCCI.inform.classList.remove('hide');
     GUCCI.inform.getElementsByTagName('h4')[0].textContent = 'Slow internet. You may witness some low performance while accessing site.';
     if (GUCCI.audioRdy === 24) {
