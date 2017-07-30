@@ -15,8 +15,7 @@ window.onload = function () {
   GUCCI.wait();
   
   GUCCI.isIE = /*@cc_on!@*/false || !!document.documentMode;
-  GUCCI.isEdge = !GUCCI.isIE && !!window.StyleMedia;
-  if (GUCCI.isIE || GUCCI.isEdge) {
+  if (GUCCI.isIE) {
     GUCCI.inform.classList.remove('hide');
     GUCCI.inform.getElementsByTagName('h4')[0].textContent = 'Soundboard not supported in your browser';
   }
