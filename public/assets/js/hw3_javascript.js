@@ -184,6 +184,8 @@ GUCCI.lowPerformance = function () {
   } else if (window.navigator.onLine) {
     GUCCI.inform.classList.remove('hide');
     GUCCI.inform.getElementsByTagName('h4')[0].textContent = 'Slow internet. You may witness some low performance while accessing site.';
-    GUCCI.reload.classList.remove('hide');
+    if (GUCCI.audioRdy === 24) {
+      GUCCI.reload.classList.remove('hide');
+    }
   }
 };
