@@ -64,8 +64,9 @@ var GUCCI = {};
         GUCCI.genSB(data, display);
       },
       error: function (data) {
-        $('#inform').removeClass('hide');
         $('#inform h4').text('Error in loading content');
+        $('#inform').removeClass('hide');
+
       }
     });
   };
@@ -100,6 +101,7 @@ var GUCCI = {};
     a.on('progress', function () {
       $(a).parent().find('.soundToggle')[0].style.display = 'block';
       $(this).parent().find('.load')[0].style.display = 'none';
+      GUCCI.audioRdy += 1;
     });
   };
 
