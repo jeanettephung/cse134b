@@ -5,6 +5,11 @@ var GUCCI = {};
 (function ($) {
   "use strict";
   $(document).ready(function () {
+    GUCCI.isIE = /*@cc_on!@*/false || !!document.documentMode;
+    if (!GUCCI.isIE) {
+      $('#inform').removeClass('hide');
+      $('#inform h4').text('Soundboard not supported in IE');
+    }
     GUCCI.audioRdy = 0;
     GUCCI.toggleVal = 'off';
     GUCCI.got = './assets/json/got.json';
@@ -90,8 +95,9 @@ var GUCCI = {};
   };
 
   GUCCI.loadAud = function (a) {
-    a.on('canplaythrough', function () {
+    a.on('progress', function () {
       $(a).parent().find('.soundToggle')[0].style.display = 'block';
+      $(this).parent().find('.load')[0].style.display = 'none';
     });
   };
 

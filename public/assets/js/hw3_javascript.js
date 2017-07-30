@@ -14,6 +14,12 @@ window.onload = function () {
   GUCCI.requestJSON(GUCCI.ram, false);
   GUCCI.wait();
   
+  GUCCI.isIE = /*@cc_on!@*/false || !!document.documentMode;
+  if (!GUCCI.isIE) {
+    GUCCI.inform.classList.remove('hide');
+    GUCCI.inform.getElementsByTagName('h4')[0].textContent = 'Soundboard not supported in IE';
+  }
+  
   setInterval(function () {
     if (!window.navigator.onLine) {
       GUCCI.inform.classList.remove('hide');
@@ -114,8 +120,10 @@ GUCCI.genSB = function (data, display) {
 
 GUCCI.loadAud = function () {
   'use strict';
-  GUCCI.audio.addEventListener('canplay', function () {
+  GUCCI.audio.addEventListener('progress', function () {
+    GUCCI.audioRdy += 1;
     this.parentNode.getElementsByClassName('soundToggle')[0].style.display = 'block';
+    this.parentNode.getElementsByClassName('load')[0].style.display = 'none';
   });
 };
 
