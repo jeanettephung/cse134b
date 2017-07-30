@@ -6,7 +6,7 @@ var GUCCI = {};
   "use strict";
   $(document).ready(function () {
     GUCCI.isIE = /*@cc_on!@*/false || !!document.documentMode;
-    if (!GUCCI.isIE) {
+    if (GUCCI.isIE) {
       $('#inform').removeClass('hide');
       $('#inform h4').text('Soundboard not supported in IE');
     }
