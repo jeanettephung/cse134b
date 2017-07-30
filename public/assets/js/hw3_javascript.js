@@ -150,7 +150,7 @@ GUCCI.wait = function () {
   GUCCI.reload = document.getElementById('reload');
   GUCCI.reload.addEventListener('click', function () {
     GUCCI.reload.classList.add('hide');
-    if (GUCCI.audioRdy !== 24) {
+    if (GUCCI.audioRdy <= 24) {
       GUCCI.audios = document.getElementsByTagName('audio');
       for (GUCCI.i = 0; GUCCI.i < GUCCI.audios.length; GUCCI.i += 1) {
         GUCCI.audios[GUCCI.i].parentNode.getElementsByTagName('span')[0].classList.remove('glyphicon-pause');
@@ -164,9 +164,9 @@ GUCCI.wait = function () {
 
 GUCCI.slowInternet = function () {
   "use strict";
-  if (GUCCI.audioRdy === 24) {
+  if (GUCCI.audioRdy >= 24) {
     GUCCI.inform.classList.add('hide');
-  } else if (window.navigator.onLine && GUCCI.audioRdy !== 24) {
+  } else if (window.navigator.onLine && GUCCI.audioRdy < 24) {
     GUCCI.inform.classList.remove('hide');
     GUCCI.inform.getElementsByTagName('h4')[0] = 'Slow internet, please hold as we load audio.';
     setTimeout(GUCCI.lowPerformance, 15000);
@@ -175,12 +175,12 @@ GUCCI.slowInternet = function () {
   
 GUCCI.lowPerformance = function () {
   "use strict";
-  if (GUCCI.audioRdy === 24) {
+  if (GUCCI.audioRdy >= 24) {
     GUCCI.inform.classList.add('hide');
-  } else if (window.navigator.onLine && GUCCI.audioRdy !== 24) {
+  } else if (window.navigator.onLine && GUCCI.audioRdy < 24) {
     GUCCI.inform.classList.remove('hide');
     GUCCI.inform.getElementsByTagName('h4')[0].textContent = 'Slow internet. You may witness some low performance while accessing site.';
-    if (GUCCI.audioRdy === 24) {
+    if (GUCCI.audioRdy >= 24) {
       GUCCI.reload.classList.remove('hide');
     }
   }
