@@ -31,7 +31,7 @@ jQuery on Good 3G:
   3rd run - JS Time: 575s, Finish: 29.13s, DOMContentLoaded: 823ms, Load: 985ms
   avg - JS Time: 559.67ms, Finish: 29.87s, DOMContentLoaded: 866.33ms, Load: 3.10s
   
-On average, VanillaJS runs much faster than jQuery. The jQuery code written is much smaller and easier to write than VanillaJS. However, when importing the libraries for jQuery, the total size of jQuery is  much larger than VanilaJS. Also, it takes longer to run than the methods of jQuery than native JS. Unlike CSS, we are able to see that the times greatly differs when loading scripts and the whole page between using jQuery and VanillaJS.
+On average, VanillaJS runs much faster than jQuery. The jQuery code written is much smaller and easier to write than VanillaJS. The script was first written in VanillaJS, then translated to jQuery. All accesses to elements were replaced with $('element') and event listeners with $('element').on('action'). However, when importing the libraries for jQuery, the total size of jQuery is  much larger than VanilaJS. Also, it takes longer to run than the methods of jQuery than native JS. Unlike CSS, we are able to see that the times greatly differs when loading scripts and the whole page between using jQuery and VanillaJS.
 
   
 
@@ -40,9 +40,9 @@ In order to install the trackJS tracker library, after creating an account we we
 
 Some of the errors we first witnessed dealt with getting familiar with JavaScript and jQuery. Lack of knowledge of the DOM tree resulted in accesses node or elements off of tree (ex. Cannot read property of ... undefined).
 
-Errors like "unexpected token", "not a function", "not defined" are caused by syntax errors or typos. There's errors are quickly fixed.
+Errors like "unexpected token", "not a function", "not defined" are caused by syntax errors or typos. These errors are quickly fixed.
 
-The error, "play() can only be initiated by a user gesture", was found only on mobile phones. This was caused by playing all audios when the page loads to get audio to be mostly loaded before displaying the play button to users. This would lessen the time a user waits between pressing the play button and when the audio actually loads. This time is caused because the audio was not fully loaded before the user plays the audio. However, this "fix" did not work because forcing the audio to play caused this error. Therefore, this "fix" was removed and replaced with a function that shows the play button after the page is downloading the audio (checked with progress event).
+The error, "play() can only be initiated by a user gesture", was found only on mobile phones. This was caused by playing all audios when the page loads to get audio to be mostly loaded before displaying the play button to users. This would lessen the time a user waits between pressing the play button and when the audio actually loads. This time is caused because the audio was not fully loaded before the user plays the audio. However, this "fix" did not work because we discover on mobile devices that forcing the audio to play caused this error. Therefore, this "fix" was removed and replaced with a function that shows the play button after the page is downloading the audio (checked with progress event).
 
 
 /** OTHER **/
