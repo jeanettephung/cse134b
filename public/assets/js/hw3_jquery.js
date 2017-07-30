@@ -6,9 +6,11 @@ var GUCCI = {};
   "use strict";
   $(document).ready(function () {
     GUCCI.isIE = /*@cc_on!@*/false || !!document.documentMode;
-    if (GUCCI.isIE) {
+    GUCCI.isEdge = !GUCCI.isIE && !!window.StyleMedia;
+
+    if (GUCCI.isIE || GUCCI.isEdge) {
       $('#inform').removeClass('hide');
-      $('#inform h4').text('Soundboard not supported in IE');
+      $('#inform h4').text('Soundboard not supported in your browser.');
     }
     GUCCI.audioRdy = 0;
     GUCCI.toggleVal = 'off';
@@ -131,7 +133,7 @@ var GUCCI = {};
   GUCCI.slowInternet = function () {
     if (GUCCI.audioRdy === 24) {
       $('#inform').addClass('hide');
-    } else {
+    } else if (window.navigator.onLine && GUCCI.audioRdy !== 24) {
       $('#inform').removeClass('hide');
       $('#inform h4').text('Please hold as we load audio.');
       setTimeout(GUCCI.lowPerformance, 15000);
@@ -141,7 +143,7 @@ var GUCCI = {};
   GUCCI.lowPerformance = function () {
     if (GUCCI.audioRdy === 24) {
       $('#inform').addClass('hide');
-    } else {
+    } else if (window.navigator.onLine && GUCCI.audioRdy !== 24) {
       $('#inform span').removeClass('hide');
       $('#inform h4').text('Slow internet. You may witness some low performance while accessing site.');
       $('#reload').removeClass('hide');
