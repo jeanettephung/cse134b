@@ -25,7 +25,7 @@ window.onload = function () {
 /** Checks if browser is IE and informs user that soundboard is unsupported */
 GUCCI.funcIE = function () {
   'use strict';
-  GUCCI.boolIsIE = /*@cc_on!@*/false || !!document.documentMode;
+  GUCCI.boolIsIE = /*@cc_on!@*/false || !!document.documentMode;  // tracks if browser is IE
   if (GUCCI.boolIsIE) {
     GUCCI.funcModal('Soundboard not supported in your browser');
   }
@@ -56,9 +56,9 @@ GUCCI.funcSetup = function () {
   });
   // Dropdown for soundboards
   document.getElementById('sb').addEventListener('change', function () {
-    GUCCI.sounds = document.getElementsByClassName('sound');
-    for (GUCCI.i = 0; GUCCI.i < GUCCI.sounds.length; GUCCI.i += 1) {
-      GUCCI.sounds[GUCCI.i].classList.toggle('hide');
+    GUCCI.objSounds = document.getElementsByClassName('sound'); // sound element consisting of image and audio
+    for (GUCCI.i = 0; GUCCI.i < GUCCI.objSounds.length; GUCCI.i += 1) {
+      GUCCI.objSounds[GUCCI.i].classList.toggle('hide');
     }
     if (document.getElementById('sb').value === 'got') {
       document.getElementById('title').textContent = 'Game of Thrones';
@@ -68,14 +68,16 @@ GUCCI.funcSetup = function () {
   });
 };
 
-/** Send request to get soundboard data then generates soundboard */
+/** Send request to get soundboard data then generates soundboard 
+ *  Notifies end users if data not found or of server problems
+ */
 GUCCI.funcRequestJSON = function (url, display) {
   'use strict';
-  GUCCI.objXmlhttp = new XMLHttpRequest();
+  GUCCI.objXmlhttp = new XMLHttpRequest();  // XHR object
   GUCCI.objXmlhttp.onreadystatechange = function () {
     if (this.readyState === 4 && this.status === 200) {
-      GUCCI.data = JSON.parse(this.responseText);
-      GUCCI.funcGenSB(GUCCI.data, display);
+      GUCCI.objData = JSON.parse(this.responseText);  // JSON object containing soundboard data
+      GUCCI.funcGenSB(GUCCI.objData, display);
     } else if (this.status === 404) {
       GUCCI.funcModal('Soundboard not found.');
     } else if (this.status === 500) {
@@ -86,39 +88,40 @@ GUCCI.funcRequestJSON = function (url, display) {
   GUCCI.objXmlhttp.send(null);
 };
 
-/** Generates soundboard image, audio, and events */
+/** Generates soundboard image, audio, and events 
+ *  Displays GOT sound elements and hides RAM sound elements
+ */
 GUCCI.funcGenSB = function (data, display) {
   'use strict';
-  GUCCI.curRow = 0;
-  GUCCI.numPerRow = 0;
-  GUCCI.template = document.getElementById('sound');
-  GUCCI.rows = document.getElementsByClassName('row');
-  GUCCI.classes = GUCCI.template.content.querySelector('div').classList;
+  GUCCI.numCurRow = 0; // current row soundboard being appended to
+  GUCCI.numPerRow = 0;  // number of sounds in current row
+  GUCCI.objTemplate = document.getElementById('sound'); // template for sound element
+  GUCCI.objListRows = document.getElementsByClassName('row');  // list of row objects
+  GUCCI.objClasses = GUCCI.objTemplate.content.querySelector('div').classList; // css classes of sound element
   if (display) {
-    GUCCI.classes.add('got');
+    GUCCI.objClasses.add('got');
   } else {
-    GUCCI.classes.remove('got');
-    GUCCI.classes.add('ram', 'hide');
+    GUCCI.objClasses.remove('got');
+    GUCCI.objClasses.add('ram', 'hide');
   }
-  for (GUCCI.i = 0; GUCCI.i < GUCCI.data.soundboard.sounds.length; GUCCI.i += 1) {
-    GUCCI.template.content.querySelector('img').src = GUCCI.data.soundboard.sounds[GUCCI.i].image;
-    GUCCI.template.content.querySelector('img').alt = GUCCI.data.soundboard.sounds[GUCCI.i].alt;
-    GUCCI.template.content.querySelector('h3').textContent = GUCCI.data.soundboard.sounds[GUCCI.i].alt;
-    GUCCI.template.content.querySelector('source').src = GUCCI.data.soundboard.sounds[GUCCI.i].sound;
-    GUCCI.clone = document.importNode(GUCCI.template.content, true);
-    GUCCI.rows[GUCCI.curRow].appendChild(GUCCI.clone);
+  for (GUCCI.i = 0; GUCCI.i < GUCCI.objData.soundboard.sounds.length; GUCCI.i += 1) {
+    GUCCI.objTemplate.content.querySelector('img').src = GUCCI.objData.soundboard.sounds[GUCCI.i].image;
+    GUCCI.objTemplate.content.querySelector('img').alt = GUCCI.objData.soundboard.sounds[GUCCI.i].alt;
+    GUCCI.objTemplate.content.querySelector('h3').textContent = GUCCI.objData.soundboard.sounds[GUCCI.i].alt;
+    GUCCI.objTemplate.content.querySelector('source').src = GUCCI.objData.soundboard.sounds[GUCCI.i].sound;
+    GUCCI.objClone = document.importNode(GUCCI.objTemplate.content, true); // sound object created from template
+    GUCCI.objListRows[GUCCI.numCurRow].appendChild(GUCCI.objClone);
     GUCCI.numPerRow += 1;
     if (GUCCI.numPerRow === 4) {
       GUCCI.numPerRow = 0;
-      GUCCI.curRow += 1;
+      GUCCI.numCurRow += 1;
     }
     if (display) {
-      GUCCI.soundList = document.querySelectorAll('.got .soundToggle');
+      GUCCI.objSoundList = document.querySelectorAll('.got .soundToggle');  // GOT soundboard object
     } else {
-      GUCCI.soundList = document.querySelectorAll('.ram .soundToggle');
+      GUCCI.objSoundList = document.querySelectorAll('.ram .soundToggle');   // RAM soundboard object
     }
-    GUCCI.current = GUCCI.soundList[GUCCI.i];
-    GUCCI.audio = GUCCI.current.parentNode.getElementsByTagName('audio')[0];
+    GUCCI.objAudio = GUCCI.objSoundList[GUCCI.i].parentNode.getElementsByTagName('audio')[0];
     GUCCI.funcLoadAud();
     GUCCI.funcAddClick();
   }
@@ -127,7 +130,7 @@ GUCCI.funcGenSB = function (data, display) {
 /** Add event listener to track which audio is ready and display play icon when audio is being downloaded */
 GUCCI.funcLoadAud = function () {
   'use strict';
-  GUCCI.audio.addEventListener('progress', function () {
+  GUCCI.objAudio.addEventListener('progress', function () {
     GUCCI.numAudioRdy += 1;
     this.parentNode.getElementsByClassName('soundToggle')[0].style.display = 'block';
     this.parentNode.getElementsByClassName('load')[0].style.display = 'none';
@@ -140,58 +143,58 @@ GUCCI.funcLoadAud = function () {
 /** Adds click event listener to play/pause audio */
 GUCCI.funcAddClick = function () {
   'use strict';
-  GUCCI.current.onclick = function () {
-    GUCCI.audio = this.parentNode.getElementsByTagName('audio')[0];
-    if (GUCCI.audio.paused) {
-      GUCCI.audio.play();
+  GUCCI.objSoundList[GUCCI.i].onclick = function () {
+    GUCCI.objAudio = this.parentNode.getElementsByTagName('audio')[0]; // current audio element
+    if (GUCCI.objAudio.paused) {
+      GUCCI.objAudio.play();
       this.getElementsByTagName('span')[0].classList.add('glyphicon-pause');
     } else {
-      GUCCI.audio.pause();
+      GUCCI.objAudio.pause();
       this.getElementsByTagName('span')[0].classList.remove('glyphicon-pause');
     }
   };
 };
 
-/** Displays load button to allow users to force play buttons for audio not ready */
+/** Informs users of slow internet connection, then warns of poor performance */
 GUCCI.funcWait = function () {
   'use strict';
   GUCCI.objInform.getElementsByTagName('span')[0].addEventListener('click', function () {
     GUCCI.objInform.classList.add('hide');
   });
-  GUCCI.reload = document.getElementById('reload');
-  GUCCI.reload.addEventListener('click', function () {
-    GUCCI.reload.classList.add('hide');
+  GUCCI.objReload = document.getElementById('reload');  // reload button for when all play buttons not displayed
+  GUCCI.objReload.addEventListener('click', function () {
+    GUCCI.objReload.classList.add('hide');
     if (GUCCI.numAudioRdy <= 24) {
-      GUCCI.audios = document.getElementsByTagName('audio');
+      GUCCI.objListAudios = document.getElementsByTagName('audio'); // list of audio elements
       for (GUCCI.i = 0; GUCCI.i < GUCCI.audios.length; GUCCI.i += 1) {
-        GUCCI.audios[GUCCI.i].parentNode.getElementsByTagName('span')[0].classList.remove('glyphicon-pause');
-        GUCCI.audios[GUCCI.i].parentNode.getElementsByClassName('soundToggle')[0].style.display = 'block';
+        GUCCI.objListAudios[GUCCI.i].parentNode.getElementsByTagName('span')[0].classList.remove('glyphicon-pause');
+        GUCCI.objListAudios[GUCCI.i].parentNode.getElementsByClassName('soundToggle')[0].style.display = 'block';
       }
     }
   });
-  setTimeout(GUCCI.slowInternet, 3000);
+  setTimeout(GUCCI.funcSlowInternet, 3000);
 };
 
 /** After 3 seconds, inform users of slow connection */
-GUCCI.slowInternet = function () {
+GUCCI.funcSlowInternet = function () {
   "use strict";
   if (GUCCI.numAudioRdy >= 24) {
     GUCCI.objInform.classList.add('hide');
   } else if (window.navigator.onLine && GUCCI.numAudioRdy < 24) {
     GUCCI.funcModal('Slow internet, please hold as we load audio.');
-    setTimeout(GUCCI.lowPerformance, 15000);
+    setTimeout(GUCCI.funcLowPerformance, 15000);
   }
 };
   
 /** After +15 seconds, inform users of poor performance */
-GUCCI.lowPerformance = function () {
+GUCCI.funcLowPerformance = function () {
   "use strict";
   if (GUCCI.numAudioRdy >= 24) {
     GUCCI.objInform.classList.add('hide');
   } else if (window.navigator.onLine && GUCCI.numAudioRdy < 24) {
     GUCCI.funcModal('Slow internet. You may witness some low performance while accessing site.');
     if (GUCCI.numAudioRdy >= 24) {
-      GUCCI.reload.classList.remove('hide');
+      GUCCI.objReload.classList.remove('hide');
     }
   }
 };
