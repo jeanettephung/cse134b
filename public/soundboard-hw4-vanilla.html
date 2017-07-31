@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- BEGIN TRACKJS -->
+<!--
+    <script type="text/javascript">window._trackJs = { token: '5cc2c000aa5b4ab9a1b049906d99aded' };</script>
+    <script type="text/javascript" src="https://cdn.trackjs.com/releases/current/tracker.js"></script>
+-->
+    <!-- END TRACKJS -->
+    <title>Soundboard 4.0</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./assets/css/dom.css">
+  </head>
+  <body>
+    <header>
+      <div class="login">
+        <a href="#" role="button" class="blue">
+          <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Login
+        </a>
+      </div>
+      <h1>Soundboard <span class="glyphicon glyphicon-music" aria-hidden="true"></span></h1>
+    </header>
+    <main>
+
+      <div class="dropdown">
+        <div id="toggle" class="btn">
+        <span class="glyphicon glyphicon-compact" aria-hidden="true"></span>
+        </div>
+        <select name="theme" id="theme">
+          <option value="lite">Lite</option>
+          <option value="dark">Dark</option>
+        </select>
+        <select name="sb" id="sb">
+          <option value="got">Game of Thrones</option>
+          <option value="rom">Rick and Morty</option>
+        </select>
+      </div>
+      
+      <div class="soundboard">
+        <h2 id="title">Game of Thrones</h2>
+        <noscript>
+          <h1>JavaScript not enabled. Features of site and soundboard will not work.</h1>
+        </noscript>
+        <span id="reload" class="btn hide">Reload Audio</span>
+        <div id="inform" class="hide">
+          <h4>Loading audio...</h4>
+          <div id="close">
+            <span>Close</span>
+          </div>
+        </div>
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="row"></div>
+      </div>
+    </main>
+    <footer>&copy;Gucci</footer>
+    <template id="sound">
+      <div class="sound adjust">
+        <div class="soundToggle">
+          <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+          <h3></h3>
+        </div>
+        <div class="placeholder">
+          <span class="load">Loading...</span>
+          <img src="" alt="">
+          <div class="repeat">
+            <span class="glyphicon glyphicon-repeat glyphicon-repeat-animate"></span>
+          </div>
+        </div>
+        <audio>
+          <source src="" type="audio/wav" preload>
+          Your browser doesn't support the HTML audio.
+        </audio>
+      </div>
+    </template>
+    <script src="./assets/js/hw4_javascript.js"></script>
+  </body>
+</html>
