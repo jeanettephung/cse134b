@@ -69,7 +69,8 @@ self.addEventListener('install', event => {
         '/assets/font-awesome/fonts/fontawesome-webfont.svg',
         '/assets/font-awesome/fonts/fontawesome-webfont.ttf',
         '/assets/font-awesome/fonts/fontawesome-webfont.woff',
-        '/assets/font-awesome/fonts/fontawesome-webfont.woff2'
+        '/assets/font-awesome/fonts/fontawesome-webfont.woff2',
+        '/favicon.ico'
       ]))
   );
 });

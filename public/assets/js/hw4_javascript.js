@@ -9,8 +9,7 @@ window.onload = function () {
   GUCCI.numAudioRdy = 0;  // tracks number of audios ready
   GUCCI.objInform = document.getElementById('inform');  // modal object that displays status to end users
   GUCCI.boolIsIE = /*@cc_on!@*/false || !!document.documentMode;  // tracks if browser is IE
-
-  GUCCI.funcRegWorker();
+  //GUCCI.funcRegWorker();
   GUCCI.updateOnlineStatus();
   GUCCI.funcSetup();
   GUCCI.funcRequestJSON('./assets/json/got.json', true);
@@ -18,6 +17,16 @@ window.onload = function () {
   GUCCI.funcWait();
   GUCCI.funcIE();
   GUCCI.funcConnection();
+// Some browsers use prefixes so let's cope with them first
+  GUCCI.connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  // Check for browser support
+  if (!!GUCCI.connection) {
+    console.log("supported");
+    var type = GUCCI.connection.type;
+  } else {
+        console.log("not")
+
+  }
 };
 
 /** Registers Service Worker */
@@ -38,6 +47,10 @@ GUCCI.updateOnlineStatus = function (event) {
 
 /** Add event listeners to listen for internet connection */
 GUCCI.funcConnection = function () {
+    GUCCI.connection = navigator.connection;
+
+    console.log("1: "+GUCCI.connection);
+
   'use strict';
   window.addEventListener('online',  GUCCI.updateOnlineStatus);
   window.addEventListener('offline', GUCCI.updateOnlineStatus);
@@ -103,11 +116,11 @@ GUCCI.funcRequestJSON = function (url, display) {
       GUCCI.funcModal('Soundboard not found.');
     } else if (this.status === 500) {
       GUCCI.funcModal('Unable to get soundboard due to server problems.');
-    } 
+    }
     GUCCI.objXmlhttp.ontimeout = function () {
       GUCCI.funcModal('Retrying request...');
       GUCCI.funcRequestJSON(url, display);
-    }
+    };
   };
   GUCCI.objXmlhttp.open('GET', url, true);
   GUCCI.objXmlhttp.send(null);
