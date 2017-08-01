@@ -89,11 +89,12 @@ GUCCI.funcSetup = function () {
 };
 
 /** Send request to get soundboard data then generates soundboard 
- *  Notifies end users if data not found or of server problems
+ *  Notifies end users if data not found, server problems, or retry after timeout
  */
 GUCCI.funcRequestJSON = function (url, display) {
   'use strict';
   GUCCI.objXmlhttp = new XMLHttpRequest();  // XHR object
+  GUCCI.objXmlhttp.timeout = 10000;   // timeout time to retry request
   GUCCI.objXmlhttp.onreadystatechange = function () {
     if (this.readyState === 4 && this.status === 200) {
       GUCCI.objData = JSON.parse(this.responseText);  // JSON object containing soundboard data
@@ -102,7 +103,8 @@ GUCCI.funcRequestJSON = function (url, display) {
       GUCCI.funcModal('Soundboard not found.');
     } else if (this.status === 500) {
       GUCCI.funcModal('Unable to get soundboard due to server problems.');
-    } else {
+    } 
+    GUCCI.objXmlhttp.ontimeout = function () {
       GUCCI.funcModal('Retrying request...');
       GUCCI.funcRequestJSON(url, display);
     }
