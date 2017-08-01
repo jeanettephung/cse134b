@@ -6,7 +6,7 @@ var GUCCI = {};
 /** Sets up dropdown/toggle elements, requests data, generates soundboard */
 window.onload = function () {
   'use strict';
-  GUCCI.funcRegWorker();
+//  GUCCI.funcRegWorker();
   GUCCI.numAudioRdy = 0;  // tracks number of audios ready
   GUCCI.objInform = document.getElementById('inform');  // modal object that displays status to end users
   GUCCI.funcSetup();
@@ -14,40 +14,39 @@ window.onload = function () {
   GUCCI.funcRequestJSON('./assets/json/ram.json', false);
   GUCCI.funcWait();
   GUCCI.funcIE();
-
-  
-  GUCCI.funcConnection();  
+  GUCCI.funcConnection();
 };
 
-/** Service Worker */
+
+/** Registers Service Worker */
 GUCCI.funcRegWorker = function () {
   'use strict';
   if (navigator.serviceWorker) {
-    console.log("registering worker");
     navigator.serviceWorker.register('/serviceworker.js');
-    console.log(navigator.serviceWorker);
   }
 };
 
-/** Add listeners to detect connection changes */
-GUCCI.funcConnection = function() {
+/** Updates connection icon to display internet connection (on/offline) */
+GUCCI.funcConnection = function () {
   "use strict";
-  window.addEventListener('online',  GUCCI.undateIndicator);
-  window.addEventListener('offline', GUCCI.updateIndicator);
-}
+  GUCCI.indicator = document.querySelector('#connection > span');
+  GUCCI.updateOnlineStatus = function (event) {
+    GUCCI.condition = navigator.onLine ? 'online glyphicon-signal' : 'offline glyphicon-exclamation-sign';
+    GUCCI.indicator.className = 'glyphicon ' + GUCCI.condition;
+    GUCCI.indicator.textContent = navigator.onLine ? 'Online' : 'Offline';
+  };
+  window.addEventListener('online',  GUCCI.updateOnlineStatus);
+  window.addEventListener('offline', GUCCI.updateOnlineStatus);
+};
 
 /* Update connection icon base on connection status */
 GUCCI.updateIndicator = function () {
   'use strict';
-  console.log("connection");
-  console.log( document.getElementById('connection').classList);
   if (window.navigator.onLine) {
     document.getElementById('connection').classList.remove('offline');
-
     document.querySelector('#connection').textContent = "Online";
   } else {
-      document.getElementById('connection').classList.add('offline');
-
+    document.getElementById('connection').classList.add('offline');
     document.querySelector('#connection').textContent = "Offline";
   }
 };
