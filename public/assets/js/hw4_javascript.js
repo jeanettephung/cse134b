@@ -198,7 +198,7 @@ GUCCI.funcSlowInternet = function () {
   "use strict";
   if (GUCCI.numAudioRdy >= 24) {
     GUCCI.objInform.classList.add('hide');
-  } else if (window.navigator.onLine && GUCCI.numAudioRdy < 24) {
+  } else if (navigator.onLine && GUCCI.numAudioRdy < 24) {
     GUCCI.funcModal('Slow internet, please hold as we load audio.');
     setTimeout(GUCCI.funcLowPerformance, 15000);
   }
@@ -211,7 +211,7 @@ GUCCI.funcLowPerformance = function () {
     GUCCI.objInform.classList.add('hide');
   } else if (window.navigator.onLine && GUCCI.numAudioRdy < 24) {
     GUCCI.funcModal('Slow internet. You may witness some low performance while accessing site.');
-    if (GUCCI.numAudioRdy >= 24) {
+    if (navigator.onLine && GUCCI.numAudioRdy >= 24) {
       GUCCI.objReload.classList.remove('hide');
     }
   }
