@@ -9,7 +9,7 @@ window.onload = function () {
   GUCCI.funcRegWorker();
   GUCCI.numAudioRdy = 0;  // tracks number of audios ready
   GUCCI.objInform = document.getElementById('inform');  // modal object that displays status to end users
-  GUCCI.updateIndicator();
+  GUCCI.updateOnlineStatus();
   GUCCI.funcSetup();
   GUCCI.funcRequestJSON('./assets/json/got.json', true);
   GUCCI.funcRequestJSON('./assets/json/ram.json', false);
@@ -26,28 +26,19 @@ GUCCI.funcRegWorker = function () {
   }
 };
 
-/** Updates connection icon to display internet connection (on/offline) */
+/** Add event listeners to listen for internet connection */
 GUCCI.funcConnection = function () {
-  "use strict";
-  GUCCI.updateOnlineStatus = function (event) {
-    GUCCI.condition = navigator.onLine ? 'online glyphicon-signal' : 'offline glyphicon-exclamation-sign';
-    document.querySelector('#connection > span').className = 'glyphicon ' + GUCCI.condition;
-    document.querySelector('#connection > span').textContent = navigator.onLine ? 'Online' : 'Offline';
-  };
+  'use strict';
   window.addEventListener('online',  GUCCI.updateOnlineStatus);
   window.addEventListener('offline', GUCCI.updateOnlineStatus);
 };
 
-/* Update connection icon base on connection status */
-GUCCI.updateIndicator = function () {
+/** Updates connection icon to display internet connection (on/offline) */
+GUCCI.updateOnlineStatus = function (event) {
   'use strict';
-  if (window.navigator.onLine) {
-    document.getElementById('connection').classList.remove('offline');
-    document.querySelector('#connection').textContent = "Online";
-  } else {
-    document.getElementById('connection').classList.add('offline');
-    document.querySelector('#connection').textContent = "Offline";
-  }
+  GUCCI.condition = navigator.onLine ? 'online glyphicon-signal' : 'offline glyphicon-exclamation-sign';
+  document.querySelector('#connection > span').className = 'glyphicon ' + GUCCI.condition;
+  document.querySelector('#connection > span').textContent = navigator.onLine ? 'Online' : 'Offline';
 };
 
 /** Checks if browser is IE and informs user that soundboard is unsupported */
@@ -64,7 +55,7 @@ GUCCI.funcIE = function () {
  *     Message displayed to end users
  */
 GUCCI.funcModal = function (message) {
-  "use strict";
+  'use strict';
   GUCCI.objInform.classList.remove('hide');
   GUCCI.objInform.getElementsByTagName('h4')[0].textContent = message;
 };
