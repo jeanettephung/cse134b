@@ -1,18 +1,17 @@
+/** Installs service worker and adds assets to cache */
 self.addEventListener('install', event => {
   'use strict';
-
-  console.log('installing');
   event.waitUntil(
     caches.open('v1')
       .then(cache => cache.addAll([
-         '/soundboard-hw4-vanilla.html',
-         '/assets/css/dom.css',
-         '/assets/js/hw4_javascript.js',
-         '/assets/json/got.json',
-         '/assets/json/ram.json',
-         '/assets/img/gameofthrones/1_cersei.jpg',
-         '/assets/img/gameofthrones/2_tyrion.jpg',
-         '/assets/img/gameofthrones/3_nedstark.jpg',
+        '/soundboard-hw4-vanilla.html',
+        '/assets/css/dom.css',
+        '/assets/js/hw4_javascript.js',
+        '/assets/json/got.json',
+        '/assets/json/ram.json',
+        '/assets/img/gameofthrones/1_cersei.jpg',
+        '/assets/img/gameofthrones/2_tyrion.jpg',
+        '/assets/img/gameofthrones/3_nedstark.jpg',
         '/assets/img/gameofthrones/4_tywin.jpg',
         '/assets/img/gameofthrones/5_littlefinger.jpg',
         '/assets/img/gameofthrones/6_theon.jpg',
@@ -60,23 +59,16 @@ self.addEventListener('install', event => {
         '/assets/audio/rickandmorty/12_keep_summer.wav'
       ]))
   );
-  console.log(caches);
-  console.log("finish install");
 });
 
+/* Intercepts fetches */
 self.addEventListener('fetch', event => {
-  console.log("fetching");
-  const url = new URL(event.request.url);
-  console.log("URL: "+url);
-  
+  const url = new URL(event.request.url);  
   if (url.origin == location.origin && url.pathname == '/') {
-    console.log("condition met")
     event.respondWith(caches.match('/soundboard-hw4-vanilla.html'));
     return;
   }
-  
-  console.log("condition not met");
-  event.respondWith (
+    event.respondWith (
     caches.match(event.request)
       .then (response => response || fetch(event.request))
   );
