@@ -1,7 +1,7 @@
 self.addEventListener('install', function (event) {
   'use strict';
   event.waitUntil(
-    caches.open('v1').then(function (cache) {
+    caches.open('v1.01').then(function (cache) {
       console.log("install, opening cache and adding");
       return cache.addAll([
         './',
@@ -11,7 +11,8 @@ self.addEventListener('install', function (event) {
         './assets/json/got.json',
         './assets/json/ram.json',
         './assets/img/gameofthrones/*.jpg',
-        './assets/img/rickandmorty/*.jpg'
+        './assets/img/rickandmorty/*.jpg',
+        './assets/audio/*'
       ]);
     }).then(function () {
       console.log("install complete");

@@ -14,10 +14,11 @@ window.onload = function () {
   GUCCI.funcWait();
   GUCCI.funcIE();
   GUCCI.funcServiceWorker();
-  GUCCI.imgLoad(Soundboard.sounds[0].image);
+//  console.log(Sounboard.sounds[0].image)
+//  GUCCI.imgLoad(Soundboard.sounds[0].image);
   
-  setInterval(GUCCI.funcOnline, 5000);
-  
+//  setInterval(GUCCI.funcOnline, 5000);
+GUCCI.funcConnection();  
 };
 
 /** Service Worker */
@@ -43,7 +44,7 @@ GUCCI.imgLoad = function (imgJSON) {
     console.log("imgJSON ********"+imgJSON.url)
     request.open('GET', imgJSON);
     console.log("open imgJSON");
-    request.responseType = 'blob';
+    request.responseType = 'GucciSoundboard';
     console.log("reponse type");
 
     request.onload = function() {
@@ -69,11 +70,21 @@ GUCCI.imgLoad = function (imgJSON) {
   });
 }
 
-/** Checks if user online and warns user if offline */
-GUCCI.funcOnline = function () {
+/** Add listeners to detect connection changes */
+GUCCI.funcConnection = function() {
+  "use strict";
+  window.addEventListener('online',  GUCCI.undateIndicator);
+  window.addEventListener('offline', GUCCI.updateIndicator);
+}
+
+/* Update connection icon base on connection status */
+GUCCI.updateIndicator = function () {
   'use strict';
-  if (!window.navigator.onLine) {
-    GUCCI.funcModal('You are disconnected.');
+  document.getElementById('connection').classList.toggle('offline');
+  if (window.navigator.onLine) {
+    document.querySelector('#connection span').textContent = "Online";
+  } else {
+    document.querySelector('#connection span').textContent = "Offline";
   }
 };
 
@@ -132,7 +143,9 @@ GUCCI.funcRequestJSON = function (url, display) {
   GUCCI.objXmlhttp.onreadystatechange = function () {
     if (this.readyState === 4 && this.status === 200) {
       GUCCI.objData = JSON.parse(this.responseText);  // JSON object containing soundboard data
-      GUCCI.funcGenSB(GUCCI.objData, display);
+      GUCCI.funcGenSB(display);
+      console.log("OBGOBGOBGOBG: "+GUCCI.objData)
+    GUCCI.imgLoad(GUCCI.objData.sounds[2].image);
     } else if (this.status === 404) {
       GUCCI.funcModal('Soundboard not found.');
     } else if (this.status === 500) {
@@ -146,7 +159,7 @@ GUCCI.funcRequestJSON = function (url, display) {
 /** Generates soundboard image, audio, and events 
  *  Displays GOT sound elements and hides RAM sound elements
  */
-GUCCI.funcGenSB = function (data, display) {
+GUCCI.funcGenSB = function (display) {
   'use strict';
   GUCCI.numCurRow = 0; // current row soundboard being appended to
   GUCCI.numPerRow = 0;  // number of sounds in current row
