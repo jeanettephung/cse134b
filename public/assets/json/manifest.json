@@ -1,25 +1,25 @@
 {
-  "name": "SoundBoard",
-  "short_name": "SoundBoard",
-  "start_url": "/",
-  "display": "standalone",
-  "theme_color": "#26323E",
-  "background_color": "#fff",
-  "icons": [{
-    "src": "images/touch/homescreen48.png",
-    "sizes": "48x48",
-    "type": "image/png"
-  }, {
-    "src": "images/touch/homescreen72.png",
-    "sizes": "72x72",
-    "type": "image/png"
-  }, {
-    "src": "images/touch/homescreen96.png",
-    "sizes": "96x96",
-    "type": "image/png"
-  }, {
-    "src": "images/touch/homescreen144.png",
-    "sizes": "144x144",
-    "type": "image/png"
-  }],
+    "name": "SoundBoard",
+    "short_name": "SoundBoard",
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#26323E",
+    "background_color": "#fff",
+    "icons": [{
+        "src": "./assets/img/touch/homescreen48.png",
+        "sizes": "48x48",
+        "type": "image/png"
+    }, {
+        "src": "./assets/img/touch/homescreen72.png",
+        "sizes": "72x72",
+        "type": "image/png"
+    }, {
+        "src": "./assets/img/touch/homescreen96.png",
+        "sizes": "96x96",
+        "type": "image/png"
+    }, {
+        "src": "./assets/img/touch/homescreen144.png",
+        "sizes": "144x144",
+        "type": "image/png"
+    }],
 }
