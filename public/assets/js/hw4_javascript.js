@@ -102,6 +102,9 @@ GUCCI.funcRequestJSON = function (url, display) {
       GUCCI.funcModal('Soundboard not found.');
     } else if (this.status === 500) {
       GUCCI.funcModal('Unable to get soundboard due to server problems.');
+    } else {
+      GUCCI.funcModal('Retrying request...');
+      GUCCI.funcRequestJSON(url, display);
     }
   };
   GUCCI.objXmlhttp.open('GET', url, true);
