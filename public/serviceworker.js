@@ -56,7 +56,11 @@ self.addEventListener('install', event => {
         '/assets/audio/rickandmorty/9_ricky_ticky.wav',
         '/assets/audio/rickandmorty/10_yes_fu.wav',
         '/assets/audio/rickandmorty/11_thank_you.wav',
-        '/assets/audio/rickandmorty/12_keep_summer.wav'
+        '/assets/audio/rickandmorty/12_keep_summer.wav',
+        '\assets\img\touch\homescreen48.png',
+        '\assets\img\touch\homescreen72.png',
+        '\assets\img\touch\homescreen96.png',
+        '\assets\img\touch\homescreen144.png'
       ]))
   );
 });
