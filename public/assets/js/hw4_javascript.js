@@ -17,16 +17,8 @@ window.onload = function () {
   GUCCI.funcWait();
   GUCCI.funcIE();
   GUCCI.funcConnection();
-// Some browsers use prefixes so let's cope with them first
   GUCCI.connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-  // Check for browser support
-  if (!!GUCCI.connection) {
-    console.log("supported");
-    var type = GUCCI.connection.type;
-  } else {
-        console.log("not")
-
-  }
+  
 };
 
 /** Registers Service Worker */
@@ -34,6 +26,14 @@ GUCCI.funcRegWorker = function () {
   'use strict';
   if (navigator.serviceWorker) {
     navigator.serviceWorker.register('/serviceworker.js');
+  }
+  
+  // Check for browser support
+  if (!!GUCCI.connection) {
+    console.log("supported");
+    var type = GUCCI.connection.type;
+  } else {
+        console.log("not")
   }
 };
 
