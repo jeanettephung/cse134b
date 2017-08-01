@@ -17,7 +17,6 @@ window.onload = function () {
   GUCCI.funcConnection();
 };
 
-
 /** Registers Service Worker */
 GUCCI.funcRegWorker = function () {
   'use strict';
