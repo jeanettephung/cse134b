@@ -11,6 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./assets/css/dom.css">
+    <link rel="manifest" href="./manifest.json">
   </head>
   <body>
     <header>
@@ -35,6 +36,9 @@
           <option value="got">Game of Thrones</option>
           <option value="rom">Rick and Morty</option>
         </select>
+        <span id="connection">
+          <span class="glyphicon glyphicon-signal" aria-hidden="true">Online</span>
+        </span>
       </div>
       
       <div class="soundboard">
@@ -42,7 +46,6 @@
         <noscript>
           <h1>JavaScript not enabled. Features of site and soundboard will not work.</h1>
         </noscript>
-        <span id="reload" class="btn hide">Reload Audio</span>
         <div id="inform" class="hide">
           <h4>Loading audio...</h4>
           <div id="close">

@@ -216,17 +216,6 @@ GUCCI.funcWait = function () {
   GUCCI.objInform.getElementsByTagName('span')[0].addEventListener('click', function () {
     GUCCI.objInform.classList.add('hide');
   });
-  GUCCI.objReload = document.getElementById('reload');  // reload button for when all play buttons not displayed
-  GUCCI.objReload.addEventListener('click', function () {
-    GUCCI.objReload.classList.add('hide');
-    if (GUCCI.numAudioRdy <= 24) {
-      GUCCI.objListAudios = document.getElementsByTagName('audio'); // list of audio elements
-      for (GUCCI.i = 0; GUCCI.i < GUCCI.audios.length; GUCCI.i += 1) {
-        GUCCI.objListAudios[GUCCI.i].parentNode.getElementsByTagName('span')[0].classList.remove('glyphicon-pause');
-        GUCCI.objListAudios[GUCCI.i].parentNode.getElementsByClassName('soundToggle')[0].style.display = 'block';
-      }
-    }
-  });
   setTimeout(GUCCI.funcSlowInternet, 3000);
 };
 
