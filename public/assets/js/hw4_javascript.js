@@ -6,6 +6,7 @@ var GUCCI = {};
 /** Sets up dropdown/toggle elements, requests data, generates soundboard */
 window.onload = function () {
   'use strict';
+  GUCCI.funcRegWorker();
   GUCCI.numAudioRdy = 0;  // tracks number of audios ready
   GUCCI.objInform = document.getElementById('inform');  // modal object that displays status to end users
   GUCCI.funcSetup();
@@ -13,62 +14,20 @@ window.onload = function () {
   GUCCI.funcRequestJSON('./assets/json/ram.json', false);
   GUCCI.funcWait();
   GUCCI.funcIE();
-  GUCCI.funcServiceWorker();
-//  console.log(Sounboard.sounds[0].image)
-//  GUCCI.imgLoad(Soundboard.sounds[0].image);
+
   
-//  setInterval(GUCCI.funcOnline, 5000);
-GUCCI.funcConnection();  
+//  GUCCI.funcConnection();  
 };
 
 /** Service Worker */
-GUCCI.funcServiceWorker = function () {
+GUCCI.funcRegWorker = function () {
   'use strict';
   if (navigator.serviceWorker) {
-    navigator.serviceWorker.register('/serviceworker.js', {scope: '/cse134b/'})
-      .then(function (reg) {
-        console.log(reg);
-      }).catch(function (error) {
-        GUCCI.funcModal('Unable to register Service Worker.');
-      });
+    console.log("registering worker");
+    navigator.serviceWorker.register('/serviceworker.js');
+    console.log(navigator.serviceWorker);
   }
 };
-
-GUCCI.imgLoad = function (imgJSON) {
-  // return a promise for an image loading
-  return new Promise(function(resolve, reject) {
-    console.log("inside imgLoad creating var request");
-    var request = new XMLHttpRequest();
-    console.log("creating request obj");
-    console.log("imgJSON ********"+imgJSON)
-    console.log("imgJSON ********"+imgJSON.url)
-    request.open('GET', imgJSON);
-    console.log("open imgJSON");
-    request.responseType = 'GucciSoundboard';
-    console.log("reponse type");
-
-    request.onload = function() {
-      console.log("request onload");
-      if (request.status == 200) {
-        console.log("request ok");
-        var arrayResponse = [];
-        arrayResponse[0] = request.response;
-        arrayResponse[1] = imgJSON;
-        console.log(arrayResponse);
-        resolve(arrayResponse);
-      } else {
-        console.log("request onload fail");
-        reject(Error('Image didn\'t load successfully; error code:' + request.statusText));
-      }
-    };
-
-    request.onerror = function() {
-      reject(Error('There was a network error.'));
-    };
-
-    request.send();
-  });
-}
 
 /** Add listeners to detect connection changes */
 GUCCI.funcConnection = function() {
@@ -144,8 +103,6 @@ GUCCI.funcRequestJSON = function (url, display) {
     if (this.readyState === 4 && this.status === 200) {
       GUCCI.objData = JSON.parse(this.responseText);  // JSON object containing soundboard data
       GUCCI.funcGenSB(display);
-      console.log("OBGOBGOBGOBG: "+GUCCI.objData)
-    GUCCI.imgLoad(GUCCI.objData.sounds[2].image);
     } else if (this.status === 404) {
       GUCCI.funcModal('Soundboard not found.');
     } else if (this.status === 500) {
@@ -223,7 +180,7 @@ GUCCI.funcAddClick = function () {
   };
 };
 
-/** Informs users of slow internet connection, then warns of poor performance */
+/** Adds click event to close modal */
 GUCCI.funcWait = function () {
   'use strict';
   GUCCI.objInform.getElementsByTagName('span')[0].addEventListener('click', function () {
