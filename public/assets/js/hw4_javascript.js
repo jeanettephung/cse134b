@@ -26,19 +26,19 @@ GUCCI.funcRegWorker = function () {
   }
 };
 
-/** Add event listeners to listen for internet connection */
-GUCCI.funcConnection = function () {
-  'use strict';
-  window.addEventListener('online',  GUCCI.updateOnlineStatus);
-  window.addEventListener('offline', GUCCI.updateOnlineStatus);
-};
-
 /** Updates connection icon to display internet connection (on/offline) */
 GUCCI.updateOnlineStatus = function (event) {
   'use strict';
   GUCCI.condition = navigator.onLine ? 'online glyphicon-signal' : 'offline glyphicon-exclamation-sign';
   document.querySelector('#connection > span').className = 'glyphicon ' + GUCCI.condition;
   document.querySelector('#connection > span').textContent = navigator.onLine ? 'Online' : 'Offline';
+};
+
+/** Add event listeners to listen for internet connection */
+GUCCI.funcConnection = function () {
+  'use strict';
+  window.addEventListener('online',  GUCCI.updateOnlineStatus);
+  window.addEventListener('offline', GUCCI.updateOnlineStatus);
 };
 
 /** Checks if browser is IE and informs user that soundboard is unsupported */
