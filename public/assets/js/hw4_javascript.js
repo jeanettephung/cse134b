@@ -6,9 +6,11 @@ var GUCCI = {};
 /** Sets up dropdown/toggle elements, requests data, generates soundboard */
 window.onload = function () {
   'use strict';
-  GUCCI.funcRegWorker();
   GUCCI.numAudioRdy = 0;  // tracks number of audios ready
   GUCCI.objInform = document.getElementById('inform');  // modal object that displays status to end users
+  GUCCI.boolIsIE = /*@cc_on!@*/false || !!document.documentMode;  // tracks if browser is IE
+
+  GUCCI.funcRegWorker();
   GUCCI.updateOnlineStatus();
   GUCCI.funcSetup();
   GUCCI.funcRequestJSON('./assets/json/got.json', true);
@@ -29,8 +31,8 @@ GUCCI.funcRegWorker = function () {
 /** Updates connection icon to display internet connection (on/offline) */
 GUCCI.updateOnlineStatus = function (event) {
   'use strict';
-  GUCCI.condition = navigator.onLine ? 'online glyphicon-signal' : 'offline glyphicon-exclamation-sign';
-  document.querySelector('#connection > span').className = 'glyphicon ' + GUCCI.condition;
+  GUCCI.strCondition = navigator.onLine ? 'online glyphicon-signal' : 'offline glyphicon-exclamation-sign';
+  document.querySelector('#connection > span').className = 'glyphicon ' + GUCCI.strCondition;
   document.querySelector('#connection > span').textContent = navigator.onLine ? 'Online' : 'Offline';
 };
 
@@ -44,7 +46,6 @@ GUCCI.funcConnection = function () {
 /** Checks if browser is IE and informs user that soundboard is unsupported */
 GUCCI.funcIE = function () {
   'use strict';
-  GUCCI.boolIsIE = /*@cc_on!@*/false || !!document.documentMode;  // tracks if browser is IE
   if (GUCCI.boolIsIE) {
     GUCCI.funcModal('Soundboard not supported in your browser');
   }
@@ -188,7 +189,7 @@ GUCCI.funcSlowInternet = function () {
   "use strict";
   if (GUCCI.numAudioRdy >= 24) {
     GUCCI.objInform.classList.add('hide');
-  } else if (navigator.onLine && GUCCI.numAudioRdy < 24) {
+  } else if (navigator.onLine && GUCCI.numAudioRdy < 24  && !GUCCI.boolIsIE) {
     GUCCI.funcModal('Slow internet, please hold as we load audio.');
     setTimeout(GUCCI.funcLowPerformance, 15000);
   }
@@ -199,9 +200,9 @@ GUCCI.funcLowPerformance = function () {
   "use strict";
   if (GUCCI.numAudioRdy >= 24) {
     GUCCI.objInform.classList.add('hide');
-  } else if (window.navigator.onLine && GUCCI.numAudioRdy < 24) {
+  } else if (window.navigator.onLine && GUCCI.numAudioRdy < 24 && !GUCCI.boolIsIE) {
     GUCCI.funcModal('Slow internet. You may witness some low performance while accessing site.');
-    if (navigator.onLine && GUCCI.numAudioRdy >= 24) {
+    if (navigator.onLine && GUCCI.numAudioRdy >= 24 && !GUCCI.boolIsIE) {
       GUCCI.objReload.classList.remove('hide');
     }
   }
