@@ -62,6 +62,8 @@ self.addEventListener('install', event => {
         '/assets/img/touch/homescreen72.png',
         '/assets/img/touch/homescreen96.png',
         '/assets/img/touch/homescreen144.png',
+        '/assets/img/touch/homescreen196.png',
+        '/assets/img/touch/homescreen512.png',
         '/assets/font-awesome/fonts/fontawesome-webfont.eot',
         '/assets/font-awesome/fonts/FontAwesome.otf',
         '/assets/font-awesome/fonts/fontawesome-webfont.svg',
