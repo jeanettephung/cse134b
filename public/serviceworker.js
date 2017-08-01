@@ -61,7 +61,13 @@ self.addEventListener('install', event => {
         '/assets/img/touch/homescreen48.png',
         '/assets/img/touch/homescreen72.png',
         '/assets/img/touch/homescreen96.png',
-        '/assets/img/touch/homescreen144.png'
+        '/assets/img/touch/homescreen144.png',
+        '/assets/font-awesome/fonts/fontawesome-webfont.eot',
+        '/assets/font-awesome/fonts/FontAwesome.otf',
+        '/assets/font-awesome/fonts/fontawesome-webfont.svg',
+        '/assets/font-awesome/fonts/fontawesome-webfont.ttf',
+        '/assets/font-awesome/fonts/fontawesome-webfont.woff',
+        '/assets/font-awesome/fonts/fontawesome-webfont.woff2'
       ]))
   );
 });
