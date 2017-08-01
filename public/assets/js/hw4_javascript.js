@@ -16,7 +16,7 @@ window.onload = function () {
   GUCCI.funcIE();
 
   
-//  GUCCI.funcConnection();  
+  GUCCI.funcConnection();  
 };
 
 /** Service Worker */
@@ -39,11 +39,16 @@ GUCCI.funcConnection = function() {
 /* Update connection icon base on connection status */
 GUCCI.updateIndicator = function () {
   'use strict';
-  document.getElementById('connection').classList.toggle('offline');
+  console.log("connection");
+  console.log( document.getElementById('connection').classList);
   if (window.navigator.onLine) {
-    document.querySelector('#connection span').textContent = "Online";
+    document.getElementById('connection').classList.remove('offline');
+
+    document.querySelector('#connection').textContent = "Online";
   } else {
-    document.querySelector('#connection span').textContent = "Offline";
+      document.getElementById('connection').classList.add('offline');
+
+    document.querySelector('#connection').textContent = "Offline";
   }
 };
 

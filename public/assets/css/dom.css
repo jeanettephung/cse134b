@@ -366,12 +366,14 @@ body.dark {
 }
 
 /* Connection icon */
-#connection span {
+#connection {
   color: #18bf18;
+}
+#connection span {
   line-height: 38px;
   font-size: 2em;
 }
-.offline {
+#connection .offline {
   color: #d00303;
 }
 
