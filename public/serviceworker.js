@@ -37,7 +37,7 @@ self.addEventListener('install', event => {
         '/assets/img/rickandmorty/2_luv_dub.jpg',
         '/assets/img/rickandmorty/3_mr_meeseeks.jpg',
         '/assets/img/rickandmorty/4_oh_man.jpg',
-        './assets/img/rickandmorty/5_bitch.jpg',
+        '/assets/img/rickandmorty/5_bitch.jpg',
         '/assets/img/rickandmorty/6_riggity.jpg',
         '/assets/img/rickandmorty/7_what_you_think.jpg',
         '/assets/img/rickandmorty/8_bird_culture.jpg',
@@ -57,10 +57,10 @@ self.addEventListener('install', event => {
         '/assets/audio/rickandmorty/10_yes_fu.wav',
         '/assets/audio/rickandmorty/11_thank_you.wav',
         '/assets/audio/rickandmorty/12_keep_summer.wav',
-        '\assets\img\touch\homescreen48.png',
-        '\assets\img\touch\homescreen72.png',
-        '\assets\img\touch\homescreen96.png',
-        '\assets\img\touch\homescreen144.png'
+        '/assets/img/touch/homescreen48.png',
+        '/assets/img/touch/homescreen72.png',
+        '/assets/img/touch/homescreen96.png',
+        '/assets/img/touch/homescreen144.png'
       ]))
   );
 });
