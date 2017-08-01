@@ -13,13 +13,68 @@ window.onload = function () {
   GUCCI.funcRequestJSON('./assets/json/ram.json', false);
   GUCCI.funcWait();
   GUCCI.funcIE();
+  GUCCI.funcServiceWorker();
+  GUCCI.imgLoad(Soundboard.sounds[0].image);
+  
+  setInterval(GUCCI.funcOnline, 5000);
+  
+};
 
-  /* Checks every 5 seconds if user is online and warns user if offline */
-  setInterval(function () {
-    if (!window.navigator.onLine) {
-      GUCCI.funcModal('You are disconnected.');
-    }
-  }, 5000);
+/** Service Worker */
+GUCCI.funcServiceWorker = function () {
+  'use strict';
+  if (navigator.serviceWorker) {
+    navigator.serviceWorker.register('/serviceworker.js', {scope: '/cse134b/'})
+      .then(function (reg) {
+        console.log(reg);
+      }).catch(function (error) {
+        GUCCI.funcModal('Unable to register Service Worker.');
+      });
+  }
+};
+
+GUCCI.imgLoad = function (imgJSON) {
+  // return a promise for an image loading
+  return new Promise(function(resolve, reject) {
+    console.log("inside imgLoad creating var request");
+    var request = new XMLHttpRequest();
+    console.log("creating request obj");
+    console.log("imgJSON ********"+imgJSON)
+    console.log("imgJSON ********"+imgJSON.url)
+    request.open('GET', imgJSON);
+    console.log("open imgJSON");
+    request.responseType = 'blob';
+    console.log("reponse type");
+
+    request.onload = function() {
+      console.log("request onload");
+      if (request.status == 200) {
+        console.log("request ok");
+        var arrayResponse = [];
+        arrayResponse[0] = request.response;
+        arrayResponse[1] = imgJSON;
+        console.log(arrayResponse);
+        resolve(arrayResponse);
+      } else {
+        console.log("request onload fail");
+        reject(Error('Image didn\'t load successfully; error code:' + request.statusText));
+      }
+    };
+
+    request.onerror = function() {
+      reject(Error('There was a network error.'));
+    };
+
+    request.send();
+  });
+}
+
+/** Checks if user online and warns user if offline */
+GUCCI.funcOnline = function () {
+  'use strict';
+  if (!window.navigator.onLine) {
+    GUCCI.funcModal('You are disconnected.');
+  }
 };
 
 /** Checks if browser is IE and informs user that soundboard is unsupported */
