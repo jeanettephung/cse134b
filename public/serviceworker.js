@@ -6,6 +6,7 @@ self.addEventListener('install', event => {
       .then(cache => cache.addAll([
         '/soundboard-hw4-vanilla.html',
         '/assets/css/dom.css',
+        '/serviceworker.js',
         '/assets/js/hw4_javascript.js',
         '/assets/json/got.json',
         '/assets/json/ram.json',
