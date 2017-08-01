@@ -17,8 +17,9 @@ window.onload = function () {
   GUCCI.funcWait();
   GUCCI.funcIE();
   GUCCI.funcConnection();
-  GUCCI.connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-  
+   if (navigator.connection) {
+     console.log(navigator.connection.type);
+   }
 };
 
 /** Registers Service Worker */
@@ -47,10 +48,6 @@ GUCCI.updateOnlineStatus = function (event) {
 
 /** Add event listeners to listen for internet connection */
 GUCCI.funcConnection = function () {
-    GUCCI.connection = navigator.connection;
-
-    console.log("1: "+GUCCI.connection);
-
   'use strict';
   window.addEventListener('online',  GUCCI.updateOnlineStatus);
   window.addEventListener('offline', GUCCI.updateOnlineStatus);
