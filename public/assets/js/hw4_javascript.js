@@ -29,11 +29,10 @@ GUCCI.funcRegWorker = function () {
 /** Updates connection icon to display internet connection (on/offline) */
 GUCCI.funcConnection = function () {
   "use strict";
-  GUCCI.indicator = document.querySelector('#connection > span');
   GUCCI.updateOnlineStatus = function (event) {
     GUCCI.condition = navigator.onLine ? 'online glyphicon-signal' : 'offline glyphicon-exclamation-sign';
-    GUCCI.indicator.className = 'glyphicon ' + GUCCI.condition;
-    GUCCI.indicator.textContent = navigator.onLine ? 'Online' : 'Offline';
+    document.querySelector('#connection > span').className = 'glyphicon ' + GUCCI.condition;
+    document.querySelector('#connection > span').textContent = navigator.onLine ? 'Online' : 'Offline';
   };
   window.addEventListener('online',  GUCCI.updateOnlineStatus);
   window.addEventListener('offline', GUCCI.updateOnlineStatus);
