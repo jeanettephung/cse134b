@@ -101,8 +101,9 @@ GUCCI.funcRequestJSON = function (url, display) {
       if (this.responseText) {
         try {
           GUCCI.parsed = JSON.parse(this.responseText);
-          GUCCI.check ='"soundboard":';
-          if (!JSON.stringify(GUCCI.objData)).search(str)) {
+          GUCCI.check = '"soundboard":';
+          GUCCI.passed = JSON.stringify(GUCCI.objData).search(GUCCI.check);
+          if (!GUCCI.passed) {
             GUCCI.funcModal("Error with JSON file");
             return;
           }
