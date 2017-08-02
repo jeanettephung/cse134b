@@ -1,6 +1,6 @@
 /** W3C VALIDATION **/
 HTML page validates with no errors. 
-The CSS (dom.css) validates with no errors and 24 warnings. The errors can be ignored because they are vendor-specific prefixes that are not part of W3C but are useful in getting specific browser to support a property.
+The CSS (dom.css) validates with 1 errors and 19 warnings. The errors/warnings can be ignored because they are vendor-specific prefixes that are not part of W3C but are useful in getting specific browser(s) to support a property.
 
 /** COMPARING PERFORMANCE ON ANDROID **/
 Testing was done with an android phone, Alcatel_4060A,  and results were collected through Chrome's DevTool.
