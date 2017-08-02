@@ -3,11 +3,11 @@
  */
 var GUCCI = {};
   
-/** Sets up dropdown/toggle elements, requests data, generates soundboard */
+/** Sets up dropdown/toggle elements, requests data, and generates soundboard */
 window.onload = function () {
   'use strict';
   GUCCI.numAudioRdy = 0;  // tracks number of audios ready
-  GUCCI.objInform = document.getElementById('inform');  // modal object that displays status to end users
+  GUCCI.objInform = document.getElementById('inform');  // modal that displays status
   GUCCI.boolIsIE = /*@cc_on!@*/false || !!document.documentMode;  // tracks if browser is IE
   GUCCI.funcRegWorker();
   GUCCI.updateOnlineStatus();
