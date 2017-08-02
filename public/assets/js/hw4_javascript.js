@@ -16,10 +16,8 @@ window.onload = function () {
   GUCCI.funcRequestJSON('./assets/json/ram.json', false);
   GUCCI.funcWait();
   GUCCI.funcIE();
+  GUCCI.funcOnline();
   GUCCI.funcConnection();
-   if (navigator.connection) {
-     console.log(navigator.connection.type);
-   }
 };
 
 /** Registers Service Worker */
@@ -27,16 +25,15 @@ GUCCI.funcRegWorker = function () {
   'use strict';
   if (navigator.serviceWorker) {
     navigator.serviceWorker.register('/serviceworker.js');
-  }
-  
-  // Check for browser support
-  if (!!GUCCI.connection) {
-    console.log("supported");
-    var type = GUCCI.connection.type;
-  } else {
-        console.log("not")
-  }
+  } 
 };
+
+/** Checks connection to warn users if affects */
+GUCCI.funcConnection() {
+  if (!!GUCCI.connection) {
+    GUCCI.strConType = GUCCI.connection.type;
+  }
+}
 
 /** Updates connection icon to display internet connection (on/offline) */
 GUCCI.updateOnlineStatus = function (event) {
@@ -47,7 +44,7 @@ GUCCI.updateOnlineStatus = function (event) {
 };
 
 /** Add event listeners to listen for internet connection */
-GUCCI.funcConnection = function () {
+GUCCI.funcOnline = function () {
   'use strict';
   window.addEventListener('online',  GUCCI.updateOnlineStatus);
   window.addEventListener('offline', GUCCI.updateOnlineStatus);
@@ -200,25 +197,25 @@ GUCCI.funcWait = function () {
 };
 
 /** After 3 seconds, inform users of slow connection */
-GUCCI.funcSlowInternet = function () {
-  "use strict";
-  if (GUCCI.numAudioRdy >= 24) {
-    GUCCI.objInform.classList.add('hide');
-  } else if (navigator.onLine && GUCCI.numAudioRdy < 24  && !GUCCI.boolIsIE) {
-    GUCCI.funcModal('Slow internet, please hold as we load audio.');
-    setTimeout(GUCCI.funcLowPerformance, 15000);
-  }
-};
-  
-/** After +15 seconds, inform users of poor performance */
-GUCCI.funcLowPerformance = function () {
-  "use strict";
-  if (GUCCI.numAudioRdy >= 24) {
-    GUCCI.objInform.classList.add('hide');
-  } else if (window.navigator.onLine && GUCCI.numAudioRdy < 24 && !GUCCI.boolIsIE) {
-    GUCCI.funcModal('Slow internet. You may witness some low performance while accessing site.');
-    if (navigator.onLine && GUCCI.numAudioRdy >= 24 && !GUCCI.boolIsIE) {
-      GUCCI.objReload.classList.remove('hide');
-    }
-  }
-};
+//GUCCI.funcSlowInternet = function () {
+//  "use strict";
+//  if (GUCCI.numAudioRdy >= 24) {
+//    GUCCI.objInform.classList.add('hide');
+//  } else if (navigator.onLine && GUCCI.numAudioRdy < 24  && !GUCCI.boolIsIE) {
+//    GUCCI.funcModal('Slow internet, please hold as we load audio.');
+//    setTimeout(GUCCI.funcLowPerformance, 15000);
+//  }
+//};
+//  
+///** After +15 seconds, inform users of poor performance */
+//GUCCI.funcLowPerformance = function () {
+//  "use strict";
+//  if (GUCCI.numAudioRdy >= 24) {
+//    GUCCI.objInform.classList.add('hide');
+//  } else if (window.navigator.onLine && GUCCI.numAudioRdy < 24 && !GUCCI.boolIsIE) {
+//    GUCCI.funcModal('Slow internet. You may witness some low performance while accessing site.');
+//    if (navigator.onLine && GUCCI.numAudioRdy >= 24 && !GUCCI.boolIsIE) {
+//      GUCCI.objReload.classList.remove('hide');
+//    }
+//  }
+//};
