@@ -86,6 +86,8 @@ GUCCI.funcSetup = function () {
   // Request JSON which uses data to generate soundboard
   GUCCI.funcRequestJSON('./assets/json/got.json', true);
   GUCCI.funcRequestJSON('./assets/json/ram.json', false);
+    GUCCI.funcRequestJSON('./assets/json/ot.json', false);
+
 };
 
 /** Send request to get soundboard data then generates soundboard 
@@ -97,6 +99,14 @@ GUCCI.funcRequestJSON = function (url, display) {
   GUCCI.objXmlhttp.timeout = 10000;   // timeout time to retry request
   GUCCI.objXmlhttp.onreadystatechange = function () {
     if (this.readyState === 4 && this.status === 200) {
+      if (this.responseText) {
+        try {
+          console.log(this.responseText)
+          GUCCI.check = JSON.parse(this.responseText);
+        } catch(e) {
+          GUCCI.funcModal(e);
+        }
+      }
       GUCCI.objData = JSON.parse(this.responseText);  // JSON object containing soundboard data
       GUCCI.funcGenSB(display);
     } else if (this.status === 404) {
