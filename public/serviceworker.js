@@ -64,12 +64,11 @@ self.addEventListener('install', event => {
         '/assets/img/touch/homescreen144.png',
         '/assets/img/touch/homescreen192.png',
         '/assets/img/touch/homescreen512.png',
-        '/assets/font-awesome/fonts/fontawesome-webfont.eot',
-        '/assets/font-awesome/fonts/FontAwesome.otf',
-        '/assets/font-awesome/fonts/fontawesome-webfont.svg',
-        '/assets/font-awesome/fonts/fontawesome-webfont.ttf',
-        '/assets/font-awesome/fonts/fontawesome-webfont.woff',
-        '/assets/font-awesome/fonts/fontawesome-webfont.woff2',
+        '/assets/bootstrap/fonts/glyphicons-halfings-regular.eot',
+        '/assets/bootstrap/fonts/glyphicons-halfings-regular.svg',
+        '/assets/bootstrap/fonts/glyphicons-halfings-regular.ttf',
+        '/assets/bootstrap/fonts/glyphicons-halfings-regular.woff',
+        '/assets/bootstrap/fonts/glyphicons-halfings-regular.woff2',
         '/favicon.ico'
       ]))
   );
