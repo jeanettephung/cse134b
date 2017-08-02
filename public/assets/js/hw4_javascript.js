@@ -6,15 +6,15 @@ var GUCCI = {};
 /** Sets up dropdown/toggle elements, requests data, and generates soundboard */
 window.onload = function () {
   'use strict';
+  GUCCI.funcRegWorker();
+
   GUCCI.numAudioRdy = 0;  // tracks number of audios ready
   GUCCI.objInform = document.getElementById('inform');  // modal that displays status
   GUCCI.boolIsIE = /*@cc_on!@*/false || !!document.documentMode;  // tracks if browser is IE
  
-  GUCCI.funcRegWorker();
   GUCCI.funcIE();
   GUCCI.updateOnlineStatus();
   GUCCI.funcSetup();
-  GUCCI.funcWait();
 };
 
 /** Registers Service Worker */
@@ -178,10 +178,4 @@ GUCCI.funcAddClick = function () {
       this.getElementsByTagName('span')[0].classList.remove('glyphicon-pause');
     }
   };
-};
-
-/** Adds click event to close modal */
-GUCCI.funcWait = function () {
-  'use strict';
-  setTimeout(GUCCI.funcSlowInternet, 3000);
 };

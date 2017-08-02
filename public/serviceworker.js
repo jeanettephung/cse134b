@@ -1,7 +1,6 @@
 /** Installs service worker and adds assets to cache */
 self.addEventListener('install', event => {
   'use strict';
-  console.log('inside install');
   event.waitUntil(
     caches.open('v1')
       .then(cache => cache.addAll([
@@ -73,12 +72,10 @@ self.addEventListener('install', event => {
         '/favicon.ico'
       ]))
   );
-  console.log('complete install');
 });
 
 /* Intercepts fetches */
 self.addEventListener('fetch', event => {
-  console.log('inside featch');
     event.respondWith (
     caches.match(event.request)
       .then (response => response || fetch(event.request))
