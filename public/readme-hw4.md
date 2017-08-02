@@ -8,14 +8,14 @@ Testing was done with an android phone, Alcatel_4060A,  and results were collect
 Comparing performance of soundboard with and without service workers.
 
 No Service Worker on Regular 3G: 
-  FIRST LOAD => Finish: 48.17s, DOMContentLoaded: 734ms, Load: 1.08s
-  SECOND LOAD => Finish: 47.95s, DOMContentLoaded: 742ms, Load: 1.04s
-  OFFLINE => page does not load
+  FIRST ACCESS => Finish: 48.17s, DOMContentLoaded: 734ms, Load: 1.08s
+  SECOND ACCESS => Finish: 47.95s, DOMContentLoaded: 742ms, Load: 1.04s
+  OFFLINE ACCESS => page does not load
 
 With Service Worker on Regular 3G: 
-  FIRST LOAD => Finish: 1.1min, DOMContentLoaded: 497ms, Load: 833ms
-  SECOND LOAD => Finish: 3.44s, DOMContentLoaded: 461ms, Load: 857ms
-  OFFLINE => Finish: 2.42, DOMContentLoaded: 277ms, Load: 484ms
+  FIRST ACCESS => Finish: 1.1min, DOMContentLoaded: 497ms, Load: 833ms
+  SECOND ACCESS => Finish: 3.44s, DOMContentLoaded: 461ms, Load: 857ms
+  OFFLINE ACCESS => Finish: 2.42s, DOMContentLoaded: 277ms, Load: 484ms
   
   With Service Worker, on the first load the page runs faster than the page without Service Worker, but takes longer to finish. It takes longer to finish, because there are more files to load (javascript for the Service Worker and a Manifest which also loads icons). On the second load, we see a significant increase in Finish, DOMContentLoaded, and Load time because the Service Worker cached all assets from the first load and retrieved on the second load. Another benefit is that all items cached can be retrieved offline, therefore the page with Service Workers will load the page even if the user if offline.
 
