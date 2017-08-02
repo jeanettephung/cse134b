@@ -64,6 +64,11 @@ self.addEventListener('install', event => {
         '/assets/img/touch/homescreen144.png',
         '/assets/img/touch/homescreen192.png',
         '/assets/img/touch/homescreen512.png',
+        'assets/bootstrap/fonts/glyphicons-halflings-regular.eot',
+        'assets/bootstrap/fonts/glyphicons-halflings-regular.svg',
+        'assets/bootstrap/fonts/glyphicons-halflings-regular.ttf',
+        'assets/bootstrap/fonts/glyphicons-halflings-regular.woff',
+        'assets/bootstrap/fonts/glyphicons-halflings-regular.woff2',
         '/favicon.ico'
       ]))
   );

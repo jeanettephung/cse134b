@@ -1,7 +1,7 @@
 {
   "name": "SoundBoard",
   "short_name": "SoundBoard",
-  "start_url": "/",
+  "start_url": "/soundboard-hw4-vanilla.html",
   "display": "standalone",
   "theme_color": "#26323E",
   "background_color": "#fff",
