@@ -9,7 +9,7 @@ window.onload = function () {
   GUCCI.numAudioRdy = 0;  // tracks number of audios ready
   GUCCI.objInform = document.getElementById('inform');  // modal object that displays status to end users
   GUCCI.boolIsIE = /*@cc_on!@*/false || !!document.documentMode;  // tracks if browser is IE
-  //GUCCI.funcRegWorker();
+  GUCCI.funcRegWorker();
   GUCCI.updateOnlineStatus();
   GUCCI.funcSetup();
   GUCCI.funcRequestJSON('./assets/json/got.json', true);
