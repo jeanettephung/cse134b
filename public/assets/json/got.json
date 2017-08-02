@@ -3,31 +3,31 @@
     "name": "Game of Thrones",
     "sounds": [
       {
-        "image": "https://gucci-b0d35.firebaseapp.com/assets/img/gameofthrones/1_cersei.jpg?s=9e0a7f8d9ee819e04075f55f79ed33a8",
+        "image": "./assets/img/gameofthrones/1_cersei.jpg",
         "alt": "Cersei",
         "sound": "./assets/audio/1_enemies.wav",
         "classes": "got"
       },
       {
-        "image": "https://gucci-b0d35.firebaseapp.com/assets/img/gameofthrones/2_tyrion.jpg?s=34440536b51078f81a32d6654b0084af",
+        "image": "./assets/img/gameofthrones/2_tyrion.jpg",
         "alt": "Tyrion",
         "sound": "./assets/audio/2_offend.wav",
         "classes": "got"
       },
       {
-        "image": "https://gucci-b0d35.firebaseapp.com/assets/img/gameofthrones/3_nedstark.jpg?s=38c6c1ca1e6f47aca2680d138da4f99b",
+        "image": "./assets/img/gameofthrones/3_nedstark.jpg",
         "alt": "Ned",
         "sound": "./assets/audio/3_actofwar.wav",
         "classes": "got"
       },
       {
-        "image": "https://gucci-b0d35.firebaseapp.com/assets/img/gameofthrones/4_tywin.jpg?s=91fb286c1abf94079c0a4cc4b2d2ef2f",
+        "image": "./assets/img/gameofthrones/4_tywin.jpg",
         "alt": "Tywin",
         "sound": "./assets/audio/4_clever.wav",
         "classes": "got"
       },
       {
-        "image": "https://gucci-b0d35.firebaseapp.com/assets/img/gameofthrones/5_littlefinger.jpg?s=0fd754c3bb4dfa224731f3d80fea18c6",
+        "image": "./assets/img/gameofthrones/5_littlefinger.jpg",
         "alt": "Littlefinger",
         "sound": "./assets/audio/5_startover.wav",
         "classes": "got"
