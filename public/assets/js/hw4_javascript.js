@@ -25,15 +25,16 @@ GUCCI.funcRegWorker = function () {
   'use strict';
   if (navigator.serviceWorker) {
     navigator.serviceWorker.register('/serviceworker.js');
-  } 
+  }
 };
 
 /** Checks connection to warn users if affects */
-GUCCI.funcConnection() {
+GUCCI.funcConnection = function () {
+  'use strict';
   if (!!GUCCI.connection) {
     GUCCI.strConType = GUCCI.connection.type;
   }
-}
+};
 
 /** Updates connection icon to display internet connection (on/offline) */
 GUCCI.updateOnlineStatus = function (event) {
