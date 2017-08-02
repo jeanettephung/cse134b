@@ -1,6 +1,7 @@
 /** Installs service worker and adds assets to cache */
 self.addEventListener('install', event => {
   'use strict';
+  console.log("install");
   event.waitUntil(
     caches.open('v1')
       .then(cache => cache.addAll([
@@ -73,6 +74,6 @@ self.addEventListener('install', event => {
 self.addEventListener('fetch', event => {
     event.respondWith (
     caches.match(event.request)
-      .then (response => response || fetch(event.request))
+      .then (response => response || fetch(event.request) console.log("fetching");)
   );
 });
