@@ -84,7 +84,6 @@ GUCCI.funcSetup = function () {
   window.addEventListener('online',  GUCCI.updateOnlineStatus);
   window.addEventListener('offline', GUCCI.updateOnlineStatus);
   // Request JSON which uses data to generate soundboard
-  GUCCI.funcRequestJSON('./assets/json/ot.json', true);
   GUCCI.funcRequestJSON('./assets/json/got.json', true);
   GUCCI.funcRequestJSON('./assets/json/ram.json', false);
 };
