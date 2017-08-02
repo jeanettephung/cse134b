@@ -97,6 +97,14 @@ GUCCI.funcRequestJSON = function (url, display) {
   GUCCI.objXmlhttp.timeout = 10000;   // timeout time to retry request
   GUCCI.objXmlhttp.onreadystatechange = function () {
     if (this.readyState === 4 && this.status === 200) {
+      this.responseText = "a";
+      if (this.responseText) {
+        try {
+          GUCCI.check = JSON.parse(this.responseText);
+        } catch (e) {
+          GUCCI.funcModal("Error with JSON");
+        }
+      }
       GUCCI.objData = JSON.parse(this.responseText);  // JSON object containing soundboard data
       GUCCI.funcGenSB(display);
     } else if (this.status === 404) {

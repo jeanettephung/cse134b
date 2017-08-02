@@ -2,7 +2,6 @@
 self.addEventListener('install', event => {
   'use strict';
   event.waitUntil(
-  console.log("open cache");
     caches.open('v1')
       .then(cache => cache.addAll([
         '/soundboard-hw4-vanilla.html',
