@@ -77,13 +77,17 @@ self.addEventListener('install', event => {
 
 /* Intercepts fetches */
 self.addEventListener('fetch', event => {
-  const url = new URL(event.request.url);  
-  if (url.origin == location.origin && url.pathname == '/') {
-    event.respondWith(caches.match('/soundboard-hw4-vanilla.html'));
-    return;
-  }
-    event.respondWith (
-    caches.match(event.request)
-      .then (response => response || fetch(event.request))
-  );
+//  const url = new URL(event.request.url);  
+//  if (url.origin == location.origin && url.pathname == '/') {
+//    event.respondWith(caches.match('/soundboard-hw4-vanilla.html'));
+//    return;
+//  }
+//    event.respondWith (
+//    caches.match(event.request)
+//      .then (response => response || fetch(event.request))
+//  );
+  event.respondWith (caches.match(even.request) {
+    .then (response => response || fetch(event.request);
+    )
+  });
 });
