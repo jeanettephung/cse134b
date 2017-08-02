@@ -300,9 +300,6 @@ body.dark {
   background-repeat: repeat-x;
   border-color: #323233;
 }
-.dark .dropdown .btn:hover {
-  background-color: #545658;
-}
 .dark .blue:hover, .dark .btn:hover {
   color: #fff;
   border-color: #323233;
@@ -314,9 +311,6 @@ body.dark {
 }
 .dark selector {
   background-color:white;
-}
-.dark #toggle:hover {
-  background-color: rgb(59, 71, 84);
 }
 
 /* Compact */
