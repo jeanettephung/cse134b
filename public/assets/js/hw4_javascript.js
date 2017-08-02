@@ -9,30 +9,26 @@ window.onload = function () {
   GUCCI.numAudioRdy = 0;  // tracks number of audios ready
   GUCCI.objInform = document.getElementById('inform');  // modal that displays status
   GUCCI.boolIsIE = /*@cc_on!@*/false || !!document.documentMode;  // tracks if browser is IE
+ 
   GUCCI.funcRegWorker();
+  GUCCI.funcIE();
   GUCCI.updateOnlineStatus();
   GUCCI.funcSetup();
-  GUCCI.funcRequestJSON('./assets/json/got.json', true);
-  GUCCI.funcRequestJSON('./assets/json/ram.json', false);
   GUCCI.funcWait();
-  GUCCI.funcIE();
-  GUCCI.funcOnline();
-  GUCCI.funcConnection();
 };
 
 /** Registers Service Worker */
 GUCCI.funcRegWorker = function () {
   'use strict';
+//  if (navigator.serviceWorker) {
+//    navigator.serviceWorker.register('/serviceworker.js');
+//  }
   if (navigator.serviceWorker) {
-    navigator.serviceWorker.register('/serviceworker.js');
-  }
-};
-
-/** Checks connection to warn users if affects */
-GUCCI.funcConnection = function () {
-  'use strict';
-  if (!!GUCCI.connection) {
-    GUCCI.strConType = GUCCI.connection.type;
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('/serviceworker.js').then(function (err) {
+        GUCCI.funcModal('ServiceWorker registration failed');
+      });
+    });
   }
 };
 
@@ -42,13 +38,6 @@ GUCCI.updateOnlineStatus = function (event) {
   GUCCI.strCondition = navigator.onLine ? 'online glyphicon-signal' : 'offline glyphicon-exclamation-sign';
   document.querySelector('#connection > span').className = 'glyphicon ' + GUCCI.strCondition;
   document.querySelector('#connection > span').textContent = navigator.onLine ? 'Online' : 'Offline';
-};
-
-/** Add event listeners to listen for internet connection */
-GUCCI.funcOnline = function () {
-  'use strict';
-  window.addEventListener('online',  GUCCI.updateOnlineStatus);
-  window.addEventListener('offline', GUCCI.updateOnlineStatus);
 };
 
 /** Checks if browser is IE and informs user that soundboard is unsupported */
@@ -69,7 +58,7 @@ GUCCI.funcModal = function (message) {
   GUCCI.objInform.getElementsByTagName('h4')[0].textContent = message;
 };
 
-/** Set up toggle and dropdowns */
+/** Set up events for non-soundboard elements and requests data to generate soundboard */
 GUCCI.funcSetup = function () {
   'use strict';
   // Toggle for compact/full view
@@ -94,6 +83,16 @@ GUCCI.funcSetup = function () {
       document.getElementById('title').textContent = 'Rick and Morty';
     }
   });
+  // Close for modal
+  GUCCI.objInform.getElementsByTagName('span')[0].addEventListener('click', function () {
+    GUCCI.objInform.classList.add('hide');
+  });
+  // Listen for internet connection
+  window.addEventListener('online',  GUCCI.updateOnlineStatus);
+  window.addEventListener('offline', GUCCI.updateOnlineStatus);
+  // Request JSON which uses data to generate soundboard
+  GUCCI.funcRequestJSON('./assets/json/got.json', true);
+  GUCCI.funcRequestJSON('./assets/json/ram.json', false);
 };
 
 /** Send request to get soundboard data then generates soundboard 
@@ -191,9 +190,6 @@ GUCCI.funcAddClick = function () {
 /** Adds click event to close modal */
 GUCCI.funcWait = function () {
   'use strict';
-  GUCCI.objInform.getElementsByTagName('span')[0].addEventListener('click', function () {
-    GUCCI.objInform.classList.add('hide');
-  });
   setTimeout(GUCCI.funcSlowInternet, 3000);
 };
 
