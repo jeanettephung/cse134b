@@ -1,0 +1,41 @@
+{
+  "properties": {
+    "soundboard": {
+      "id": "/properties/soundboard",
+      "properties": {
+        "name": {
+          "id": "/properties/soundboard/properties/name",
+          "type": "string"
+        },
+        "sounds": {
+          "id": "/properties/soundboard/properties/sounds",
+          "items": {
+            "id": "/properties/soundboard/properties/sounds/items",
+            "properties": {
+              "alt": {
+                "id": "/properties/soundboard/properties/sounds/items/properties/alt",
+                "type": "string"
+              },
+              "classes": {
+                "id": "/properties/soundboard/properties/sounds/items/properties/classes",
+                "type": "string"
+              },
+              "image": {
+                "id": "/properties/soundboard/properties/sounds/items/properties/image",
+                "type": "string"
+              },
+              "sound": {
+                "id": "/properties/soundboard/properties/sounds/items/properties/sound",
+                "type": "string"
+              }
+            },
+              "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "type": "object"
+}

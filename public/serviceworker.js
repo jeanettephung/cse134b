@@ -64,11 +64,6 @@ self.addEventListener('install', event => {
         '/assets/img/touch/homescreen144.png',
         '/assets/img/touch/homescreen192.png',
         '/assets/img/touch/homescreen512.png',
-        '/assets/bootstrap/fonts/glyphicons-halfings-regular.eot',
-        '/assets/bootstrap/fonts/glyphicons-halfings-regular.svg',
-        '/assets/bootstrap/fonts/glyphicons-halfings-regular.ttf',
-        '/assets/bootstrap/fonts/glyphicons-halfings-regular.woff',
-        '/assets/bootstrap/fonts/glyphicons-halfings-regular.woff2',
         '/favicon.ico'
       ]))
   );
@@ -76,11 +71,6 @@ self.addEventListener('install', event => {
 
 /* Intercepts fetches */
 self.addEventListener('fetch', event => {
-//  const url = new URL(event.request.url);  
-//  if (url.origin == location.origin && url.pathname == '/') {
-//    event.respondWith(caches.match('/soundboard-hw4-vanilla.html'));
-//    return;
-//  }
     event.respondWith (
     caches.match(event.request)
       .then (response => response || fetch(event.request))
