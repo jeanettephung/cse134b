@@ -86,8 +86,6 @@ GUCCI.funcSetup = function () {
   // Request JSON which uses data to generate soundboard
   GUCCI.funcRequestJSON('./assets/json/got.json', true);
   GUCCI.funcRequestJSON('./assets/json/ram.json', false);
-    GUCCI.funcRequestJSON('./assets/json/ot.json', false);
-
 };
 
 /** Send request to get soundboard data then generates soundboard 
@@ -101,14 +99,12 @@ GUCCI.funcRequestJSON = function (url, display) {
     if (this.readyState === 4 && this.status === 200) {
       if (this.responseText) {
         try {
-          console.log(this.responseText)
-          GUCCI.check = JSON.parse(this.responseText);
-        } catch(e) {
+          GUCCI.objData = JSON.parse(this.responseText);  // JSON object containing soundboard data
+          GUCCI.funcGenSB(display);
+        } catch (e) {
           GUCCI.funcModal(e);
         }
       }
-      GUCCI.objData = JSON.parse(this.responseText);  // JSON object containing soundboard data
-      GUCCI.funcGenSB(display);
     } else if (this.status === 404) {
       GUCCI.funcModal('Soundboard not found.');
     } else if (this.status === 500) {
@@ -139,26 +135,32 @@ GUCCI.funcGenSB = function (display) {
     GUCCI.objClasses.remove('got');
     GUCCI.objClasses.add('ram', 'hide');
   }
-  for (GUCCI.i = 0; GUCCI.i < GUCCI.objData.soundboard.sounds.length; GUCCI.i += 1) {
-    GUCCI.objTemplate.content.querySelector('img').src = GUCCI.objData.soundboard.sounds[GUCCI.i].image;
-    GUCCI.objTemplate.content.querySelector('img').alt = GUCCI.objData.soundboard.sounds[GUCCI.i].alt;
-    GUCCI.objTemplate.content.querySelector('h3').textContent = GUCCI.objData.soundboard.sounds[GUCCI.i].alt;
-    GUCCI.objTemplate.content.querySelector('source').src = GUCCI.objData.soundboard.sounds[GUCCI.i].sound;
-    GUCCI.objClone = document.importNode(GUCCI.objTemplate.content, true); // sound object created from template
-    GUCCI.objListRows[GUCCI.numCurRow].appendChild(GUCCI.objClone);
-    GUCCI.numPerRow += 1;
-    if (GUCCI.numPerRow === 4) {
-      GUCCI.numPerRow = 0;
-      GUCCI.numCurRow += 1;
+  try {
+    if (typeof (GUCCI.objData.soundboard.sounds[0].sound) === 'string') {
+      for (GUCCI.i = 0; GUCCI.i < GUCCI.objData.soundboard.sounds.length; GUCCI.i += 1) {
+        GUCCI.objTemplate.content.querySelector('img').src = GUCCI.objData.soundboard.sounds[GUCCI.i].image;
+        GUCCI.objTemplate.content.querySelector('img').alt = GUCCI.objData.soundboard.sounds[GUCCI.i].alt;
+        GUCCI.objTemplate.content.querySelector('h3').textContent = GUCCI.objData.soundboard.sounds[GUCCI.i].alt;
+        GUCCI.objTemplate.content.querySelector('source').src = GUCCI.objData.soundboard.sounds[GUCCI.i].sound;
+        GUCCI.objClone = document.importNode(GUCCI.objTemplate.content, true); // sound object created from template
+        GUCCI.objListRows[GUCCI.numCurRow].appendChild(GUCCI.objClone);
+        GUCCI.numPerRow += 1;
+        if (GUCCI.numPerRow === 4) {
+          GUCCI.numPerRow = 0;
+          GUCCI.numCurRow += 1;
+        }
+        if (display) {
+          GUCCI.objSoundList = document.querySelectorAll('.got .soundToggle');  // GOT soundboard object
+        } else {
+          GUCCI.objSoundList = document.querySelectorAll('.ram .soundToggle');   // RAM soundboard object
+        }
+        GUCCI.objAudio = GUCCI.objSoundList[GUCCI.i].parentNode.getElementsByTagName('audio')[0];
+        GUCCI.funcLoadAud();
+        GUCCI.funcAddClick();
+      }
     }
-    if (display) {
-      GUCCI.objSoundList = document.querySelectorAll('.got .soundToggle');  // GOT soundboard object
-    } else {
-      GUCCI.objSoundList = document.querySelectorAll('.ram .soundToggle');   // RAM soundboard object
-    }
-    GUCCI.objAudio = GUCCI.objSoundList[GUCCI.i].parentNode.getElementsByTagName('audio')[0];
-    GUCCI.funcLoadAud();
-    GUCCI.funcAddClick();
+  } catch (e) {
+    GUCCI.funcModal('Invalid JSON! Does not contain soundboard');
   }
 };
 
