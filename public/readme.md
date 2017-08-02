@@ -35,7 +35,7 @@ On average, VanillaJS runs much faster than jQuery. The jQuery code written is m
 
   
 
-/** TRACKERJS RESULTS (Screenshots on ./trackjs_hw3.html)
+/** TRACKERJS RESULTS (Screenshots on ./trackjs_hw3.html) **/
 In order to install the trackJS tracker library, after creating an account we were given a snippet of javascript code unique to the account, and simply pasted it into the head of the html file, making sure it is the first javascript instruction in the file. One thing we realized we had to do was make sure to turn off the adblocker because it was blocking the service. Other than that, every error generated sends the message to the trackJS account with the information of the specific error, the browser used, time/date, operating system, and IP address. 
 
 Some of the errors we first witnessed dealt with getting familiar with JavaScript and jQuery. Lack of knowledge of the DOM tree resulted in accesses node or elements off of tree (ex. Cannot read property of ... undefined).

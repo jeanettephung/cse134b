@@ -110,10 +110,10 @@ GUCCI.funcRequestJSON = function (url, display) {
     } else if (this.status === 404) {
       GUCCI.funcModal('Soundboard not found.');
     } else if (this.status === 500) {
-      GUCCI.funcModal('Unable to get soundboard due to server problems.');
+      GUCCI.funcModal('Unable to retrieve soundboard due to server problems.');
     }
     GUCCI.objXmlhttp.ontimeout = function () {
-      GUCCI.funcModal('Retrying request...');
+      GUCCI.funcModal('Timout error. Retrying request...');
       GUCCI.funcRequestJSON(url, display);
     };
   };
