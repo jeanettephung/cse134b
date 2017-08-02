@@ -20,15 +20,8 @@ window.onload = function () {
 /** Registers Service Worker */
 GUCCI.funcRegWorker = function () {
   'use strict';
-//  if (navigator.serviceWorker) {
-//    navigator.serviceWorker.register('/serviceworker.js');
-//  }
   if (navigator.serviceWorker) {
-    window.addEventListener('load', function () {
-      navigator.serviceWorker.register('/serviceworker.js').then(function (err) {
-        GUCCI.funcModal('ServiceWorker registration failed');
-      });
-    });
+    navigator.serviceWorker.register('/serviceworker.js');
   }
 };
 
