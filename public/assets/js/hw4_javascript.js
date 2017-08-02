@@ -198,27 +198,3 @@ GUCCI.funcWait = function () {
   'use strict';
   setTimeout(GUCCI.funcSlowInternet, 3000);
 };
-
-/** After 3 seconds, inform users of slow connection */
-//GUCCI.funcSlowInternet = function () {
-//  "use strict";
-//  if (GUCCI.numAudioRdy >= 24) {
-//    GUCCI.objInform.classList.add('hide');
-//  } else if (navigator.onLine && GUCCI.numAudioRdy < 24  && !GUCCI.boolIsIE) {
-//    GUCCI.funcModal('Slow internet, please hold as we load audio.');
-//    setTimeout(GUCCI.funcLowPerformance, 15000);
-//  }
-//};
-//  
-///** After +15 seconds, inform users of poor performance */
-//GUCCI.funcLowPerformance = function () {
-//  "use strict";
-//  if (GUCCI.numAudioRdy >= 24) {
-//    GUCCI.objInform.classList.add('hide');
-//  } else if (window.navigator.onLine && GUCCI.numAudioRdy < 24 && !GUCCI.boolIsIE) {
-//    GUCCI.funcModal('Slow internet. You may witness some low performance while accessing site.');
-//    if (navigator.onLine && GUCCI.numAudioRdy >= 24 && !GUCCI.boolIsIE) {
-//      GUCCI.objReload.classList.remove('hide');
-//    }
-//  }
-//};
