@@ -52,6 +52,7 @@ h3 {
 }
 label {
   font-size: 2.2em;
+  margin-right: 3px;
 }
 .login, .themeOpt {
   float: right !important;
@@ -132,9 +133,11 @@ noscript h1 {
   text-align: right;
 }
 .dropdown * {
-  margin: 0 5px;
-  height: 35px;
   vertical-align: bottom;
+}
+.dropdown > div {
+  margin: 5px 5px 0;
+  display: inline-block;
 }
 select {
   background-color: white;
@@ -336,8 +339,13 @@ body.dark {
   color: #13aa13;
 }
 #connection span {
-  font-size: 2em;
-  line-height: 38px;
+  background-color: white;
+  border: 1px solid rgb(166, 166, 166);
+  border-radius: 5px;
+  font-size: 2em;  
+  line-height: 30px;
+  margin-top: 10px;
+  padding: 0 10px;
 }
 #connection .offline {
   color: #d00303;
